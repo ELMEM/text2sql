@@ -1,0 +1,6 @@
+{
+  "ApplicantStandardResume": ["resume", "works", "educations"],
+  "Job": ["job"],
+  "Flow": ["flow"],
+  "Tenant": ["tenant"]
+}

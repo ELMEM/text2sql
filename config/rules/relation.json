@@ -1,0 +1,301 @@
+[
+  {
+    "rule": [
+      {"type": "(aggregation_|count_)?column_desc", "value_reg": "(salary|age|WorkYear|degree|headcount|date)"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$2"},
+      {"type": "condition_op_desc", "values": ["and"]},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$2"}
+    ],
+    "relations": [
+      {"type": "where_op", "head": 2, "tail": 1},
+      {"type": "where_op", "head": 5, "tail": 4},
+      {"type": "cond_and", "head": 5, "tail": 2}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "(aggregation_|count_)?column_desc", "value_reg": "(Locations|degree)"},
+      {"type": "comparison_op_desc"},
+      {"type": "keyword", "values": ["(", "（"]},
+      {"type": "value", "value_reg": "$3"},
+      {"type": "value", "value_reg": "$1"},
+      {"type": "value", "value_reg": "$1"},
+      {"type": "keyword", "values": [")", "）"]}
+    ],
+    "relations": [
+      {"type": "where_op", "head": 3, "tail": 1, "priority": 2},
+      {"type": "where_op", "head": 4, "tail": 1, "priority": 2},
+      {"type": "where_op", "head": 5, "tail": 1, "priority": 2},
+      {"type": "cond_or", "head": 3, "tail": 4, "priority": 3},
+      {"type": "cond_or", "head": 3, "tail": 5, "priority": 3}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "(aggregation_|count_)?column_desc", "value_reg": "(Locations)"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$2"},
+      {"type": "condition_op_desc"},
+      {"type": "value", "value_reg": "$2"}
+    ],
+    "relations": [
+      {"type": "where_op", "head": 2, "tail": 1, "priority": 2},
+      {"type": "where_op", "head": 4, "tail": 1, "priority": 2},
+      {"type": "cond_or", "head": 2, "tail": 4, "priority": 3}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "(aggregation_|count_)?column_desc", "value_reg": "(salary|age|WorkYear|degree|headcount|date)"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$2"},
+      {"type": "condition_op_desc", "values": ["or"]},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$2"}
+    ],
+    "relations": [
+      {"type": "where_op", "head": 2, "tail": 1},
+      {"type": "where_op", "head": 5, "tail": 4},
+      {"type": "cond_or", "head": 5, "tail": 2}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "comparison_op_desc"},
+      {"type": "value"},
+      {"type": "condition_op_desc", "values": ["or"]},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$3"}
+    ],
+    "relations": [
+      {"type": "where_op", "head": 2, "tail": 1},
+      {"type": "where_op", "head": 5, "tail": 4},
+      {"type": "cond_or", "head": 5, "tail": 2}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "(aggregation_|count_)?column_desc", "value_reg": "(salary|age|WorkYear|degree|headcount|date)"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$2"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$2"}
+    ],
+    "relations": [
+      {"type": "where_op", "head": 2, "tail": 1},
+      {"type": "where_op", "head": 4, "tail": 3}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "(aggregation_|count_)?column_desc", "value_reg": "(salary|age|WorkYear|degree|headcount|date)"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$2"}
+    ],
+    "relations": [
+      {"type": "where_op", "head": 2, "tail": 1}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "value", "value_reg": "#2(min|max|avg|sum|count|UniqueCount)?"},
+      {"type": "comparison_op_desc"},
+      {"type": "(aggregation_|count_)?column_desc", "value_reg": "(salary|age|WorkYear|degree|headcount|date)"}
+    ],
+    "relations": [
+      {"type": "where_op", "head": 0, "tail": 1}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "value", "value_reg": "(salary|age|WorkYear|degree|headcount|date)"},
+      {"type": "comparison_op_desc"},
+      {"type": "(aggregation_|count_)?column_desc", "value_reg": "$2(min|max|avg|sum|count|UniqueCount)?"}
+    ],
+    "relations": [
+      {"type": "where_op", "head": 0, "tail": 1}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "#1"},
+      {"type": "(aggregation_|count_)?column_desc", "value_reg": "(salary|age|WorkYear|degree|headcount|date)"}
+    ],
+    "relations": [
+      {"type": "where_op", "head": 1, "tail": 0}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "count_column_desc", "value_reg": "count"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$2"}
+    ],
+    "relations": [
+      {"type": "where_op", "head": 2, "tail": 1}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "value", "value_reg": "#2"},
+      {"type": "comparison_op_desc"},
+      {"type": "count_column_desc", "value_reg": "count"}
+    ],
+    "relations": [
+      {"type": "where_op", "head": 0, "tail": 1}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "comparison_op_desc", "values": [">", "<", ">=", "<="]},
+      {"type": "value", "value_reg": "(location|address|city|province|country)"},
+      {"type": "column_desc",  "value_reg": "salary"},
+      {"type": "value",  "value_reg": "salary"}
+    ],
+    "relations": [
+      {"type": "where_op", "head": 3, "tail": 0}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "value"},
+      {"type": "condition_op_desc", "values": ["and"]},
+      {"type": "value"},
+      {"type": "condition_op_desc", "values": ["or"]},
+      {"type": "value"},
+      {"type": "condition_op_desc", "values": ["and"]},
+      {"type": "value"}
+    ],
+    "relations": [
+      {"type": "cond_and", "head": 0, "tail": 2, "priority": 3},
+      {"type": "cond_and", "head": 4, "tail": 6, "priority": 3},
+      {"type":  "cond_or", "head": 2, "tail": 6, "priority": 2}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "value"},
+      {"type": "condition_op_desc", "values": ["and"]},
+      {"type": "(aggregation_|count_)?column_desc"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$2"}
+    ],
+    "relations": [
+      {"type": "cond_and", "head": 0, "tail": 3, "priority": 3},
+      {"type": "where_op", "head": 4, "tail": 3}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "value"},
+      {"type": "condition_op_desc", "values": ["or"]},
+      {"type": "(aggregation_|count_)?column_desc"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$2"}
+    ],
+    "relations": [
+      {"type": "cond_or", "head": 0, "tail": 4, "priority": 2},
+      {"type": "where_op", "head": 4, "tail": 3}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "value"},
+      {"type": "condition_op_desc", "values": ["and"]},
+      {"type": "comparison_op_desc"},
+      {"type": "value"}
+    ],
+    "relations": [
+      {"type": "cond_and", "head": 0, "tail": 3, "priority": 3}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "value"},
+      {"type": "condition_op_desc", "values": ["or"]},
+      {"type": "comparison_op_desc"},
+      {"type": "value"}
+    ],
+    "relations": [
+      {"type": "cond_or", "head": 0, "tail": 3, "priority": 2}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "value"},
+      {"type": "condition_op_desc", "values": ["and"]},
+      {"type": "value"}
+    ],
+    "relations": [
+      {"type": "cond_and", "head": 0, "tail": 2, "priority": 3}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "value"},
+      {"type": "condition_op_desc", "values": ["or"]},
+      {"type": "value"}
+    ],
+    "relations": [
+      {"type": "cond_or", "head": 0, "tail": 2, "priority": 2}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "comparison_op_desc"},
+      {"type": "value"}
+    ],
+    "relations": [
+      {"type": "where_op", "head": 1, "tail": 0}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "column_desc","value_reg": "WorkYear"},
+      {"type": "value", "reg": "(\\d(\\.\\d)?年?|[1-5]\\d+年?|[一二三四五]十[一二三四五六七八九]?年?)"},
+      {"type": "comparison_op_desc"}
+    ],
+    "relations": [
+      {"type": "where_op", "head": 1, "tail": 2}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "(aggregation_)?column_desc"},
+      {"type": "keyword", "value": "OrderByAsc"}
+    ],
+    "relations": [
+      {"type": "order_by_Asc", "head": 1, "tail": 0}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "keyword", "value": "OrderByAsc"},
+      {"type": "(aggregation_)?column_desc"}
+    ],
+    "relations": [
+      {"type": "order_by_Asc", "head": 0, "tail": 1}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "(aggregation_)?column_desc"},
+      {"type": "keyword", "value": "OrderByDesc"}
+    ],
+    "relations": [
+      {"type": "order_by_Desc", "head": 1, "tail": 0}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "keyword", "value": "OrderByDesc"},
+      {"type": "(aggregation_)?column_desc"}
+    ],
+    "relations": [
+      {"type": "order_by_Desc", "head": 0, "tail": 1}
+    ]
+  }
+]

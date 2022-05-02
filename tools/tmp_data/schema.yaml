@@ -1,0 +1,2620 @@
+openapi: 3.0.1
+info:
+  title: Mesoor Central Storage Defination
+  description: |
+    Mesoor中央存储字段<br>
+    共识:<br>
+    Resume stage3 起，后续stage在前一stage上追加字段。如果你使用Resume stage5，默认包含stage3 stage4的所有字段，并且已经经过处理<br>
+    知识图谱链接公司/学校不体现在stage3，由下游业务规则自行分析(xxxLinked 字段)<br>
+    paths 里面的接口不是真实接口，只是表示类型定义<br>
+    ApplicantStandardResume 基本与Resume一致，包含部分Resume中没有的字段。在实际处理中可以直接按照Resume处理ApplicantStandardResume
+  version: 1.0.0.alpha9
+servers:
+  - url: https://transmitter.nadileaf.com/v1/{tenantId}
+    variables:
+      tenantId:
+        default: 'boe-test'
+        description: tenant id
+    description: 中央存储
+paths:
+  /Job/{openId}/stage/I0:
+    get:
+      tags:
+        - Job
+      summary: 职位Stage0
+      description: json string
+      parameters:
+        - name: openId
+          in: path
+          description: Job Open ID
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JobStage0"
+  /Job/{openId}/stage/I1:
+    get:
+      tags:
+        - Job
+      summary: 职位Stage1
+      description: json string
+      parameters:
+        - name: openId
+          in: path
+          description: Job Open ID
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JobStage1"
+  /Job/{openId}/stage/I2:
+    get:
+      tags:
+        - Job
+      summary: 职位Stage2
+      description: json string
+      parameters:
+        - name: openId
+          in: path
+          description: Job Open ID
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JobStage2"
+  /Job/{openId}/stage/I3:
+    get:
+      tags:
+        - Job
+      summary: 职位Stage3
+      description: 职位Stage3
+      parameters:
+        - name: openId
+          in: path
+          description: Job Open ID
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JobStage3"
+  /Job/{openId}/stage/I4:
+    get:
+      tags:
+        - Job
+      summary: 职位Stage4
+      description: 职位Stage4
+      parameters:
+        - name: openId
+          in: path
+          description: Job Open ID
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JobStage4"
+  /Resume/{openId}/stage/I0:
+    get:
+      tags:
+        - Resume
+      summary: 简历Stage0
+      description: json string
+      parameters:
+        - name: openId
+          in: path
+          description: Job Open ID
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResumeStage0"
+  /Resume/{openId}/stage/I1:
+    get:
+      tags:
+        - Resume
+      summary: 简历Stage1
+      description: json string
+      parameters:
+        - name: openId
+          in: path
+          description: Job Open ID
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResumeStage1"
+  /Resume/{openId}/stage/I2:
+    get:
+      tags:
+        - Resume
+      summary: 简历Stage2
+      description: json string
+      parameters:
+        - name: openId
+          in: path
+          description: Job Open ID
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResumeStage2"
+  /Resume/{openId}/stage/I3:
+    get:
+      tags:
+        - Resume
+      summary: 简历Stage3
+      description: 包含结构化字段、包括学历、婚姻状况、性别等字段enum；年龄、身高、薪资范围等字段的转Int与IntRange；地点的tire解析、附加层级关系。所有分析结果字段以`Normalized`结尾。
+      parameters:
+        - name: openId
+          in: path
+          description: Job Open ID
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResumeStage3"
+  /Resume/{openId}/stage/I4:
+    get:
+      tags:
+        - Resume
+      summary: 简历Stage4，包含知识图谱链接结果
+      description: 附加公司、学校、专业、行业、职位的知识图谱链接结果，所有链接结果字段以`Linked`结尾，保证`*Normalized` `*Linked`字段有效。
+      parameters:
+        - name: openId
+          in: path
+          description: Job Open ID
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: successfule operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResumeStage4"
+  /Resume/{openId}/stage/I5:
+    get:
+      tags:
+        - Resume
+      summary: 简历Stage5，包含简历业务分析结果
+      description: 附加教育经历是否统招；是否第一/最高学历等业务分析，所有分析结果字段以`Analyzed`结尾，保证`*Normalized` `*Linked` `*Analyzed`字段有效。
+      parameters:
+        - name: openId
+          in: path
+          description: Job Open ID
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: successfule operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResumeStage5"
+  /ApplicantStandardResume/{openId}/stage/I0:
+    get:
+      tags:
+        - ApplicantStandardResume
+      summary: 简历Stage0
+      description: json string
+      parameters:
+        - name: openId
+          in: path
+          description: Job Open ID
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResumeStage0"
+  /ApplicantStandardResume/{openId}/stage/I1:
+    get:
+      tags:
+        - ApplicantStandardResume
+      summary: 简历Stage1
+      description: json string
+      parameters:
+        - name: openId
+          in: path
+          description: Job Open ID
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResumeStage1"
+  /ApplicantStandardResume/{openId}/stage/I2:
+    get:
+      tags:
+        - ApplicantStandardResume
+      summary: 简历Stage2
+      description: json string
+      parameters:
+        - name: openId
+          in: path
+          description: Job Open ID
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResumeStage2"
+  /ApplicantStandardResume/{openId}/stage/I3:
+    get:
+      tags:
+        - ApplicantStandardResume
+      summary: 简历Stage3
+      description: 包含结构化字段、包括学历、婚姻状况、性别等字段enum；年龄、身高、薪资范围等字段的转Int与IntRange；地点的tire解析、附加层级关系。所有分析结果字段以`Normalized`结尾。
+      parameters:
+        - name: openId
+          in: path
+          description: Job Open ID
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResumeStage3"
+  /ApplicantStandardResume/{openId}/stage/I4:
+    get:
+      tags:
+        - ApplicantStandardResume
+      summary: 简历Stage4，包含知识图谱链接结果
+      description: 附加公司、学校、专业、行业、职位的知识图谱链接结果，所有链接结果字段以`Linked`结尾，保证`*Normalized` `*Linked`字段有效。
+      parameters:
+        - name: openId
+          in: path
+          description: Job Open ID
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: successfule operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResumeStage4"
+  /ApplicantStandardResume/{openId}/stage/I5:
+    get:
+      tags:
+        - ApplicantStandardResume
+      summary: 简历Stage5，包含简历业务分析结果
+      description: 附加教育经历是否统招；是否第一/最高学历等业务分析，所有分析结果字段以`Analyzed`结尾，保证`*Normalized` `*Linked` `*Analyzed`字段有效。
+      parameters:
+        - name: openId
+          in: path
+          description: Job Open ID
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: successfule operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResumeStage5"
+components:
+  schemas:
+    JobStage0:
+      type: object
+      properties:
+        meta:
+          description: 职位META信息
+          allOf:
+            - $ref: "#/components/schemas/JobMeta"
+
+    JobStage1:
+      type: object
+      properties:
+        meta:
+          description: 职位META信息
+          allOf:
+            - $ref: "#/components/schemas/JobMeta"
+
+    JobStage2:
+      type: object
+      properties:
+        jobName:
+          description: 职位名称
+          type: string
+        recruitingCompanyName:
+          description: 需求公司名称
+          type: string
+        recruitingDepartmentName:
+          description: 需求部门名称
+          type: string
+        locations:
+          description: 职位工作地点
+          type: string
+        jobQualificationDescription:
+          description: 任职资格描述
+          type: string
+        jobResponsibilityDescription:
+          description: 工作职责描述
+          type: string
+        workTimeTypeName:
+          description: 职位招聘性质
+          type: string
+        jobKeywords:
+          description: 职位关键词列表
+          type: array
+          items:
+            type: string
+        categoryNames:
+          description: 职位类别名称
+          type: string
+        publishedDate:
+          description: 职位发布时间
+          type: string
+        validFromDate:
+          description: 有效期间开始日期
+          type: string
+        validToDate:
+          description: 有效期间结束日期
+          type: string
+        salaryMonths:
+          description: 发薪月数
+          type: integer
+        salary:
+          description: 月薪
+          type: string
+        salaryLow:
+          description: 月薪下限
+          type: integer
+        salaryHigh:
+          description: 月薪上限
+          type: integer
+        genderRequirement:
+          description: 性别要求
+          type: string
+        ageRequirement:
+          description: 年龄要求
+          type: string
+        industryRequirements:
+          description: 行业要求列表
+          type: array
+          items:
+            type: string
+        workExperienceRequirement:
+          description: 工作经历要求
+          type: string
+        workYearsRequirement:
+          description: 工作年限要求
+          type: string
+        schoolTagRequirements:
+          description: 学校标签要求列表
+          type: array
+          items:
+            type: string
+        majorRequirements:
+          description: 专业要求列表
+          type: array
+          items:
+            type: string
+        degreeRequirement:
+          description: 学历要求
+          type: string
+        languageRequirements:
+          description: 语言能力要求列表
+          type: array
+          items:
+            type: string
+        skillRequirements:
+          description: 能力要求列表
+          type: array
+          items:
+            type: string
+        headCount:
+          description: 招聘人数
+          type: string
+        headCountHigh:
+          description: 招聘人数上限
+          type: integer
+        headCountLow:
+          description: 招聘人数下限
+          type: integer
+        authorAccount:
+          description: 发布人账号
+          type: string
+        authorName:
+          description: 发布人名称
+          type: string
+        authorEmail:
+          description: 发布人邮箱地址
+          type: string
+        status:
+          description: 职位状态
+          type: string
+        meta:
+          description: 职位META信息
+          allOf:
+            - $ref: "#/components/schemas/JobMeta"
+
+    JobStage3:
+      type: object
+      properties:
+        jobName:
+          description: 职位名称
+          type: string
+        recruitingCompanyName:
+          description: 招聘公司名称
+          type: string
+        recruitingDepartmentName:
+          description: 招聘部门名称
+          type: string
+        locations:
+          type: array
+          items:
+            type: string
+          description: 职位工作地点
+        locationsNormalized:
+          type: array
+          items:
+            $ref: "#/components/schemas/Location"
+          description: 职位工作地点(多个、与locations一一对应，个数相等)
+        jobQualificationDescription:
+          type: string
+          description: 任职资格描述
+        jobResponsibilityDescription:
+          type: string
+          description: 工作职责描述
+        workTimeTypeName:
+          type: string
+          description: 职位招聘性质
+        workTimeTypeNameNormalized:
+          type: string
+          description: 职位招聘性质(enum)
+          enum:
+            - 全职
+            - 兼职
+        jobKeywords:
+          type: array
+          items:
+            type: string
+          description: 职位关键词列表(职位发布者自己写的)
+        publishedDateNormalized:
+          description: 职位发布日期
+          allOf:
+            - $ref: "#/components/schemas/Date"
+        validDateRangeNormalized:
+          description: 职位有效日期区间
+          allOf:
+            - $ref: "#/components/schemas/DateRange"
+        salaryMonths:
+          type: integer
+          description: 每年发薪月数
+        salaryRangeNormalized:
+          allOf:
+            - $ref: "#/components/schemas/IntRange"
+          description: 职位薪资范围
+        genderRequirementNormalized:
+          type: string
+          description: 性别要求(enum)
+          enum:
+            - 男
+            - 女
+        ageRequirementNormalized:
+          description: 年龄要求
+          allOf:
+            - $ref: "#/components/schemas/IntRange"
+        workYearsRequirementNormalized:
+          description: 工作年限要求
+          allOf:
+            - $ref: "#/components/schemas/IntRange"
+        industryRequirements:
+          description: 行业要求列表
+          type: array
+          items:
+            type: string
+        schoolTagRequirements:
+          description: 学校标签要求列表
+          type: array
+          items:
+            type: string
+        majorRequirements:
+          description: 专业要求列表
+          type: array
+          items:
+            type: string
+        degreeRequirement:
+          description: 学历要求
+          type: string
+        degreeRequirementNormalized:
+          description: 学历要求(结构化)
+          allOf:
+            - $ref: "#/components/schemas/DegreeRange"
+        languageRequirements:
+          description: 专业语言能力要求列表
+          type: array
+          items:
+            type: string
+        skillRequirements:
+          description: 能力要求列表
+          type: array
+          items:
+            type: string
+        categoryNames:
+          description: 职位类别名称
+          type: array
+          items:
+            type: string
+        headCountRangeNormalized:
+          description: 招聘人数
+          allOf:
+            - $ref: "#/components/schemas/IntRange"
+        ownerAccount:
+          description: 责任人账号
+          type: string
+        ownerName:
+          description: 责任人名称
+          type: string
+        ownerEmail:
+          description: 责任人邮箱地址
+          type: string
+        authorAccount:
+          description: 发布人账号
+          type: string
+        authorName:
+          description: 发布人名称
+          type: string
+        authorEmail:
+          description: 发布人邮箱地址
+          type: string
+        status:
+          description: 职位状态
+          type: string
+        meta:
+          description: 职位META信息
+          allOf:
+            - $ref: "#/components/schemas/JobMetaStage3"
+
+    JobStage4:
+      type: object
+      properties:
+        jobName:
+          description: 职位名称
+          type: string
+        recruitingCompanyName:
+          description: 招聘公司名称
+          type: string
+        recruitingDepartmentName:
+          description: 招聘部门名称
+          type: string
+        locations:
+          type: array
+          items:
+            type: string
+          description: 职位工作地点
+        locationsNormalized:
+          type: array
+          items:
+            $ref: "#/components/schemas/Location"
+          description: 职位工作地点(多个、与locations一一对应，个数相等)
+        jobQualificationDescription:
+          type: string
+          description: 任职资格描述
+        jobResponsibilityDescription:
+          type: string
+          description: 工作职责描述
+        workTimeTypeName:
+          type: string
+          description: 职位招聘性质
+        workTimeTypeNameNormalized:
+          type: string
+          description: 职位招聘性质(enum)
+          enum:
+            - 全职
+            - 兼职
+        jobKeywords:
+          type: array
+          items:
+            type: string
+          description: 职位关键词列表(职位发布者自己写的)
+        publishedDateNormalized:
+          description: 职位发布日期
+          allOf:
+            - $ref: "#/components/schemas/Date"
+        validDateRangeNormalized:
+          description: 职位有效日期区间
+          allOf:
+            - $ref: "#/components/schemas/DateRange"
+        salaryMonths:
+          type: integer
+          description: 每年发薪月数
+        salaryRangeNormalized:
+          allOf:
+            - $ref: "#/components/schemas/IntRange"
+          description: 职位薪资范围
+        genderRequirementNormalized:
+          type: string
+          description: 性别要求(enum)
+          enum:
+            - 男
+            - 女
+        ageRequirementNormalized:
+          description: 年龄要求
+          allOf:
+            - $ref: "#/components/schemas/IntRange"
+        workYearsRequirementNormalized:
+          description: 工作年限要求
+          allOf:
+            - $ref: "#/components/schemas/IntRange"
+        industryRequirements:
+          description: 行业要求列表
+          type: array
+          items:
+            type: string
+        schoolTagRequirements:
+          description: 学校标签要求列表
+          type: array
+          items:
+            type: string
+        majorRequirements:
+          description: 专业要求列表
+          type: array
+          items:
+            type: string
+        degreeRequirement:
+          description: 学历要求
+          type: string
+        degreeRequirementNormalized:
+          description: 学历要求(结构化)
+          allOf:
+            - $ref: "#/components/schemas/DegreeRange"
+        languageRequirements:
+          description: 专业语言能力要求列表
+          type: array
+          items:
+            type: string
+        skillRequirements:
+          description: 能力要求列表
+          type: array
+          items:
+            type: string
+        categoryNames:
+          description: 职位类别名称
+          type: array
+          items:
+            type: string
+        headCountRangeNormalized:
+          description: 招聘人数
+          allOf:
+            - $ref: "#/components/schemas/IntRange"
+        ownerAccount:
+          description: 责任人账号
+          type: string
+        ownerName:
+          description: 责任人名称
+          type: string
+        ownerEmail:
+          description: 责任人邮箱地址
+          type: string
+        authorAccount:
+          description: 发布人账号
+          type: string
+        authorName:
+          description: 发布人名称
+          type: string
+        authorEmail:
+          description: 发布人邮箱地址
+          type: string
+        status:
+          description: 职位状态
+          type: string
+        ageFromParserNormalized:
+          description: 年龄要求(解析结果，结构化)
+          allOf:
+            - $ref: "#/components/schemas/IntRange"
+        salaryFromParserNormalized:
+          description: 薪资(解析结果，结构化)
+          allOf:
+            - $ref: "#/components/schemas/IntRange"
+        degreeFromParserNormalized:
+          description: 学历要求(解析结果，结构化)
+          allOf:
+            - $ref: "#/components/schemas/DegreeRange"
+        majorsFromParser:
+          description: 专业要求(解析结果)
+          type: array
+          items:
+            type: string
+        keywordsFromParser:
+          description: 行业、技能关键词(解析结果)
+          type: array
+          items:
+            type: string
+        languagesFromParser:
+          description: 语言(解析结果)
+          type: array
+          items:
+            type: string
+        certificatesFromParser:
+          description: 证书(解析结果)
+          type: array
+          items:
+            type: string
+        meta:
+          description: 职位META信息
+          allOf:
+            - $ref: "#/components/schemas/JobMetaStage3"
+
+    ResumeStage0:
+      type: object
+      properties:
+        meta:
+          description: 简历META信息
+          allOf:
+            - $ref: "#/components/schemas/ResumeMeta"
+
+    ResumeStage1:
+      type: object
+      properties:
+        meta:
+          description: 简历META信息
+          allOf:
+            - $ref: "#/components/schemas/ResumeMeta"
+
+    ResumeStage2:
+      type: object
+      properties:
+        humanInfo:
+          description: 申请人身份信息
+          allOf:
+            - $ref: "#/components/schemas/HumanInfoStage2"
+        contactInfo:
+          description: 申请人联系信息
+          allOf:
+            - $ref: "#/components/schemas/ContactInfoStage2"
+        otherInfo:
+          description: 申请人其他信息
+          allOf:
+            - $ref: "#/components/schemas/OtherInfoStage2"
+        educations:
+          description: 教育经历
+          type: array
+          items:
+            $ref: "#/components/schemas/EducationStage2"
+        works:
+          description: 工作经历
+          type: array
+          items:
+            $ref: "#/components/schemas/WorkStage2"
+        projects:
+          description: 项目经历
+          type: array
+          items:
+            $ref: "#/components/schemas/ProjectStage2"
+        trainings:
+          description: 培训经历
+          type: array
+          items:
+            $ref: "#/components/schemas/TrainingStage2"
+        awards:
+          description: 获奖经历
+          type: array
+          items:
+            $ref: "#/components/schemas/AwardStage2"
+        certificates:
+          description: 认证经历
+          type: array
+          items:
+            $ref: "#/components/schemas/CertificateStage2"
+        activities:
+          description: 社会实践经历
+          type: array
+          items:
+            $ref: "#/components/schemas/ActivityStage2"
+        comments:
+          description: 备注
+          type: array
+          items:
+            $ref: "#/components/schemas/CommentStage2"
+        skills:
+          description: 技能
+          type: array
+          items:
+            $ref: "#/components/schemas/SkillStage2"
+        interns:
+          description: 实习经历
+          type: array
+          items:
+            $ref: "#/components/schemas/InternsStage2"
+        languages:
+          description: 语言技能
+          type: array
+          items:
+            $ref: "#/components/schemas/LanguagesStage2"
+        theses:
+          description: 发表论文
+          type: array
+          items:
+            $ref: "#/components/schemas/ThesisStage2"
+        meta:
+          description: 简历META信息
+          allOf:
+            - $ref: "#/components/schemas/ResumeMeta"
+        currentStatus:
+          description: 当前工作状态
+          allOf:
+            - $ref: "#/components/schemas/CurrentStatusStage2"
+        expectations:
+          description: 期望工作
+          type: array
+          items:
+            $ref: "#/components/schemas/ExpectationsStage2"
+    ResumeStage3:
+      type: object
+      properties:
+        humanInfo:
+          description: 基本信息
+          allOf:
+            - $ref: "#/components/schemas/HumanInfo"
+        contactInfo:
+          description: 联系信息
+          allOf:
+            - $ref: "#/components/schemas/ContactInfo"
+        expectations:
+          description: 期望工作
+          type: array
+          items:
+            $ref: "#/components/schemas/Expectation"
+        educations:
+          description: 教育经历
+          type: array
+          items:
+            $ref: "#/components/schemas/Education"
+        works:
+          description: 工作经历
+          type: array
+          items:
+            $ref: "#/components/schemas/Work"
+        interns:
+          description: 实习经历
+          type: array
+          items:
+            $ref: "#/components/schemas/Work"
+        projects:
+          description: 项目经历
+          type: array
+          items:
+            $ref: "#/components/schemas/Project"
+        trainings:
+          description: 培训经历
+          type: array
+          items:
+            $ref: "#/components/schemas/Training"
+        activities:
+          description: 社会实践经历
+          type: array
+          items:
+            $ref: "#/components/schemas/Activity"
+        awards:
+          description: 获奖
+          type: array
+          items:
+            $ref: "#/components/schemas/Award"
+        theses:
+          description: 发表论文
+          type: array
+          items:
+            $ref: "#/components/schemas/Thesis"
+        certificates:
+          description: 证书/考试
+          type: array
+          items:
+            $ref: "#/components/schemas/Certificate"
+        languages:
+          description: 语言
+          type: array
+          items:
+            $ref: "#/components/schemas/Language"
+        meta:
+          description: 简历META信息
+          allOf:
+            - $ref: "#/components/schemas/ResumeMetaStage3"
+        currentJobStatus:
+          description: 当前状态
+          allOf:
+            - $ref: "#/components/schemas/CurrentJobStatus"
+    ResumeStage4:
+      type: object
+      properties:
+        humanInfo:
+          description: 基本信息
+          type: object
+          allOf:
+            - $ref: "#/components/schemas/HumanInfo"
+          properties:
+            dateOfBirthAnalyzed:
+              description: 从【ageNormalized】及【分析时间】推断的生日
+              allOf:
+                - $ref: "#/components/schemas/Date"
+        contactInfo:
+          description: 联系信息
+          allOf:
+            - $ref: "#/components/schemas/ContactInfo"
+        expectations:
+          description: 期望工作
+          type: array
+          items:
+            type: object
+            allOf:
+              - $ref: "#/components/schemas/Expectation"
+            properties:
+              jobNamesLinked:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LinkedEntity"
+                description: 知识图谱链接职位(多个、与Expectation.jobNames一一对应，个数相等)
+              industryNamesLinked:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LinkedEntity"
+                description: 知识图谱链接职位(多个、与Expectation.industryNames一一对应，个数相等)
+        educations:
+          description: 教育经历
+          type: array
+          items:
+            type: object
+            allOf:
+              - $ref: "#/components/schemas/Education"
+            properties:
+              schoolNameLinked:
+                allOf:
+                  - $ref: "#/components/schemas/LinkedEntity"
+                description: 知识图谱链接学校
+              majorNamesLinked:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LinkedEntity"
+                description: 知识图谱链接专业(多个，与Education.majorNames一一对应)
+        works:
+          description: 工作经历
+          type: array
+          items:
+            type: object
+            allOf:
+              - $ref: "#/components/schemas/Work"
+            properties:
+              companyNameLinked:
+                allOf:
+                  - $ref: "#/components/schemas/LinkedEntity"
+                description: 知识图谱链接公司
+              industryNamesLinked:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LinkedEntity"
+                description: 【stage4】知识图谱链接行业(多个，与Work.industryNames一一对应)
+              jobNamesLinked:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LinkedEntity"
+                description: 【stage4】职位名称(多个，与Work.jobNames一一对应)
+        interns:
+          description: 实习经历
+          type: array
+          items:
+            type: object
+            allOf:
+              - $ref: "#/components/schemas/Work"
+            properties:
+              companyNameLinked:
+                allOf:
+                  - $ref: "#/components/schemas/LinkedEntity"
+                description: 知识图谱链接公司
+              industryNamesLinked:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LinkedEntity"
+                description: 【stage4】知识图谱链接行业(多个，与Work.industryNames一一对应)
+              jobNamesLinked:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LinkedEntity"
+                description: 【stage4】职位名称(多个，与Work.jobNames一一对应)
+        projects:
+          description: 项目经历
+          type: array
+          items:
+            type: object
+            allOf:
+              - $ref: "#/components/schemas/Project"
+            properties:
+              companyNameLinked:
+                allOf:
+                  - $ref: "#/components/schemas/LinkedEntity"
+                description: 公司名称(知识图谱链接)
+              jobNamesLinked:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LinkedEntity"
+                description: 职位名称(多个，与Project.jobNames一一对应)
+        trainings:
+          description: 培训经历
+          type: array
+          items:
+            $ref: "#/components/schemas/Training"
+        activities:
+          description: 社会实践经历
+          type: array
+          items:
+            $ref: "#/components/schemas/Activity"
+        awards:
+          description: 获奖
+          type: array
+          items:
+            $ref: "#/components/schemas/Award"
+        theses:
+          description: 发表论文
+          type: array
+          items:
+            $ref: "#/components/schemas/Thesis"
+        certificates:
+          description: 证书/考试
+          type: array
+          items:
+            $ref: "#/components/schemas/Certificate"
+        languages:
+          description: 语言
+          type: array
+          items:
+            $ref: "#/components/schemas/Language"
+        meta:
+          description: 简历META信息
+          allOf:
+            - $ref: "#/components/schemas/ResumeMetaStage3"
+        currentJobStatus:
+          description: 当前状态
+          allOf:
+            - $ref: "#/components/schemas/CurrentJobStatus"
+    ResumeStage5:
+      type: object
+      properties:
+        humanInfo:
+          description: 基本信息
+          type: object
+          allOf:
+            - $ref: "#/components/schemas/HumanInfo"
+          properties:
+            dateOfBirthAnalyzed:
+              description: 从【ageNormalized】及【分析时间】推断的生日
+              allOf:
+                - $ref: "#/components/schemas/Date"
+            isJuniorCollegeAnalyzed:
+              description: 是否是专升本
+              type: boolean
+            isGraduatesAnalyzed:
+              description: 是否是应届生(有无工作经历)
+              type: boolean
+            yearsOfWorkAnalyzed:
+              description: 工作年限(从工作经历岂止时间推断)
+              type: integer
+        contactInfo:
+          description: 联系信息
+          allOf:
+            - $ref: "#/components/schemas/ContactInfo"
+        expectations:
+          description: 期望工作
+          type: array
+          items:
+            type: object
+            allOf:
+              - $ref: "#/components/schemas/Expectation"
+            properties:
+              jobNamesLinked:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LinkedEntity"
+                description: 知识图谱链接职位(多个、与Expectation.jobNames一一对应，个数相等)
+              industryNamesLinked:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LinkedEntity"
+                description: 知识图谱链接职位(多个、与Expectation.industryNames一一对应，个数相等)
+        educations:
+          description: 教育经历
+          type: array
+          items:
+            type: object
+            allOf:
+              - $ref: "#/components/schemas/Education"
+            properties:
+              schoolNameLinked:
+                allOf:
+                  - $ref: "#/components/schemas/LinkedEntity"
+                description: 知识图谱链接学校
+              majorNamesLinked:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LinkedEntity"
+                description: 知识图谱链接专业(多个，与Education.majorNames一一对应)
+              isPrimaryAnalyzed:
+                type: boolean
+                description: 是否是第一学历(指本科及以下)
+              isHighestAnalyzed:
+                type: boolean
+                description: 是否是最高学历(结束时间距今最近的教育经历)
+              isFullTimeAnalyzed:
+                type: boolean
+                description: 是否是全日制(统招)教育经历
+        works:
+          description: 工作经历
+          type: array
+          items:
+            type: object
+            allOf:
+              - $ref: "#/components/schemas/Work"
+            properties:
+              companyNameLinked:
+                allOf:
+                  - $ref: "#/components/schemas/LinkedEntity"
+                description: 知识图谱链接公司
+              industryNamesLinked:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LinkedEntity"
+                description: 【stage4】知识图谱链接行业(多个，与Work.industryNames一一对应)
+              jobNamesLinked:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LinkedEntity"
+                description: 【stage4】职位名称(多个，与Work.jobNames一一对应)
+        interns:
+          description: 实习经历
+          type: array
+          items:
+            type: object
+            allOf:
+              - $ref: "#/components/schemas/Work"
+            properties:
+              companyNameLinked:
+                allOf:
+                  - $ref: "#/components/schemas/LinkedEntity"
+                description: 知识图谱链接公司
+              industryNamesLinked:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LinkedEntity"
+                description: 【stage4】知识图谱链接行业(多个，与Work.industryNames一一对应)
+              jobNamesLinked:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LinkedEntity"
+                description: 【stage4】职位名称(多个，与Work.jobNames一一对应)
+        projects:
+          description: 项目经历
+          type: array
+          items:
+            type: object
+            allOf:
+              - $ref: "#/components/schemas/Project"
+            properties:
+              companyNameLinked:
+                allOf:
+                  - $ref: "#/components/schemas/LinkedEntity"
+                description: 公司名称(知识图谱链接)
+              jobNamesLinked:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LinkedEntity"
+                description: 职位名称(多个，与Project.jobNames一一对应)
+              workIndexAnalyzed:
+                type: integer
+                description: 项目开始时间处于第n段工作经历时间范围内
+        trainings:
+          description: 培训经历
+          type: array
+          items:
+            $ref: "#/components/schemas/Training"
+        activities:
+          description: 社会实践经历
+          type: array
+          items:
+            $ref: "#/components/schemas/Activity"
+        awards:
+          description: 获奖
+          type: array
+          items:
+            $ref: "#/components/schemas/Award"
+        theses:
+          description: 发表论文
+          type: array
+          items:
+            $ref: "#/components/schemas/Thesis"
+        certificates:
+          description: 证书/考试
+          type: array
+          items:
+            $ref: "#/components/schemas/Certificate"
+        languages:
+          description: 语言
+          type: array
+          items:
+            $ref: "#/components/schemas/Language"
+        meta:
+          description: 简历META信息
+          allOf:
+            - $ref: "#/components/schemas/ResumeMetaStage3"
+        currentJobStatus:
+          description: 当前状态
+          allOf:
+            - $ref: "#/components/schemas/CurrentJobStatus"
+    HumanInfo:
+      type: object
+      description: 候选人基本信息
+      properties:
+        name:
+          type: string
+          description: 姓名
+        nameUsedBefore:
+          type: string
+          description: 曾用名
+        namePinYin:
+          type: string
+          description: 姓名拼音
+        genderName:
+          type: string
+          description: 性别
+        genderNameNormalized:
+          type: string
+          description: 性别(enum)
+          enum:
+            - 男
+            - 女
+        heightNormalized:
+          type: integer
+          description: 身高(cm)
+        weightNormalized:
+          type: integer
+          description: 体重(kg)
+        ageNormalized:
+          type: integer
+          description: 年龄(岁)
+        avatar:
+          type: string
+          description: 头像字符串(base64 编码)
+          example: "data:image/png;base64,By1O0ladsf..."
+        dateOfBirthNormalized:
+          description: 生日(结构化)
+          allOf:
+            - $ref: "#/components/schemas/Date"
+        ethicName:
+          type: string
+          description: 民族
+        maritalName:
+          type: string
+          description: 婚姻
+        maritalNameNormalized:
+          type: string
+          description: 婚姻状况(enum)
+          enum:
+            - 已婚
+            - 未婚
+        politicalStatusName:
+          type: string
+          description: 政治面貌
+        nationalityName:
+          type: string
+          description: 国籍
+        ancestralResidence:
+          type: string
+          description: 祖籍
+        ancestralResidenceNormalized:
+          description: 祖籍(结构化)
+          allOf:
+            - $ref: "#/components/schemas/Location"
+        registeredPermanentResidence:
+          type: string
+          description: 户籍地址
+        registeredPermanentResidenceNormalized:
+          description: 户籍(结构化)
+          allOf:
+            - $ref: "#/components/schemas/Location"
+        idDocumentNormalized:
+          allOf:
+            - $ref: "#/components/schemas/Identification"
+    ContactInfo:
+      type: object
+      description: 候选人联系信息
+      properties:
+        currentLocation:
+          type: string
+          description: 当前所在地点
+        currentLocationNormalized:
+          description: 当前所在地点(结构化)
+          allOf:
+            - $ref: "#/components/schemas/Location"
+        qqID:
+          type: string
+          description: qq号
+        wechatID:
+          type: string
+          description: 微信号
+        emails:
+          type: array
+          description: email地址(多个)
+          items:
+            type: string
+        zipCode:
+          type: string
+          description: 邮政编码
+        virtualPhoneNumber:
+          type: string
+          description: 虚拟手机号
+        virtualPhoneNumberExpirationDate:
+          type: string
+          description: 虚拟手机号过期时间
+        phoneNumbers:
+          type: array
+          items:
+            type: string
+          description: 联系电话
+    Expectation:
+      type: object
+      properties:
+        locations:
+          type: array
+          items:
+            type: string
+          description: 期望地点(多个)
+        locationsNormalized:
+          type: array
+          items:
+            $ref: "#/components/schemas/Location"
+          description: 期望地点(多个、结构化、与Expectation.locations一一对应、个数相等)
+        jobNames:
+          type: array
+          items:
+            type: string
+          description: 期望职位(多个)
+        companyTypes:
+          type: array
+          items:
+            type: string
+          description: 期望公司类型(多个)
+        industryNames:
+          type: array
+          items:
+            type: string
+          description: 期望行业(多个)
+        workTimeTypeNames:
+          type: array
+          items:
+            type: string
+          description: 期望工作类型(多个)
+        workTimeTypeNamesNormalized:
+          type: array
+          items:
+            type: string
+            enum:
+              - 全职
+              - 兼职
+        salaryRangeNormalized:
+          allOf:
+            - $ref: "#/components/schemas/IntRange"
+          description: 期望薪资范围
+    Education:
+      type: object
+      description: 教育经历
+      properties:
+        dateRangeNormalized:
+          allOf:
+            - $ref: "#/components/schemas/DateRange"
+          description: 起止日期
+        schoolName:
+          type: string
+          description: 学校名称
+        degreeName:
+          type: string
+          description: 学历
+        degreeNameNormalized:
+          allOf:
+            - $ref: "#/components/schemas/Degree"
+          description: 学历(结构化)
+        academyNames:
+          type: array
+          description: 院系名称(多个)
+          items:
+            type: string
+        majorNames:
+          type: array
+          items:
+            type: string
+          description: 专业名称(多个)
+        courseNames:
+          type: array
+          items:
+            type: string
+          description: 课程名称(多个)
+        locations:
+          type: array
+          description: 所在地
+          items:
+            type: string
+        locationsNormalized:
+          type: array
+          items:
+            $ref: "#/components/schemas/Location"
+          description: 所在地(多个、结构化、与Education.locations一一对应、个数相等)
+        schoolTags:
+          type: array
+          items:
+            type: string
+          description: 学校标签(**非**知识图谱链接、指简历原件中出现的学校标签)
+    Work:
+      type: object
+      description: 工作/实习经历
+      properties:
+        dateRangeNormalized:
+          allOf:
+            - $ref: "#/components/schemas/DateRange"
+          description: 起止日期
+        companyName:
+          type: string
+          description: 公司名称
+        companyDescription:
+          type: string
+          description: 公司描述
+        industryNames:
+          type: array
+          items:
+            type: string
+          description: 公司行业(多个)
+        companyType:
+          type: string
+          description: 公司类型
+        companySize:
+          type: string
+          description: 公司规模
+        companySizeNormalized:
+          allOf:
+            - $ref: "#/components/schemas/IntRange"
+          description: 公司规模(结构化)
+        departmentNames:
+          type: array
+          description: 部门
+          items:
+            type: string
+        jobNames:
+          type: array
+          description: 职位名称
+          items:
+            type: string
+        salaryRangeNormalized:
+          allOf:
+            - $ref: "#/components/schemas/IntRange"
+          description: 薪资(范围、结构化)
+        subordinateNumber:
+          type: integer
+          description: 下属人数
+        locations:
+          type: array
+          items:
+            type: string
+          description: 工作地点
+        locationsNormalized:
+          type: array
+          items:
+            allOf:
+              - $ref: "#/components/schemas/Location"
+          description: 工作地点(多个、结构化、与Work.locations一一对应、个数相等)
+        responsibility:
+          type: string
+          description: 工作职责
+        achievement:
+          type: string
+          description: 工作业绩
+        description:
+          type: string
+          description: 工作描述
+        leavingReason:
+          type: string
+          description: 离职原因
+    Project:
+      type: object
+      description: 项目经历
+      properties:
+        dateRangeNormalized:
+          allOf:
+            - $ref: "#/components/schemas/DateRange"
+          description: 起止日期
+        name:
+          type: string
+          description: 项目名称
+        companyName:
+          type: string
+          description: 公司名称
+        jobNames:
+          type: array
+          description: 职位名称
+          items:
+            type: string
+        responsibility:
+          type: string
+          description: 项目职责
+        achievement:
+          type: string
+          description: 项目业绩
+        description:
+          type: string
+          description: 项目描述
+        locations:
+          type: array
+          description: 项目地点
+          items:
+            type: string
+        locationsNormalized:
+          type: array
+          items:
+            $ref: "#/components/schemas/Location"
+          description: 项目地点(多个、结构化、与Project.locations一一对应、个数相等)
+    Training:
+      type: object
+      description: 培训经历
+      properties:
+        dateRangeNormalized:
+          allOf:
+            - $ref: "#/components/schemas/DateRange"
+          description: 起止日期
+    Activity:
+      type: object
+      description: 社会实践经历
+      properties:
+        dateRangeNormalized:
+          allOf:
+            - $ref: "#/components/schemas/DateRange"
+          description: 起止日期
+    Thesis:
+      type: object
+      description: 发表论文
+      properties:
+        dateNormalized:
+          allOf:
+            - $ref: "#/components/schemas/Date"
+          description: 起止日期
+    Award:
+      type: object
+      description: 获奖
+      properties:
+        dateNormalized:
+          allOf:
+            - $ref: "#/components/schemas/Date"
+          description: 获奖时间
+    Certificate:
+      type: object
+      description: 证书/考试
+      properties:
+        dateNormalized:
+          allOf:
+            - $ref: "#/components/schemas/Date"
+          description: 获取/通过时间
+        name:
+          type: string
+          description: 证书/考试名称
+        description:
+          type: string
+          description: 证书/考试描述
+    Language:
+      type: object
+      description: 掌握语言
+      properties:
+        name:
+          type: string
+          description: 语言名称
+    CurrentJobStatus:
+      type: object
+      description: 当前工作状态
+      properties:
+        status:
+          type: string
+          description: 当前状态(在职、离职、...)
+        statusNormalized:
+          type: string
+          description: 当前状态(enum)
+          enum:
+            - 在职
+            - 离职
+        salaryRangeNormalized:
+          allOf:
+            - $ref: "#/components/schemas/IntRange"
+          description: 当前薪资范围
+    Date:
+      type: object
+      description: 日期结构
+      properties:
+        year:
+          type: integer
+          description: 年
+        month:
+          type: integer
+          description: 月
+        day:
+          type: integer
+          description: 日
+        iso:
+          type: string
+          format: Date
+          description: iso8601
+    DateRange:
+      type: object
+      description: 日期范围
+      required:
+        - start
+        - end
+        - untilNoe
+      properties:
+        start:
+          description: 开始日期
+          allOf:
+            - $ref: "#/components/schemas/Date"
+        end:
+          description: 结束日期
+          allOf:
+            - $ref: "#/components/schemas/Date"
+        untilNow:
+          description: 是否持续至今
+          type: boolean
+    IntRange:
+      type: object
+      description: 整型范围，包含上下限
+      properties:
+        gte:
+          type: integer
+          description: 下限，None for -inf
+        lte:
+          type: integer
+          description: 上限，None for inf
+    Location:
+      type: object
+      nullable: true
+      description: 地点
+      properties:
+        code:
+          type: string
+          description: 九位地点编码
+          example: "156310115"
+        country:
+          type: string
+          description: 国家
+          example: "中国"
+        province:
+          type: string
+          description: 省
+          example: "上海市"
+        city:
+          type: string
+          description: 市
+          example: "上海城区"
+        district:
+          type: string
+          description: 区
+          example: "浦东新区"
+    Degree:
+      type: object
+      description: 学历
+      properties:
+        name:
+          type: string
+          description: 学历名称(规范化)
+          enum:
+            - 小学
+            - 初中
+            - 高中
+            - 中专
+            - 大专
+            - 专科
+            - 专升本
+            - 本科
+            - 在职研究生
+            - 硕士
+            - 专业学位硕士
+            - 学术型硕士
+            - 在职博士生
+            - 博士
+            - 专业学位博士
+            - 学术型博士
+            - 博士后
+            - MBA
+            - EMBA
+    DegreeRange:
+      type: object
+      description: 学历范围，包含上下限
+      properties:
+        gte:
+          allOf:
+            - $ref: "#/components/schemas/Degree"
+          description: 下限
+        lte:
+          allOf:
+            - $ref: "#/components/schemas/Degree"
+          description: 上限
+    Identification:
+      type: object
+      description: 身份证件
+      properties:
+        name:
+          type: string
+          description: 证件名称
+          enum:
+            - 身份证
+            - 护照
+            - 军官证
+        code:
+          type: string
+          description: 证件号
+    LinkedEntity:
+      type: object
+      nullable: true
+      description: 知识图谱链接结果
+      properties:
+        entityId:
+          type: string
+          description: 实体ID
+        entityName:
+          type: string
+          description: 实体名称
+
+    HumanInfoStage2:
+      type: object
+      description: 申请人身份信息
+      properties:
+        name:
+          type: string
+          description: 姓名
+        nameUsedBefore:
+          type: string
+          description: 曾用名
+        namePinYin:
+          type: string
+          description: 姓名拼音
+        genderName:
+          type: string
+          description: 性别
+        height:
+          type: string
+          description: 身高
+        weight:
+          type: string
+          description: 体重
+        age:
+          type: integer
+          description: 年龄
+        avatar:
+          type: string
+          description: 头像
+        dateOfBirth:
+          description: 出生日期
+          type: string
+        ethicName:
+          type: string
+          description: 民族名称
+        maritalName:
+          type: string
+          description: 婚姻状况名称
+        politicalStatusName:
+          type: string
+          description: 政治面貌名称
+        bloodTypeName:
+          type: string
+          description: 血型名称
+        nationalityName:
+          type: string
+          description: 国籍名称
+        ancestralResidence:
+          type: string
+          description: 籍贯所在地
+        registeredPermanentResidence:
+          type: string
+          description: 户口所在地址
+        idDocumentTypeName:
+          type: string
+          description: 身份证件类型名称
+        idDocumentCode:
+          type: string
+          description: 身份证件号码
+
+    ContactInfoStage2:
+      type: object
+      description: 申请人联系信息
+      properties:
+        currentLocation:
+          type: string
+          description: 当前所在城市
+        address:
+          type: string
+          description: 当前居住地
+        qqID:
+          type: string
+          description: qq账号
+        wechatID:
+          type: string
+          description: 微信账号
+        emails:
+          type: string
+          description: 邮件地址
+        zipCode:
+          type: string
+          description: 邮政编码
+        mobilePhoneNumber:
+          type: string
+          description: 手机号码
+        mobilePhoneNumberType:
+          type: string
+          description: 手机号码类型
+        homePhoneNumber:
+          type: string
+          description: 家庭电话号码
+        telephoneNumber:
+          type: string
+          description: 固定电话号码
+        workPhoneNumber:
+          type: string
+          description: 工作电话
+        virtualPhoneNumber:
+          type: string
+          description: 虚拟手机号码
+
+    OtherInfoStage2:
+      type: object
+      description: 申请人其他信息
+      properties:
+        workYear:
+          type: integer
+          description: 工作年限
+        selfEvaluation:
+          type: string
+          description: 自我评价内容
+
+    EducationStage2:
+      type: object
+      description: 教育经历
+      properties:
+        startDate:
+          type: string
+          description: 开始日期
+        endDate:
+          type: string
+          description: 结束日期
+        schoolName:
+          type: string
+          description: 学校名称
+        degreeName:
+          type: string
+          description: 学历名称
+        academyNames:
+          type: string
+          description: 院系名称
+        majorCategoryName:
+          type: string
+          description: 专业类别名称
+        majorNames:
+          type: string
+          description: 专业名称
+        majorDescription:
+          type: string
+          description: 专业或研究方向描述
+        courseNames:
+          type: string
+          description: 课程名称一览
+        educationLevelName:
+          type: string
+          description: 学位名称
+        trainingModeName:
+          type: string
+          description: 培养方式名称
+        locations:
+          type: string
+          description: 所在地
+        formsOfLearningName:
+          type: string
+          description: 学习形式名称
+        schoolTags:
+          type: string
+          description: 学校标签
+        isUnifiedEntrance:
+          type: string
+          description: 是否为统招
+        isPrimary:
+          type: string
+          description: 是否为第一学历
+        isHighest:
+          type: string
+          description: 是否为最高学历
+        isOversea:
+          type: string
+          description: 是否为海外经历
+
+    WorkStage2:
+      type: object
+      description: 工作经历
+      properties:
+        startDate:
+          type: string
+          description: 开始日期
+        endDate:
+          type: string
+          description: 结束日期
+        companyName:
+          type: string
+          description: 单位名称
+        companyDescription:
+          type: string
+          description: 公司简介
+        industryNames:
+          type: string
+          description: 行业名称
+        companyType:
+          type: string
+          description: 单位类型名称
+        companySize:
+          type: string
+          description: 单位规模
+        companyFinancialStageName:
+          type: string
+          description: 公司融资阶段名称
+        departmentNames:
+          type: string
+          description: 部门名称
+        jobLevelName:
+          description: 职位级别名称
+          type: string
+        jobNames:
+          description: 职位名称
+          type: string
+        jobPropertyName:
+          description: 工作性质名称
+          type: string
+        description:
+          type: string
+          description: 工作内容描述
+        responsibility:
+          type: string
+          description: 工作职责描述
+        achievement:
+          type: string
+          description: 工作业绩描述
+        leavingReason:
+          type: string
+          description: 离职原因描述
+        months:
+          type: integer
+          description: 持续月数
+        nationName:
+          type: string
+          description: 国家名称
+        subordinateNumber:
+          type: integer
+          description: 下属人数
+        isUntilNow:
+          type: string
+          description: 是否持续至今
+        locations:
+          type: string
+          description: 工作地点
+        isOversea:
+          type: string
+          description: 是否为海外经历
+
+    ProjectStage2:
+      type: object
+      description: 项目经历
+      properties:
+        startDate:
+          type: string
+          description: 开始日期
+        endDate:
+          type: string
+          description: 结束日期
+        name:
+          type: string
+          description: 项目名称
+        companyName:
+          type: string
+          description: 单位名称
+        jobNames:
+          type: string
+          description: 职位名称
+        description:
+          type: string
+          description: 项目描述
+        responsibility:
+          type: string
+          description: 项目职责描述
+        achievement:
+          type: string
+          description: 项目成果描述
+        softwareEnvironment:
+          type: string
+          description: 项目软件环境描述
+        locations:
+          type: string
+          description: 地点
+
+    TrainingStage2:
+      type: object
+      description: 培训经历
+      properties:
+        startDate:
+          type: string
+          description: 开始日期
+        endDate:
+          type: string
+          description: 结束日期
+        name:
+          type: string
+          description: 培训名称
+        description:
+          type: string
+          description: 培训内容描述
+        agencyName:
+          type: string
+          description: 培训机构名称
+        certificateName:
+          type: string
+          description: 证书名称
+        coursesName:
+          type: string
+          description: 课程名称一览
+        totalHours:
+          type: integer
+          description: 培训总课时
+        location:
+          type: string
+          description: 培训地点
+
+    AwardStage2:
+      type: object
+      description: 获奖经历
+      properties:
+        date:
+          type: string
+          description: 获奖日期
+        agencyName:
+          type: string
+          description: 颁发机构名称
+        name:
+          type: string
+          description: 奖励名称
+        levelName:
+          type: string
+          description: 获奖级别名称
+        description:
+          type: string
+          description: 获奖内容描述
+
+    CertificateStage2:
+      type: object
+      description: 认证经历
+      properties:
+        date:
+          type: string
+          description: 认证日期
+        name:
+          type: string
+          description: 认证名称
+        description:
+          type: string
+          description: 认证内容描述
+
+    ActivityStage2:
+      type: object
+      description: 社会实践经历
+      properties:
+        startDate:
+          type: string
+          description: 开始日期
+        endDate:
+          type: string
+          description: 结束日期
+        name:
+          type: string
+          description: 实践名称
+        description:
+          type: string
+          description: 实践内容描述
+        positionName:
+          type: string
+          description: 职位名称
+
+    CommentStage2:
+      type: object
+      description: 备注
+      properties:
+        date:
+          type: string
+          description: 备注日期
+        content:
+          type: string
+          description: 备注内容
+        userAccount:
+          type: string
+          description: 备注人姓名
+
+    SkillStage2:
+      type: object
+      description: 技能
+      properties:
+        name:
+          type: string
+          description: 技能名称
+        levelName:
+          type: string
+          description: 掌握程度名称
+        description:
+          type: string
+          description: 技能描述
+        months:
+          type: integer
+          description: 使用月数
+
+    InternsStage2:
+      type: object
+      description: 实习经历
+      properties:
+        startDate:
+          type: string
+          description: 开始日期
+        endDate:
+          type: string
+          description: 结束日期
+        companyName:
+          type: string
+          description: 单位名称
+        companyDescription:
+          type: string
+          description: 单位简介
+        responsibility:
+          type: string
+          description: 实习内容描述
+        locations:
+          type: string
+          description: 实习地点
+
+    LanguagesStage2:
+      type: object
+      description: 语言技能
+      properties:
+        name:
+          type: string
+          description: 语言类型名称
+        levelName:
+          type: string
+          description: 掌握程度名称
+        listeningSpeakingAbilityName:
+          type: string
+          description: 听说水平名称
+        readingWritingAbilityName:
+          type: string
+          description: 读写水平名称
+        certificateLevelName:
+          type: string
+          description: 证书等级名称
+        scoreDescription:
+          type: string
+          description: 考试成绩描述
+
+    ThesisStage2:
+      type: object
+      description: 论文专著
+      properties:
+        publishedDate:
+          type: string
+          description: 发表时间
+        periodicalName:
+          type: string
+          description: 期刊名称
+        periodicalNumber:
+          type: integer
+          description: 年度/期次
+        title:
+          type: string
+          description: 论文专著标题
+        orderOfAuthor:
+          type: string
+          description: string  作者顺序
+
+    ResumeMeta:
+      type: object
+      description: 简历META信息
+      properties:
+        openId:
+          type: string
+          description: string  全局唯一简历ID
+        createdSystemCode:
+          type: string
+          description: 来源系统编码、北森的场合固定写成beisen,我们自己的场合固定写成mesoor
+        createdSystemName:
+          type: string
+          description: 来源系统编码、北森的场合固定写成北森,我们自己的场合固定写成麦穗
+        detectedSourceName:
+          type: string
+          description: 简历来源名称
+        hash:
+          type: string
+          description: 简历文件Hash
+        language:
+          type: string
+          description: 简历语言代码
+        originalFile:
+          type: string
+          description: 简历原始文件名
+        submitChannelName:
+          type: string
+          description: 简历取得方式名称
+        submitChannelType:
+          type: string
+          description: 简历取得方式类型
+        submitChannelMedia:
+          type: string
+          description: 简历取得方式媒介
+        submitChannelMediaDescription:
+          type: string
+          description: 简历取得方式媒介明细
+        validateSubmit:
+          type: string
+          description: 是否有效投递
+        submitedAt:
+          type: string
+          description: 简历投递时间
+        protectionDurationEnabled:
+          type: string
+          description: 是否开启保护期
+        protectionDurationFromDate:
+          type: string
+          description: 保护期开始时间
+        protectionDurationDays:
+          type: integer
+          description: 保护期时长
+        createdAt:
+          type: string
+          description: 简历创建时间
+        updatedAt:
+          type: string
+          description: 简历更新时间
+        createdBy:
+          type: string
+          description: 简历创建人
+        updatedBy:
+          type: string
+          description: 简历修改人
+        stageCreatedAt:
+          type: string
+          description: 实体Stage生成时间
+        stageUpdatedAt:
+          type: string
+          description: 实体Stage创建时间
+        entityCreatedAt:
+          type: string
+          description: 实体生成时间
+        entityUpdatedAt:
+          type: string
+          description: 实体更新时间
+    ResumeMetaStage3:
+      type: object
+      description: 简历META信息(stage3 之后)
+      properties:
+        openId:
+          type: string
+          description: string  全局唯一简历ID
+        createdSystemCode:
+          type: string
+          description: 来源系统编码、北森的场合固定写成beisen,我们自己的场合固定写成mesoor
+        createdSystemName:
+          type: string
+          description: 来源系统编码、北森的场合固定写成北森,我们自己的场合固定写成麦穗
+        detectedSourceName:
+          type: string
+          description: 简历来源名称
+        hash:
+          type: string
+          description: 简历文件Hash
+        language:
+          type: string
+          description: 简历语言代码
+        originalFile:
+          type: string
+          description: 简历原始文件名
+        submitChannelName:
+          type: string
+          description: 简历取得方式名称
+        submitChannelType:
+          type: string
+          description: 简历取得方式类型
+        submitChannelMedia:
+          type: string
+          description: 简历取得方式媒介
+        submitChannelMediaDescription:
+          type: string
+          description: 简历取得方式媒介明细
+        validateSubmit:
+          type: string
+          description: 是否有效投递
+        submitedAt:
+          type: string
+          description: 简历投递时间
+        protectionDurationEnabled:
+          type: string
+          description: 是否开启保护期
+        protectionDurationFromDate:
+          type: string
+          description: 保护期开始时间
+        protectionDurationDays:
+          type: integer
+          description: 保护期时长
+        createdAt:
+          type: string
+          description: 简历创建时间
+        createdAtNormalized:
+          type: integer
+          description: 简历创建时间(timestamp)
+        updatedAt:
+          type: string
+          description: 简历更新时间
+        updatedAtNormalized:
+          type: integer
+          description: 简历更新时间(timestamp)
+        createdBy:
+          type: string
+          description: 简历创建人
+        updatedBy:
+          type: string
+          description: 简历修改人
+        stageCreatedAt:
+          type: string
+          description: 实体Stage生成时间
+        stageUpdatedAt:
+          type: string
+          description: 实体Stage创建时间
+        entityCreatedAt:
+          type: string
+          description: 实体生成时间
+        entityUpdatedAt:
+          type: string
+          description: 实体更新时间
+    JobMeta:
+      type: object
+      description: 职位META信息
+      properties:
+        openId:
+          type: string
+          description: string  全局唯一简历ID
+        createdSystemCode:
+          type: string
+          description: 来源系统编码、北森的场合固定写成beisen,我们自己的场合固定写成mesoor
+        createdSystemName:
+          type: string
+          description: 来源系统编码、北森的场合固定写成北森,我们自己的场合固定写成麦穗
+        createdAt:
+          type: string
+          description: 职位创建时间
+        updatedAt:
+          type: string
+          description: 职位更新时间
+        createdBy:
+          type: string
+          description: 职位创建人
+        updatedBy:
+          type: string
+          description: 职位修改人
+        stageCreatedAt:
+          type: string
+          description: 实体Stage生成时间
+        stageUpdatedAt:
+          type: string
+          description: 实体Stage创建时间
+        entityCreatedAt:
+          type: string
+          description: 实体生成时间
+        entityUpdatedAt:
+          type: string
+          description: 实体更新时间
+    JobMetaStage3:
+      type: object
+      description: 职位META信息(stage3 之后)
+      properties:
+        openId:
+          type: string
+          description: string  全局唯一简历ID
+        createdSystemCode:
+          type: string
+          description: 来源系统编码、北森的场合固定写成beisen,我们自己的场合固定写成mesoor
+        createdSystemName:
+          type: string
+          description: 来源系统编码、北森的场合固定写成北森,我们自己的场合固定写成麦穗
+        createdAt:
+          type: string
+          description: 职位创建时间
+        createdAtNormalized:
+          type: integer
+          description: 职位创建时间(timestamp)
+        updatedAt:
+          type: string
+          description: 职位更新时间
+        updatedAtNormalized:
+          type: integer
+          description: 职位更新时间(timestamp)
+        createdBy:
+          type: string
+          description: 职位创建人
+        updatedBy:
+          type: string
+          description: 职位修改人
+        stageCreatedAt:
+          type: string
+          description: 实体Stage生成时间
+        stageUpdatedAt:
+          type: string
+          description: 实体Stage创建时间
+        entityCreatedAt:
+          type: string
+          description: 实体生成时间
+        entityUpdatedAt:
+          type: string
+          description: 实体更新时间
+    CurrentStatusStage2:
+      type: object
+      description: 当前工作状态
+      properties:
+        companyName:
+          type: string
+          description: 单位名称
+        industryName:
+          type: string
+          description: 行业名称
+        positionName:
+          type: string
+          description: 职位名称
+        situationName:
+          type: string
+          description: 工作状态名称
+        workLocation:
+          type: string
+          description: 工作地点
+        hasOverseaWork:
+          type: string
+          description: 是否有海外工作经验
+        professionalTitleName:
+          type: string
+          description: 职称名称
+        status:
+          type: string
+          description: 当前求职状态名称
+        currentSalaryMonths:
+          type: integer
+          description: 最近工作每年发薪月数
+        currentSalary:
+          description: 当前税前月薪
+          type: string
+        currentSalaryLow:
+          description: 当前税前月薪下限
+          type: integer
+        currentSalaryHigh:
+          description: 当前税前月薪上限
+          type: integer
+        currentAnnualSalary:
+          type: string
+          description: 当前税前年薪
+        currentAnnualSalaryLow:
+          type: integer
+          description: 当前税前年薪下限
+        currentAnnualSalaryHigh:
+          type: integer
+          description: 当前税前年薪上限
+
+    ExpectationsStage2:
+      type: object
+      description: 求职意向
+      properties:
+        locations:
+          type: array
+          items:
+            type: string
+          description: 期望工作城市列表
+        jobNames:
+          type: array
+          items:
+            type: string
+          description: 期望职位名称列表
+        companyTypes:
+          type: array
+          items:
+            type: string
+          description: 期望单位类型名称列表
+        industryNames:
+          type: array
+          items:
+            type: string
+          description: 期望行业名称列表
+        workTypeNames:
+          type: array
+          items:
+            type: string
+          description: 期望工作性质名称列表
+        expectedSalaryLow:
+          type: integer
+          description: 当前税前月薪下限
+        expectedSalaryHigh:
+          type: integer
+          description: 当前税前月薪上限
+        expectSalary:
+          type: string
+          description: 期望税前月薪
+        expectedSalaryMonths:
+          type: integer
+          description: 期待每年发薪月数
+        expectedAnnualSalaryLow:
+          type: integer
+          description: 期待税前年薪下限
+        expectedAnnualSalaryHigh:
+          type: integer
+          description: 期待税前年薪上限
+        expectAnnualSalary:
+          type: string
+          description: 期望税前年薪
+        entrantDate:
+          type: string
+          description: 到岗时间描述

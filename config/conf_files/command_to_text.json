@@ -1,0 +1,516 @@
+{
+    "API_name": {
+      "document_url": "API的文档URL",
+      "table_name": "command里用到的table name",
+      "table_schema": {
+        "API返回的字段或请求的参数字段": "该字段的描述"
+      },
+      "required_columns": [
+        "请求API要求带上的参数字段"
+      ],
+      "text_to_command_templates": {
+        "自然语言描述的模版，可用 $xxx# 表示 table_schema 中的 column ": "对应的sql"
+      }
+    },
+    "executable_job_actions": {
+      "document_url": "",
+      "table_name": "job_action",
+      "table_schema": {
+        "job_id": "职位id",
+        "job_name": "职位名称",
+        "action_name": "操作的名称 (收藏、接受、拒绝、删除 等)"
+      },
+      "required_columns": [
+        "action_name"
+      ],
+      "text_to_command_templates": {
+        "$action_name#$job_name#": "select * from job_action where job_name = $job_name# and action_name = $action_name#;",
+        "$action_name#$job_id#": "select * from job_action where job_id = $job_id# and action_name = $action_name#;"
+      }
+    },
+    "executable_resume_actions": {
+      "document_url": "",
+      "table_name": "resume_action",
+      "table_schema": {
+        "resume_id": "简历编号",
+        "candidate_name": "候选人姓名",
+        "action_name": "操作的名称 (收藏、接受、拒绝、删除 等)",
+        "school_name": "学校名称",
+        "position": "职位"
+      },
+      "required_columns": [
+        "action_name"
+      ],
+      "text_to_command_templates": {
+        "$action_name#$candidate_name#": "select * from resume_action where candidate_name = $candidate_name# and action_name = $action_name#;",
+        "$action_name#$resume_id#": "select * from resume_action where resume_id = $resume_id# and action_name = $action_name#;",
+        "将$position#都进行$action_name$": "select * from resume_action where position = $position# and action_name = $action_name#;"
+      }
+    },
+    "文档url": {
+      "名字": "文档url",
+      "data_convert_create_task": "http://mesoor.f3322.net:31000/redoc#operation/create_task_create_task_post",
+      "data_convert_change_keep_all": "http://mesoor.f3322.net:31000/redoc#operation/change_keep_all_change_keep_all_get"
+    },
+    "实体删除自定义标签":{
+        "名字":"删除自定义标签",
+        "custom_tag_delete":"https://{{API_HOST}}/custom_tag/delete"
+    },
+    "链接错误反馈":{
+        "名字":"链接错误反馈",
+        "match_error":"https //{{YOUR_DOMAIN}}.mesoor.com/api/engine/millet/feedback/match_error"
+    },
+    "bean-operation-controller":{
+        "名字":"bean-operation-controller",
+        "get_all":"https://mdflow.nadileaf.com:443/beanOperation/bean",
+        "put":"https://mdflow.nadileaf.com:443/beanOperation/bean",
+        "get_id":"https://mdflow.nadileaf.com:443/beanOperation/bean/{id}",
+        "delete":"https://mdflow.nadileaf.com:443/beanOperation/bean",
+        "get_source_id":"https://mdflow.nadileaf.com:443/beanOperation/bean/source/{id}",
+        "get_sourceid_id":"https://mdflow.nadileaf.com:443/beanOperation/bean/source/{source}/id/{id}",
+        "post_stageid":"https://mdflow.nadileaf.com:443/beanOperation/bean/v1/{beanId}/transfer/{stageId}",
+        "post_admin_stageid":"https://mdflow.nadileaf.com:443/beanOperation/bean/v1/admin/{beanId}/transfer/{stageId}",
+        "post_order":"https://mdflow.nadileaf.com:443/beanOperation/bean/v1/order/{beanId}/{order}",
+        "get_sid":"https://mdflow.nadileaf.com:443/beanOperation/bean/v1/sid/{sid}"
+    },
+    "Talent_portrait":{
+        "名字":"Talent_portrait",
+        "app-persona":" https://dev-app-persona.nadileaf.com/v1/tenants/{tenant_id}/resumes/{open_id}",
+        "persona":"https://nadileaf.github.io/mesoor-schema-types/index.html#tag/ApplicantStandardResume/paths/~1ApplicantStandardResume~1{openId}~1stage~1I5/get"
+    },
+    "bean-relation-operation-controller":{
+        "名字":"bean-relation-operation-controller",
+        "put":"https://mdflow.nadileaf.com:443/bean/relation/",
+        "get_3_e":"https://mdflow.nadileaf.com:443/bean/relation/bean/{beanId}/stage/{stageId}/status/{statusId}",
+        "get_f_id":"https://mdflow.nadileaf.com:443/bean/relation/bean/{id}",
+        "delete":"https://mdflow.nadileaf.com:443/bean/relation/id/{id}",
+        "post_stage_status":"https://mdflow.nadileaf.com:443/bean/relation/id/{id}/stageId/{stageId}/statusId/{statusId}",
+        "post_status":"https://mdflow.nadileaf.com:443/bean/relation/id/{id}/status/{statusId}",
+        "get_stage":"https://mdflow.nadileaf.com:443/bean/relation/stage/{id}",
+        "get_status":"https://mdflow.nadileaf.com:443/bean/relation/status/{id}"
+    },
+    "bean-relation-v-1-operation-controller":{
+        "名字":"bean-relation-v-1-operation-controller",
+        "put":"https://mdflow.nadileaf.com:443/bean/relation/v1/",
+        "get_3_e":"https://mdflow.nadileaf.com:443/bean/relation/v1/bean/{beanId}/stage/{stageId}/status/{statusId}",
+        "get_f_id":"https://mdflow.nadileaf.com:443/bean/relation/v1/bean/{id}",
+        "post_id":"https://mdflow.nadileaf.com:443/bean/relation/v1/extend/id/{id}",
+        "get_rela_id":"https://mdflow.nadileaf.com:443/bean/relation/v1/id/{id}",
+        "delete":"https://mdflow.nadileaf.com:443/bean/relation/v1/id/{id}",
+        "post_stage_status":"https://mdflow.nadileaf.com:443/bean/relation/v1/id/{id}/stageId/{stageId}/statusId/{statusId}",
+        "post_status":"https://mdflow.nadileaf.com:443/bean/relation/v1/id/{id}/status/{statusId}",
+        "get_all_stage":"https://mdflow.nadileaf.com:443/bean/relation/v1/stage/{id}",
+        "get_all_status":"https://mdflow.nadileaf.com:443//bean/relation/v1/status/{id}"
+    },
+    "circuit-operation-controller":{
+        "名字":"circuit-operation-controller",
+        "put":"https://mdflow.nadileaf.com:443/circuitOperation/circuit",
+        "get_f":"https://mdflow.nadileaf.com:443/circuitOperation/circuit/{id}",
+        "delete":"https://mdflow.nadileaf.com:443/circuitOperation/circuit/{id}",
+        "get_f_all":"https://mdflow.nadileaf.com:443/circuitOperation/circuit/all",
+        "get_f_foreign":"https://mdflow.nadileaf.com:443/circuitOperation/circuit/foreign/{id}",
+        "get_f_foreign_source":"https://mdflow.nadileaf.com:443/circuitOperation/circuit/foreign/{id}/source/{source}",
+        "post_template":"https://mdflow.nadileaf.com:443/circuitOperation/circuit/template/{id}",
+        "get_template_all":"https://mdflow.nadileaf.com:443/circuitOperation/circuit/template/all",
+        "get_circuit_tree":"https://mdflow.nadileaf.com:443/circuitOperation/circuit/tree/{id}"
+    },
+    "Comment-Fusion-Operation-Controller":{
+        "名字":"comment-fusion-operation-controller",
+        "put":"https://mdflow.nadileaf.com:443/comment/fusion/string",
+        "post":"https://mdflow.nadileaf.com:443/comment/fusion/string"
+    },
+    "comment-raw-operation-controller":{
+        "名字":"comment-raw-operation-controller",
+        "put":"https://mdflow.nadileaf.com:443/commentOperation/raw/comment",
+        "post":"https://mdflow.nadileaf.com:443/commentOperation/raw/comment"
+    },
+    "stage-flow-controller":{
+        "名字":"stage-flow-controller",
+        "get_stage":"https://mdflow.nadileaf.com:443/stageFlowController/stage",
+        "put":"https://mdflow.nadileaf.com:443/stageFlowController/stage",
+        "delete":"https://mdflow.nadileaf.com:443/stageFlowController/stage/{id}",
+        "get_id":"https://mdflow.nadileaf.com:443/stageFlowController/stage/relate/{id}"
+    },
+    "stage-operation-controller":{
+        "名字":"stage-operation-controller",
+        "put":"https://mdflow.nadileaf.com:443/stageOperation/stage",
+        "get_stage_id":"https://mdflow.nadileaf.com:443/stageOperation/stage/{id}",
+        "post":"https://mdflow.nadileaf.com:443/stageOperation/stage/{id}",
+        "delete":"https://mdflow.nadileaf.com:443/stageOperation/stage/{id}",
+        "get_all":"https://mdflow.nadileaf.com:443/stageOperation/stage/all",
+        "get_pid":"https://mdflow.nadileaf.com:443/stageOperation/stage/circuit/{pid}",
+        "post_order":"https://mdflow.nadileaf.com:443/stageOperation/stage/order/{stageId}/{order}"
+    },
+    "stage-status-controller":{
+        "名字":"stage-status-controller",
+        "get_all":"https://mdflow.nadileaf.com:443/stage/status/",
+        "put":"https://mdflow.nadileaf.com:443/stage/status/",
+        "get_by_id":"https://mdflow.nadileaf.com:443/stage/status/id/{id}",
+        "post":"https://mdflow.nadileaf.com:443/stage/status/id/{id}",
+        "delete":"https://mdflow.nadileaf.com:443/stage/status/id/{id}",
+        "get_stage_by_id":"https://mdflow.nadileaf.com:443/stage/status/stage/{stageId}"
+    },
+    "ruleengine":{
+        "名字":"ruleengine",
+        "请求实例":"http://localhost:8080/api/checkRule",
+        "检索":"http://localhost:8080/centerStorage/FlowBeanRelation"
+    },
+    "Resume_parsing":{
+        "document_url": "https://www.yuque.com/mesoor/igbw47/hqwog0",
+        "description": "简历解析",
+        "table_name":"R_P",
+        "table_schema":{
+
+        },
+        "required_columns":[
+            "content"
+        ],
+        "text_to_command_templates": {
+            "basic":"基本信息",
+            "expectation":"期望",
+            "education":"教育",
+            "works":"工作",
+            "projects":"项目",
+            "interns":"实习",
+            "certificates":"证书",
+            "languages":"语言",
+            "skills":"技能"
+        }
+    },
+    "get_company_info": {
+      "document_url": "https://www.yuque.com/gtmfqm/igbw47/291012617",
+      "description": "查知识图谱获取公司详细信息",
+      "table_name": "kg_company",
+      "table_schema": {
+        "company": "公司",
+        "products": "公司产品",
+        "businesses": "公司业务",
+        "city": "所在城市",
+        "industries": "所属行业",
+        "invested_companies": "投资公司",
+        "injected_companies": "注资公司",
+        "child_companies": "子公司",
+        "parent_companies": "母公司"
+      },
+      "required_columns": [
+        "company"
+      ],
+      "text_to_command_templates": {}
+    },
+    "get_major_info": {
+      "document_url": "https://www.yuque.com/gtmfqm/igbw47/291012617",
+      "description": "查知识图谱获取专业的详细信息",
+      "table_name": "kg_major",
+      "table_schema": {
+        "major": "专业",
+        "degree": "专业所属学历",
+        "cluster": "专业层级",
+        "courses": "课程信息",
+        "schools": "开设学校"
+      },
+      "required_columns": [
+        "major"
+      ],
+      "text_to_command_templates": {}
+    },
+    "get_industry_info":{
+        "document_url": "https://www.yuque.com/gtmfqm/igbw47/291012617",
+        "description": "查知识图谱获取行业的详细信息",
+        "table_name": "kg_industry",
+        "table_schema": {
+            "industry": "行业",
+            "cluster": "行业层级"
+        },
+        "required_columns":[
+            "industry"
+        ],
+        "text_to_command_templates": {}
+
+    },
+    "get_position_info":{
+        "document_url":"https://www.yuque.com/gtmfqm/igbw47/291012617",
+        "description":"查知识图谱获取职位的详细信息",
+        "table_name":"kg_position",
+        "table_schema":{
+            "position":"职位",
+            "cluster":"职能层级",
+            "skills":"相关技能",
+            "position_labels":"相关职责",
+            "position_entities":"职能切分"
+        },
+        "required_columns":[
+            "position"
+        ],
+        "text_to_command_templates":{}
+    },
+    "get_school_info":{
+        "document_url":"https://www.yuque.com/gtmfqm/igbw47/291012617",
+        "description":"查知识图谱获取学校的详细信息",
+        "table_name":"kg_school",
+        "table_schema":{
+            "school_name":"学校搜索词",
+            "schools":"学校",
+            "location":"地点"
+        },
+        "required_columns":[
+            "school_name"
+        ],
+        "text_to_command_templates":{}
+    },
+    "get_certificate_info":{
+        "document_url":"https://www.yuque.com/gtmfqm/igbw47/291012617",
+        "description":"查知识图谱获取证书的详细信息",
+        "table_name":"kg_certificate",
+        "table_schema":{
+            "certificate":"证书",
+            "name":"证书名称",
+            "description":"证书描述"
+        },
+        "required_columns":[
+            "certificate"
+        ],
+        "text_to_command_templates":{}
+    },
+    "get_skill_info":{
+        "document_url":"https://www.yuque.com/gtmfqm/igbw47/291012617",
+        "description":"查知识图谱获取技能的详细信息",
+        "table_name":"kg_skill",
+        "table_schema":{
+            "skill":"技能",
+            "name":"技能名称",
+            "description":"技能描述"
+        },
+        "required_columns":[
+            "skill"
+        ],
+        "text_to_command_templates":{}
+    },
+    "get_company_name_info":{
+        "document_url":"https://www.yuque.com/gtmfqm/igbw47/291012617",
+        "description":"查知识图谱获取在招职位的详细信息",
+        "table_name":"kg_company_name",
+        "table_schema":{
+            "company_name":"公司名"
+        },
+        "required_columns":[
+            "company_name"
+        ],
+        "text_to_command_templates":{}
+    },
+    "get_holder_info":{
+        "document_url":"https://www.yuque.com/gtmfqm/igbw47/291012617",
+        "description":"查知识图谱获取股东的详细信息",
+        "table_name":"kg_holder",
+        "table_schema":{
+            "name":"股东"
+        },
+        "required_columns":[
+            "holder_name"
+        ],
+        "text_to_command_templates":{}
+    },
+    "job_stage_I0":{
+        "document_url":"https://nadileaf.github.io/mesoor-schema-types/",
+        "description":"json string",
+        "table_name":"cs_job_0",
+        "table_schema":{
+            "name":"职位Stage0"
+        },
+        "required_columns":[
+            "openId"
+        ],
+        "text_to_command_templates":{}
+    },
+    "job_stage_I1":{
+        "document_url":"https://nadileaf.github.io/mesoor-schema-types/",
+        "description":"json string",
+        "table_name":"cs_job_1",
+        "table_schema":{
+            "name":"职位Stage1"
+        },
+        "required_columns":[
+            "openId"
+        ],
+        "text_to_command_templates":{}
+    },
+    "job_stage_I2":{
+        "document_url":"https://nadileaf.github.io/mesoor-schema-types/",
+        "description":"json string",
+        "table_name":"cs_job_2",
+        "table_schema":{
+            "name":"职位Stage2"
+        },
+        "required_columns":[
+            "openId"
+        ],
+        "text_to_command_templates":{}
+    },
+    "job_stage_I3":{
+        "document_url":"https://nadileaf.github.io/mesoor-schema-types/",
+        "description":"json string",
+        "table_name":"cs_job_3",
+        "table_schema":{
+            "name":"职位Stage3"
+        },
+        "required_columns":[
+            "openId"
+        ],
+        "text_to_command_templates":{}
+    },
+    "job_stage_I4":{
+        "document_url":"https://nadileaf.github.io/mesoor-schema-types/",
+        "description":"json string",
+        "table_name":"cs_job_4",
+        "table_schema":{
+            "name":"职位Stage4"
+        },
+        "required_columns":[
+            "openId"
+        ],
+        "text_to_command_templates":{}
+    },
+    "resume_stage_I0":{
+        "document_url":"https://nadileaf.github.io/mesoor-schema-types/",
+        "description":"json string",
+        "table_name":"cs_resume_0",
+        "table_schema":{
+            "name":"简历Stage0"
+        },
+        "required_columns":[
+            "openId"
+        ],
+        "text_to_command_templates":{}
+    },
+    "resume_stage_I1":{
+        "document_url":"https://nadileaf.github.io/mesoor-schema-types/",
+        "description":"json string",
+        "table_name":"cs_resume_1",
+        "table_schema":{
+            "name":"简历Stage1"
+        },
+        "required_columns":[
+            "openId"
+        ],
+        "text_to_command_templates":{}
+    },
+    "resume_stage_I2":{
+        "document_url":"https://nadileaf.github.io/mesoor-schema-types/",
+        "description":"json string",
+        "table_name":"cs_resume_2",
+        "table_schema":{
+            "name":"简历Stage2"
+        },
+        "required_columns":[
+            "openId"
+        ],
+        "text_to_command_templates":{}
+    },
+    "resume_stage_I3":{
+        "document_url":"https://nadileaf.github.io/mesoor-schema-types/",
+        "description":"json string",
+        "table_name":"cs_resume_3",
+        "table_schema":{
+            "name":"简历Stage3"
+        },
+        "required_columns":[
+            "openId"
+        ],
+        "text_to_command_templates":{}
+    },
+    "resume_stage_I4":{
+        "document_url":"https://nadileaf.github.io/mesoor-schema-types/",
+        "description":"json string",
+        "table_name":"cs_resume_4",
+        "table_schema":{
+            "name":"简历Stage4"
+        },
+        "required_columns":[
+            "openId"
+        ],
+        "text_to_command_templates":{}
+    },
+    "resume_stage_I5":{
+        "document_url":"https://nadileaf.github.io/mesoor-schema-types/",
+        "description":"json string",
+        "table_name":"cs_resume_5",
+        "table_schema":{
+            "name":"简历Stage5"
+        },
+        "required_columns":[
+            "openId"
+        ],
+        "text_to_command_templates":{}
+    },
+    "ApplicantStandardResume_stage_I0":{
+        "document_url":"https://nadileaf.github.io/mesoor-schema-types/",
+        "description":"json string",
+        "table_name":"cs_resume_0",
+        "table_schema":{
+            "name":"应用标准简历Stage0"
+        },
+        "required_columns":[
+            "openId"
+        ],
+        "text_to_command_templates":{}
+    },
+    "ApplicantStandardResume_stage_I1":{
+        "document_url":"https://nadileaf.github.io/mesoor-schema-types/",
+        "description":"json string",
+        "table_name":"cs_resume_1",
+        "table_schema":{
+            "name":"应用标准简历Stage1"
+        },
+        "required_columns":[
+            "openId"
+        ],
+        "text_to_command_templates":{}
+    },
+    "ApplicantStandardResume_stage_I2":{
+        "document_url":"https://nadileaf.github.io/mesoor-schema-types/",
+        "description":"json string",
+        "table_name":"cs_resume_2",
+        "table_schema":{
+            "name":"应用标准简历Stage2"
+        },
+        "required_columns":[
+            "openId"
+        ],
+        "text_to_command_templates":{}
+    },
+    "ApplicantStandardResume_stage_I3":{
+        "document_url":"https://nadileaf.github.io/mesoor-schema-types/",
+        "description":"json string",
+        "table_name":"cs_resume_3",
+        "table_schema":{
+            "name":"应用标准简历Stage3"
+        },
+        "required_columns":[
+            "openId"
+        ],
+        "text_to_command_templates":{}
+    },
+    "ApplicantStandardResume_stage_I4":{
+        "document_url":"https://nadileaf.github.io/mesoor-schema-types/",
+        "description":"json string",
+        "table_name":"cs_resume_4",
+        "table_schema":{
+            "name":"应用标准简历Stage4"
+        },
+        "required_columns":[
+            "openId"
+        ],
+        "text_to_command_templates":{}
+    },
+    "ApplicantStandardResume_stage_I5":{
+        "document_url":"https://nadileaf.github.io/mesoor-schema-types/",
+        "description":"json string",
+        "table_name":"cs_resume_5",
+        "table_schema":{
+            "name":"应用标准简历Stage5"
+        },
+        "required_columns":[
+            "openId"
+        ],
+        "text_to_command_templates":{}
+    }
+  }

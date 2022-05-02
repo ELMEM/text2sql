@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: text2sql
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: text2sql
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: text2sql
+    spec:
+      containers:
+        - name: text2sql
+          image: harbor.nadileaf.com/ml-model/text2sql:cpu-2.1.9

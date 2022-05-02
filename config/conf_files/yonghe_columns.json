@@ -1,0 +1,2132 @@
+[
+  {
+    "name": "ResumeOpenId",
+    "type": "String",
+    "chinese_name": "简历.None",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeOpenIdCount",
+    "type": "String",
+    "chinese_name": "简历.None(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeOpenIdUniqueCount",
+    "type": "String",
+    "chinese_name": "简历.None(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeName",
+    "type": "String",
+    "chinese_name": "简历.姓名",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeNameCount",
+    "type": "String",
+    "chinese_name": "简历.姓名(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeNameUniqueCount",
+    "type": "String",
+    "chinese_name": "简历.姓名(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeNameUsedBefore",
+    "type": "String",
+    "chinese_name": "简历.曾用名",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeNameUsedBeforeCount",
+    "type": "String",
+    "chinese_name": "简历.曾用名(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeNameUsedBeforeUniqueCount",
+    "type": "String",
+    "chinese_name": "简历.曾用名(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeNamePinYin",
+    "type": "String",
+    "chinese_name": "简历.姓名拼音",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeNamePinYinCount",
+    "type": "String",
+    "chinese_name": "简历.姓名拼音(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeNamePinYinUniqueCount",
+    "type": "String",
+    "chinese_name": "简历.姓名拼音(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeGenderNameNormalized",
+    "type": "String",
+    "chinese_name": "简历.性别",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeGenderNameNormalizedCount",
+    "type": "String",
+    "chinese_name": "简历.性别(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeGenderNameNormalizedUniqueCount",
+    "type": "String",
+    "chinese_name": "简历.性别(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeHeightNormalized",
+    "type": "Int64",
+    "chinese_name": "简历.身高",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeHeightNormalizedAvg",
+    "type": "Int64",
+    "chinese_name": "简历.身高(平均数)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeHeightNormalizedSum",
+    "type": "Int64",
+    "chinese_name": "简历.身高(总数)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeHeightNormalizedMin",
+    "type": "Int64",
+    "chinese_name": "简历.身高(最小值)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeHeightNormalizedMax",
+    "type": "Int64",
+    "chinese_name": "简历.身高(最大值)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeWeightNormalized",
+    "type": "Int64",
+    "chinese_name": "简历.体重",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeWeightNormalizedAvg",
+    "type": "Int64",
+    "chinese_name": "简历.体重(平均数)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeWeightNormalizedSum",
+    "type": "Int64",
+    "chinese_name": "简历.体重(总数)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeWeightNormalizedMin",
+    "type": "Int64",
+    "chinese_name": "简历.体重(最小值)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeWeightNormalizedMax",
+    "type": "Int64",
+    "chinese_name": "简历.体重(最大值)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeAgeNormalized",
+    "type": "Int64",
+    "chinese_name": "简历.年龄",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeAgeNormalizedAvg",
+    "type": "Int64",
+    "chinese_name": "简历.年龄(平均数)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeAgeNormalizedSum",
+    "type": "Int64",
+    "chinese_name": "简历.年龄(总数)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeAgeNormalizedMin",
+    "type": "Int64",
+    "chinese_name": "简历.年龄(最小值)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeAgeNormalizedMax",
+    "type": "Int64",
+    "chinese_name": "简历.年龄(最大值)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeDateOfBirthNormalized",
+    "type": "Date",
+    "chinese_name": "简历.生日",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeDateOfBirthNormalizedByYear",
+    "type": "Date",
+    "chinese_name": "简历.生日(按年)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeDateOfBirthNormalizedByMonth",
+    "type": "Date",
+    "chinese_name": "简历.生日(按月)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeDateOfBirthNormalizedByQuarter",
+    "type": "Date",
+    "chinese_name": "简历.生日(按季)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeDateOfBirthNormalizedByWeek",
+    "type": "Date",
+    "chinese_name": "简历.生日(按周)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeDateOfBirthNormalizedByDate",
+    "type": "Date",
+    "chinese_name": "简历.生日(按日)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeEthicName",
+    "type": "String",
+    "chinese_name": "简历.民族",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeEthicNameCount",
+    "type": "String",
+    "chinese_name": "简历.民族(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeEthicNameUniqueCount",
+    "type": "String",
+    "chinese_name": "简历.民族(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeMaritalNameNormalized",
+    "type": "String",
+    "chinese_name": "简历.婚姻状况",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeMaritalNameNormalizedCount",
+    "type": "String",
+    "chinese_name": "简历.婚姻状况(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeMaritalNameNormalizedUniqueCount",
+    "type": "String",
+    "chinese_name": "简历.婚姻状况(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumePoliticalStatusName",
+    "type": "String",
+    "chinese_name": "简历.政治面貌",
+    "aggregated": false
+  },
+  {
+    "name": "ResumePoliticalStatusNameCount",
+    "type": "String",
+    "chinese_name": "简历.政治面貌(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumePoliticalStatusNameUniqueCount",
+    "type": "String",
+    "chinese_name": "简历.政治面貌(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeNationalityName",
+    "type": "String",
+    "chinese_name": "简历.国籍",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeNationalityNameCount",
+    "type": "String",
+    "chinese_name": "简历.国籍(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeNationalityNameUniqueCount",
+    "type": "String",
+    "chinese_name": "简历.国籍(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeAncestralResidenceNormalizedCountry",
+    "type": "String",
+    "chinese_name": "简历.祖籍(国家)",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeAncestralResidenceNormalizedCountryCount",
+    "type": "String",
+    "chinese_name": "简历.祖籍(国家)(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeAncestralResidenceNormalizedCountryUniqueCount",
+    "type": "String",
+    "chinese_name": "简历.祖籍(国家)(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeAncestralResidenceNormalizedProvince",
+    "type": "String",
+    "chinese_name": "简历.祖籍(省)",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeAncestralResidenceNormalizedProvinceCount",
+    "type": "String",
+    "chinese_name": "简历.祖籍(省)(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeAncestralResidenceNormalizedProvinceUniqueCount",
+    "type": "String",
+    "chinese_name": "简历.祖籍(省)(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeAncestralResidenceNormalizedCity",
+    "type": "String",
+    "chinese_name": "简历.祖籍(市)",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeAncestralResidenceNormalizedCityCount",
+    "type": "String",
+    "chinese_name": "简历.祖籍(市)(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeAncestralResidenceNormalizedCityUniqueCount",
+    "type": "String",
+    "chinese_name": "简历.祖籍(市)(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeAncestralResidenceNormalizedDistrict",
+    "type": "String",
+    "chinese_name": "简历.祖籍(区)",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeAncestralResidenceNormalizedDistrictCount",
+    "type": "String",
+    "chinese_name": "简历.祖籍(区)(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeAncestralResidenceNormalizedDistrictUniqueCount",
+    "type": "String",
+    "chinese_name": "简历.祖籍(区)(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeRegisteredPermanentResidenceNormalizedCountry",
+    "type": "String",
+    "chinese_name": "简历.户籍(国家)",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeRegisteredPermanentResidenceNormalizedCountryCount",
+    "type": "String",
+    "chinese_name": "简历.户籍(国家)(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeRegisteredPermanentResidenceNormalizedCountryUniqueCount",
+    "type": "String",
+    "chinese_name": "简历.户籍(国家)(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeRegisteredPermanentResidenceNormalizedProvince",
+    "type": "String",
+    "chinese_name": "简历.户籍(省)",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeRegisteredPermanentResidenceNormalizedProvinceCount",
+    "type": "String",
+    "chinese_name": "简历.户籍(省)(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeRegisteredPermanentResidenceNormalizedProvinceUniqueCount",
+    "type": "String",
+    "chinese_name": "简历.户籍(省)(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeRegisteredPermanentResidenceNormalizedCity",
+    "type": "String",
+    "chinese_name": "简历.户籍(市)",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeRegisteredPermanentResidenceNormalizedCityCount",
+    "type": "String",
+    "chinese_name": "简历.户籍(市)(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeRegisteredPermanentResidenceNormalizedCityUniqueCount",
+    "type": "String",
+    "chinese_name": "简历.户籍(市)(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeRegisteredPermanentResidenceNormalizedDistrict",
+    "type": "String",
+    "chinese_name": "简历.户籍(区)",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeRegisteredPermanentResidenceNormalizedDistrictCount",
+    "type": "String",
+    "chinese_name": "简历.户籍(区)(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeRegisteredPermanentResidenceNormalizedDistrictUniqueCount",
+    "type": "String",
+    "chinese_name": "简历.户籍(区)(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeLocationNormalizedCountry",
+    "type": "String",
+    "chinese_name": "简历.当前所在地点(国家)",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeLocationNormalizedCountryCount",
+    "type": "String",
+    "chinese_name": "简历.当前所在地点(国家)(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeLocationNormalizedCountryUniqueCount",
+    "type": "String",
+    "chinese_name": "简历.当前所在地点(国家)(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeLocationNormalizedProvince",
+    "type": "String",
+    "chinese_name": "简历.当前所在地点(省)",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeLocationNormalizedProvinceCount",
+    "type": "String",
+    "chinese_name": "简历.当前所在地点(省)(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeLocationNormalizedProvinceUniqueCount",
+    "type": "String",
+    "chinese_name": "简历.当前所在地点(省)(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeLocationNormalizedCity",
+    "type": "String",
+    "chinese_name": "简历.当前所在地点(市)",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeLocationNormalizedCityCount",
+    "type": "String",
+    "chinese_name": "简历.当前所在地点(市)(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeLocationNormalizedCityUniqueCount",
+    "type": "String",
+    "chinese_name": "简历.当前所在地点(市)(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeLocationNormalizedDistrict",
+    "type": "String",
+    "chinese_name": "简历.当前所在地点(区)",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeLocationNormalizedDistrictCount",
+    "type": "String",
+    "chinese_name": "简历.当前所在地点(区)(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeLocationNormalizedDistrictUniqueCount",
+    "type": "String",
+    "chinese_name": "简历.当前所在地点(区)(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeQqID",
+    "type": "String",
+    "chinese_name": "简历.QQ号",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeQqIDCount",
+    "type": "String",
+    "chinese_name": "简历.QQ号(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeQqIDUniqueCount",
+    "type": "String",
+    "chinese_name": "简历.QQ号(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeWechatID",
+    "type": "String",
+    "chinese_name": "简历.微信号",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeWechatIDCount",
+    "type": "String",
+    "chinese_name": "简历.微信号(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeWechatIDUniqueCount",
+    "type": "String",
+    "chinese_name": "简历.微信号(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeEmails",
+    "type": "String",
+    "chinese_name": "简历.微信号",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeEmailsCount",
+    "type": "String",
+    "chinese_name": "简历.微信号(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeEmailsUniqueCount",
+    "type": "String",
+    "chinese_name": "简历.微信号(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumePhoneNumbers",
+    "type": "String",
+    "chinese_name": "简历.微信号",
+    "aggregated": false
+  },
+  {
+    "name": "ResumePhoneNumbersCount",
+    "type": "String",
+    "chinese_name": "简历.微信号(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumePhoneNumbersUniqueCount",
+    "type": "String",
+    "chinese_name": "简历.微信号(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeWorkYearNormalizedGte",
+    "type": "Int64",
+    "chinese_name": "简历.工作年限下限",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeWorkYearNormalizedGteAvg",
+    "type": "Int64",
+    "chinese_name": "简历.工作年限下限(平均数)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeWorkYearNormalizedGteSum",
+    "type": "Int64",
+    "chinese_name": "简历.工作年限下限(总数)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeWorkYearNormalizedGteMin",
+    "type": "Int64",
+    "chinese_name": "简历.工作年限下限(最小值)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeWorkYearNormalizedGteMax",
+    "type": "Int64",
+    "chinese_name": "简历.工作年限下限(最大值)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeWorkYearNormalizedLte",
+    "type": "Int64",
+    "chinese_name": "简历.工作年限上限",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeWorkYearNormalizedLteAvg",
+    "type": "Int64",
+    "chinese_name": "简历.工作年限上限(平均数)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeWorkYearNormalizedLteSum",
+    "type": "Int64",
+    "chinese_name": "简历.工作年限上限(总数)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeWorkYearNormalizedLteMin",
+    "type": "Int64",
+    "chinese_name": "简历.工作年限上限(最小值)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeWorkYearNormalizedLteMax",
+    "type": "Int64",
+    "chinese_name": "简历.工作年限上限(最大值)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeCurrentJobStatusNormalized",
+    "type": "Int64",
+    "chinese_name": "简历.当前状态",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeCurrentJobStatusNormalizedCount",
+    "type": "Int64",
+    "chinese_name": "简历.当前状态(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeCurrentJobStatusNormalizedUniqueCount",
+    "type": "Int64",
+    "chinese_name": "简历.当前状态(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeSalaryRangeNormalizedGte",
+    "type": "Int64",
+    "chinese_name": "简历.薪水下限",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeSalaryRangeNormalizedGteAvg",
+    "type": "Int64",
+    "chinese_name": "简历.薪水下限(平均数)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeSalaryRangeNormalizedGteSum",
+    "type": "Int64",
+    "chinese_name": "简历.薪水下限(总数)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeSalaryRangeNormalizedGteMin",
+    "type": "Int64",
+    "chinese_name": "简历.薪水下限(最小值)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeSalaryRangeNormalizedGteMax",
+    "type": "Int64",
+    "chinese_name": "简历.薪水下限(最大值)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeSalaryRangeNormalizedLte",
+    "type": "Int64",
+    "chinese_name": "简历.薪水上限",
+    "aggregated": false
+  },
+  {
+    "name": "ResumeSalaryRangeNormalizedLteAvg",
+    "type": "Int64",
+    "chinese_name": "简历.薪水上限(平均数)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeSalaryRangeNormalizedLteSum",
+    "type": "Int64",
+    "chinese_name": "简历.薪水上限(总数)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeSalaryRangeNormalizedLteMin",
+    "type": "Int64",
+    "chinese_name": "简历.薪水上限(最小值)",
+    "aggregated": true
+  },
+  {
+    "name": "ResumeSalaryRangeNormalizedLteMax",
+    "type": "Int64",
+    "chinese_name": "简历.薪水上限(最大值)",
+    "aggregated": true
+  },
+  {
+    "name": "JobOpenId",
+    "type": "String",
+    "chinese_name": "职位.None",
+    "aggregated": false
+  },
+  {
+    "name": "JobOpenIdCount",
+    "type": "String",
+    "chinese_name": "职位.None(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "JobOpenIdUniqueCount",
+    "type": "String",
+    "chinese_name": "职位.None(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "JobJobName",
+    "type": "String",
+    "chinese_name": "职位.职位",
+    "aggregated": false
+  },
+  {
+    "name": "JobJobNameCount",
+    "type": "String",
+    "chinese_name": "职位.职位(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "JobJobNameUniqueCount",
+    "type": "String",
+    "chinese_name": "职位.职位(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "JobRecruitingCompanyName",
+    "type": "String",
+    "chinese_name": "职位.公司",
+    "aggregated": false
+  },
+  {
+    "name": "JobRecruitingCompanyNameCount",
+    "type": "String",
+    "chinese_name": "职位.公司(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "JobRecruitingCompanyNameUniqueCount",
+    "type": "String",
+    "chinese_name": "职位.公司(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "JobRecruitingDepartmentName",
+    "type": "String",
+    "chinese_name": "职位.部门",
+    "aggregated": false
+  },
+  {
+    "name": "JobRecruitingDepartmentNameCount",
+    "type": "String",
+    "chinese_name": "职位.部门(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "JobRecruitingDepartmentNameUniqueCount",
+    "type": "String",
+    "chinese_name": "职位.部门(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "JobLocationsNormalizedCountry",
+    "type": "String",
+    "chinese_name": "职位.工作地点(国家)",
+    "aggregated": false
+  },
+  {
+    "name": "JobLocationsNormalizedCountryCount",
+    "type": "String",
+    "chinese_name": "职位.工作地点(国家)(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "JobLocationsNormalizedCountryUniqueCount",
+    "type": "String",
+    "chinese_name": "职位.工作地点(国家)(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "JobLocationsNormalizedProvince",
+    "type": "String",
+    "chinese_name": "职位.工作地点(省)",
+    "aggregated": false
+  },
+  {
+    "name": "JobLocationsNormalizedProvinceCount",
+    "type": "String",
+    "chinese_name": "职位.工作地点(省)(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "JobLocationsNormalizedProvinceUniqueCount",
+    "type": "String",
+    "chinese_name": "职位.工作地点(省)(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "JobLocationsNormalizedCity",
+    "type": "String",
+    "chinese_name": "职位.工作地点(市)",
+    "aggregated": false
+  },
+  {
+    "name": "JobLocationsNormalizedCityCount",
+    "type": "String",
+    "chinese_name": "职位.工作地点(市)(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "JobLocationsNormalizedCityUniqueCount",
+    "type": "String",
+    "chinese_name": "职位.工作地点(市)(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "JobLocationsNormalizedDistrict",
+    "type": "String",
+    "chinese_name": "职位.工作地点(区)",
+    "aggregated": false
+  },
+  {
+    "name": "JobLocationsNormalizedDistrictCount",
+    "type": "String",
+    "chinese_name": "职位.工作地点(区)(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "JobLocationsNormalizedDistrictUniqueCount",
+    "type": "String",
+    "chinese_name": "职位.工作地点(区)(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "JobWorkTimeTypeNameNormalized",
+    "type": "String",
+    "chinese_name": "职位.招聘性质",
+    "aggregated": false
+  },
+  {
+    "name": "JobWorkTimeTypeNameNormalizedCount",
+    "type": "String",
+    "chinese_name": "职位.招聘性质(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "JobWorkTimeTypeNameNormalizedUniqueCount",
+    "type": "String",
+    "chinese_name": "职位.招聘性质(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "JobJobKeywords",
+    "type": "String",
+    "chinese_name": "职位.关键词",
+    "aggregated": false
+  },
+  {
+    "name": "JobJobKeywordsCount",
+    "type": "String",
+    "chinese_name": "职位.关键词(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "JobJobKeywordsUniqueCount",
+    "type": "String",
+    "chinese_name": "职位.关键词(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "JobPublishedDateNormalized",
+    "type": "Date",
+    "chinese_name": "职位.发布时间",
+    "aggregated": false
+  },
+  {
+    "name": "JobPublishedDateNormalizedByYear",
+    "type": "Date",
+    "chinese_name": "职位.发布时间(按年)",
+    "aggregated": true
+  },
+  {
+    "name": "JobPublishedDateNormalizedByMonth",
+    "type": "Date",
+    "chinese_name": "职位.发布时间(按月)",
+    "aggregated": true
+  },
+  {
+    "name": "JobPublishedDateNormalizedByQuarter",
+    "type": "Date",
+    "chinese_name": "职位.发布时间(按季)",
+    "aggregated": true
+  },
+  {
+    "name": "JobPublishedDateNormalizedByWeek",
+    "type": "Date",
+    "chinese_name": "职位.发布时间(按周)",
+    "aggregated": true
+  },
+  {
+    "name": "JobPublishedDateNormalizedByDate",
+    "type": "Date",
+    "chinese_name": "职位.发布时间(按日)",
+    "aggregated": true
+  },
+  {
+    "name": "JobValidDateRangeNormalizedStart",
+    "type": "Date",
+    "chinese_name": "职位.开始时间",
+    "aggregated": false
+  },
+  {
+    "name": "JobValidDateRangeNormalizedStartByYear",
+    "type": "Date",
+    "chinese_name": "职位.开始时间(按年)",
+    "aggregated": true
+  },
+  {
+    "name": "JobValidDateRangeNormalizedStartByMonth",
+    "type": "Date",
+    "chinese_name": "职位.开始时间(按月)",
+    "aggregated": true
+  },
+  {
+    "name": "JobValidDateRangeNormalizedStartByQuarter",
+    "type": "Date",
+    "chinese_name": "职位.开始时间(按季)",
+    "aggregated": true
+  },
+  {
+    "name": "JobValidDateRangeNormalizedStartByWeek",
+    "type": "Date",
+    "chinese_name": "职位.开始时间(按周)",
+    "aggregated": true
+  },
+  {
+    "name": "JobValidDateRangeNormalizedStartByDate",
+    "type": "Date",
+    "chinese_name": "职位.开始时间(按日)",
+    "aggregated": true
+  },
+  {
+    "name": "JobValidDateRangeNormalizedEnd",
+    "type": "Date",
+    "chinese_name": "职位.结束时间",
+    "aggregated": false
+  },
+  {
+    "name": "JobValidDateRangeNormalizedEndByYear",
+    "type": "Date",
+    "chinese_name": "职位.结束时间(按年)",
+    "aggregated": true
+  },
+  {
+    "name": "JobValidDateRangeNormalizedEndByMonth",
+    "type": "Date",
+    "chinese_name": "职位.结束时间(按月)",
+    "aggregated": true
+  },
+  {
+    "name": "JobValidDateRangeNormalizedEndByQuarter",
+    "type": "Date",
+    "chinese_name": "职位.结束时间(按季)",
+    "aggregated": true
+  },
+  {
+    "name": "JobValidDateRangeNormalizedEndByWeek",
+    "type": "Date",
+    "chinese_name": "职位.结束时间(按周)",
+    "aggregated": true
+  },
+  {
+    "name": "JobValidDateRangeNormalizedEndByDate",
+    "type": "Date",
+    "chinese_name": "职位.结束时间(按日)",
+    "aggregated": true
+  },
+  {
+    "name": "JobSalaryMonths",
+    "type": "Int64",
+    "chinese_name": "职位.每年发薪月数",
+    "aggregated": false
+  },
+  {
+    "name": "JobSalaryMonthsAvg",
+    "type": "Int64",
+    "chinese_name": "职位.每年发薪月数(平均数)",
+    "aggregated": true
+  },
+  {
+    "name": "JobSalaryMonthsSum",
+    "type": "Int64",
+    "chinese_name": "职位.每年发薪月数(总数)",
+    "aggregated": true
+  },
+  {
+    "name": "JobSalaryMonthsMin",
+    "type": "Int64",
+    "chinese_name": "职位.每年发薪月数(最小值)",
+    "aggregated": true
+  },
+  {
+    "name": "JobSalaryMonthsMax",
+    "type": "Int64",
+    "chinese_name": "职位.每年发薪月数(最大值)",
+    "aggregated": true
+  },
+  {
+    "name": "JobSalaryRangeNormalizedGte",
+    "type": "Int64",
+    "chinese_name": "职位.薪水下限",
+    "aggregated": false
+  },
+  {
+    "name": "JobSalaryRangeNormalizedGteAvg",
+    "type": "Int64",
+    "chinese_name": "职位.薪水下限(平均数)",
+    "aggregated": true
+  },
+  {
+    "name": "JobSalaryRangeNormalizedGteSum",
+    "type": "Int64",
+    "chinese_name": "职位.薪水下限(总数)",
+    "aggregated": true
+  },
+  {
+    "name": "JobSalaryRangeNormalizedGteMin",
+    "type": "Int64",
+    "chinese_name": "职位.薪水下限(最小值)",
+    "aggregated": true
+  },
+  {
+    "name": "JobSalaryRangeNormalizedGteMax",
+    "type": "Int64",
+    "chinese_name": "职位.薪水下限(最大值)",
+    "aggregated": true
+  },
+  {
+    "name": "JobSalaryRangeNormalizedLte",
+    "type": "Int64",
+    "chinese_name": "职位.薪水上限",
+    "aggregated": false
+  },
+  {
+    "name": "JobSalaryRangeNormalizedLteAvg",
+    "type": "Int64",
+    "chinese_name": "职位.薪水上限(平均数)",
+    "aggregated": true
+  },
+  {
+    "name": "JobSalaryRangeNormalizedLteSum",
+    "type": "Int64",
+    "chinese_name": "职位.薪水上限(总数)",
+    "aggregated": true
+  },
+  {
+    "name": "JobSalaryRangeNormalizedLteMin",
+    "type": "Int64",
+    "chinese_name": "职位.薪水上限(最小值)",
+    "aggregated": true
+  },
+  {
+    "name": "JobSalaryRangeNormalizedLteMax",
+    "type": "Int64",
+    "chinese_name": "职位.薪水上限(最大值)",
+    "aggregated": true
+  },
+  {
+    "name": "JobGenderRequirementNormalized",
+    "type": "String",
+    "chinese_name": "职位.性别要求",
+    "aggregated": false
+  },
+  {
+    "name": "JobGenderRequirementNormalizedCount",
+    "type": "String",
+    "chinese_name": "职位.性别要求(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "JobGenderRequirementNormalizedUniqueCount",
+    "type": "String",
+    "chinese_name": "职位.性别要求(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "JobAgeRequirementNormalizedGte",
+    "type": "Int64",
+    "chinese_name": "职位.年龄要求下限",
+    "aggregated": false
+  },
+  {
+    "name": "JobAgeRequirementNormalizedGteAvg",
+    "type": "Int64",
+    "chinese_name": "职位.年龄要求下限(平均数)",
+    "aggregated": true
+  },
+  {
+    "name": "JobAgeRequirementNormalizedGteSum",
+    "type": "Int64",
+    "chinese_name": "职位.年龄要求下限(总数)",
+    "aggregated": true
+  },
+  {
+    "name": "JobAgeRequirementNormalizedGteMin",
+    "type": "Int64",
+    "chinese_name": "职位.年龄要求下限(最小值)",
+    "aggregated": true
+  },
+  {
+    "name": "JobAgeRequirementNormalizedGteMax",
+    "type": "Int64",
+    "chinese_name": "职位.年龄要求下限(最大值)",
+    "aggregated": true
+  },
+  {
+    "name": "JobAgeRequirementNormalizedLte",
+    "type": "Int64",
+    "chinese_name": "职位.年龄要求上限",
+    "aggregated": false
+  },
+  {
+    "name": "JobAgeRequirementNormalizedLteAvg",
+    "type": "Int64",
+    "chinese_name": "职位.年龄要求上限(平均数)",
+    "aggregated": true
+  },
+  {
+    "name": "JobAgeRequirementNormalizedLteSum",
+    "type": "Int64",
+    "chinese_name": "职位.年龄要求上限(总数)",
+    "aggregated": true
+  },
+  {
+    "name": "JobAgeRequirementNormalizedLteMin",
+    "type": "Int64",
+    "chinese_name": "职位.年龄要求上限(最小值)",
+    "aggregated": true
+  },
+  {
+    "name": "JobAgeRequirementNormalizedLteMax",
+    "type": "Int64",
+    "chinese_name": "职位.年龄要求上限(最大值)",
+    "aggregated": true
+  },
+  {
+    "name": "JobWorkYearsRequirementNormalizedGte",
+    "type": "Int64",
+    "chinese_name": "职位.工作年限要求下限",
+    "aggregated": false
+  },
+  {
+    "name": "JobWorkYearsRequirementNormalizedGteAvg",
+    "type": "Int64",
+    "chinese_name": "职位.工作年限要求下限(平均数)",
+    "aggregated": true
+  },
+  {
+    "name": "JobWorkYearsRequirementNormalizedGteSum",
+    "type": "Int64",
+    "chinese_name": "职位.工作年限要求下限(总数)",
+    "aggregated": true
+  },
+  {
+    "name": "JobWorkYearsRequirementNormalizedGteMin",
+    "type": "Int64",
+    "chinese_name": "职位.工作年限要求下限(最小值)",
+    "aggregated": true
+  },
+  {
+    "name": "JobWorkYearsRequirementNormalizedGteMax",
+    "type": "Int64",
+    "chinese_name": "职位.工作年限要求下限(最大值)",
+    "aggregated": true
+  },
+  {
+    "name": "JobWorkYearsRequirementNormalizedLte",
+    "type": "Int64",
+    "chinese_name": "职位.工作年限要求上限",
+    "aggregated": false
+  },
+  {
+    "name": "JobWorkYearsRequirementNormalizedLteAvg",
+    "type": "Int64",
+    "chinese_name": "职位.工作年限要求上限(平均数)",
+    "aggregated": true
+  },
+  {
+    "name": "JobWorkYearsRequirementNormalizedLteSum",
+    "type": "Int64",
+    "chinese_name": "职位.工作年限要求上限(总数)",
+    "aggregated": true
+  },
+  {
+    "name": "JobWorkYearsRequirementNormalizedLteMin",
+    "type": "Int64",
+    "chinese_name": "职位.工作年限要求上限(最小值)",
+    "aggregated": true
+  },
+  {
+    "name": "JobWorkYearsRequirementNormalizedLteMax",
+    "type": "Int64",
+    "chinese_name": "职位.工作年限要求上限(最大值)",
+    "aggregated": true
+  },
+  {
+    "name": "JobDegreeRequirementNormalizedGte",
+    "type": "String",
+    "chinese_name": "职位.学历要求下限",
+    "aggregated": false
+  },
+  {
+    "name": "JobDegreeRequirementNormalizedGteAvg",
+    "type": "String",
+    "chinese_name": "职位.学历要求下限(平均数)",
+    "aggregated": true
+  },
+  {
+    "name": "JobDegreeRequirementNormalizedGteSum",
+    "type": "String",
+    "chinese_name": "职位.学历要求下限(总数)",
+    "aggregated": true
+  },
+  {
+    "name": "JobDegreeRequirementNormalizedGteMin",
+    "type": "String",
+    "chinese_name": "职位.学历要求下限(最小值)",
+    "aggregated": true
+  },
+  {
+    "name": "JobDegreeRequirementNormalizedGteMax",
+    "type": "String",
+    "chinese_name": "职位.学历要求下限(最大值)",
+    "aggregated": true
+  },
+  {
+    "name": "JobDegreeRequirementNormalizedLte",
+    "type": "String",
+    "chinese_name": "职位.学历要求上限",
+    "aggregated": false
+  },
+  {
+    "name": "JobDegreeRequirementNormalizedLteAvg",
+    "type": "String",
+    "chinese_name": "职位.学历要求上限(平均数)",
+    "aggregated": true
+  },
+  {
+    "name": "JobDegreeRequirementNormalizedLteSum",
+    "type": "String",
+    "chinese_name": "职位.学历要求上限(总数)",
+    "aggregated": true
+  },
+  {
+    "name": "JobDegreeRequirementNormalizedLteMin",
+    "type": "String",
+    "chinese_name": "职位.学历要求上限(最小值)",
+    "aggregated": true
+  },
+  {
+    "name": "JobDegreeRequirementNormalizedLteMax",
+    "type": "String",
+    "chinese_name": "职位.学历要求上限(最大值)",
+    "aggregated": true
+  },
+  {
+    "name": "JobHeadCountRangeNormalizedGte",
+    "type": "Int64",
+    "chinese_name": "职位.招聘人数下限",
+    "aggregated": false
+  },
+  {
+    "name": "JobHeadCountRangeNormalizedGteAvg",
+    "type": "Int64",
+    "chinese_name": "职位.招聘人数下限(平均数)",
+    "aggregated": true
+  },
+  {
+    "name": "JobHeadCountRangeNormalizedGteSum",
+    "type": "Int64",
+    "chinese_name": "职位.招聘人数下限(总数)",
+    "aggregated": true
+  },
+  {
+    "name": "JobHeadCountRangeNormalizedGteMin",
+    "type": "Int64",
+    "chinese_name": "职位.招聘人数下限(最小值)",
+    "aggregated": true
+  },
+  {
+    "name": "JobHeadCountRangeNormalizedGteMax",
+    "type": "Int64",
+    "chinese_name": "职位.招聘人数下限(最大值)",
+    "aggregated": true
+  },
+  {
+    "name": "JobHeadCountRangeNormalizedLte",
+    "type": "Int64",
+    "chinese_name": "职位.招聘人数上限",
+    "aggregated": false
+  },
+  {
+    "name": "JobHeadCountRangeNormalizedLteAvg",
+    "type": "Int64",
+    "chinese_name": "职位.招聘人数上限(平均数)",
+    "aggregated": true
+  },
+  {
+    "name": "JobHeadCountRangeNormalizedLteSum",
+    "type": "Int64",
+    "chinese_name": "职位.招聘人数上限(总数)",
+    "aggregated": true
+  },
+  {
+    "name": "JobHeadCountRangeNormalizedLteMin",
+    "type": "Int64",
+    "chinese_name": "职位.招聘人数上限(最小值)",
+    "aggregated": true
+  },
+  {
+    "name": "JobHeadCountRangeNormalizedLteMax",
+    "type": "Int64",
+    "chinese_name": "职位.招聘人数上限(最大值)",
+    "aggregated": true
+  },
+  {
+    "name": "JobStatus",
+    "type": "String",
+    "chinese_name": "职位.职位状态",
+    "aggregated": false
+  },
+  {
+    "name": "JobStatusCount",
+    "type": "String",
+    "chinese_name": "职位.职位状态(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "JobStatusUniqueCount",
+    "type": "String",
+    "chinese_name": "职位.职位状态(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceCompanyNameLinked",
+    "type": "String",
+    "chinese_name": "工作经历.公司名称",
+    "aggregated": false
+  },
+  {
+    "name": "WorkExperienceCompanyNameLinkedCount",
+    "type": "String",
+    "chinese_name": "工作经历.公司名称(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceCompanyNameLinkedUniqueCount",
+    "type": "String",
+    "chinese_name": "工作经历.公司名称(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceIndustryNamesLinked",
+    "type": "String",
+    "chinese_name": "工作经历.公司行业",
+    "aggregated": false
+  },
+  {
+    "name": "WorkExperienceIndustryNamesLinkedCount",
+    "type": "String",
+    "chinese_name": "工作经历.公司行业(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceIndustryNamesLinkedUniqueCount",
+    "type": "String",
+    "chinese_name": "工作经历.公司行业(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceJobNamesLinked",
+    "type": "String",
+    "chinese_name": "工作经历.职位",
+    "aggregated": false
+  },
+  {
+    "name": "WorkExperienceJobNamesLinkedCount",
+    "type": "String",
+    "chinese_name": "工作经历.职位(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceJobNamesLinkedUniqueCount",
+    "type": "String",
+    "chinese_name": "工作经历.职位(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceCompanyTagsAnalyzed",
+    "type": "String",
+    "chinese_name": "工作经历.公司标签",
+    "aggregated": false
+  },
+  {
+    "name": "WorkExperienceCompanyTagsAnalyzedCount",
+    "type": "String",
+    "chinese_name": "工作经历.公司标签(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceCompanyTagsAnalyzedUniqueCount",
+    "type": "String",
+    "chinese_name": "工作经历.公司标签(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceSalaryRangeNormalizedGte",
+    "type": "Int64",
+    "chinese_name": "工作经历.薪水下限",
+    "aggregated": false
+  },
+  {
+    "name": "WorkExperienceSalaryRangeNormalizedGteAvg",
+    "type": "Int64",
+    "chinese_name": "工作经历.薪水下限(平均数)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceSalaryRangeNormalizedGteSum",
+    "type": "Int64",
+    "chinese_name": "工作经历.薪水下限(总数)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceSalaryRangeNormalizedGteMin",
+    "type": "Int64",
+    "chinese_name": "工作经历.薪水下限(最小值)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceSalaryRangeNormalizedGteMax",
+    "type": "Int64",
+    "chinese_name": "工作经历.薪水下限(最大值)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceSalaryRangeNormalizedLte",
+    "type": "Int64",
+    "chinese_name": "工作经历.薪水上限",
+    "aggregated": false
+  },
+  {
+    "name": "WorkExperienceSalaryRangeNormalizedLteAvg",
+    "type": "Int64",
+    "chinese_name": "工作经历.薪水上限(平均数)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceSalaryRangeNormalizedLteSum",
+    "type": "Int64",
+    "chinese_name": "工作经历.薪水上限(总数)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceSalaryRangeNormalizedLteMin",
+    "type": "Int64",
+    "chinese_name": "工作经历.薪水上限(最小值)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceSalaryRangeNormalizedLteMax",
+    "type": "Int64",
+    "chinese_name": "工作经历.薪水上限(最大值)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceDateRangeNormalizedStart",
+    "type": "Date",
+    "chinese_name": "工作经历.开始时间",
+    "aggregated": false
+  },
+  {
+    "name": "WorkExperienceDateRangeNormalizedStartByYear",
+    "type": "Date",
+    "chinese_name": "工作经历.开始时间(按年)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceDateRangeNormalizedStartByMonth",
+    "type": "Date",
+    "chinese_name": "工作经历.开始时间(按月)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceDateRangeNormalizedStartByQuarter",
+    "type": "Date",
+    "chinese_name": "工作经历.开始时间(按季)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceDateRangeNormalizedStartByWeek",
+    "type": "Date",
+    "chinese_name": "工作经历.开始时间(按周)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceDateRangeNormalizedStartByDate",
+    "type": "Date",
+    "chinese_name": "工作经历.开始时间(按日)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceDateRangeNormalizedEnd",
+    "type": "Date",
+    "chinese_name": "工作经历.结束时间",
+    "aggregated": false
+  },
+  {
+    "name": "WorkExperienceDateRangeNormalizedEndByYear",
+    "type": "Date",
+    "chinese_name": "工作经历.结束时间(按年)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceDateRangeNormalizedEndByMonth",
+    "type": "Date",
+    "chinese_name": "工作经历.结束时间(按月)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceDateRangeNormalizedEndByQuarter",
+    "type": "Date",
+    "chinese_name": "工作经历.结束时间(按季)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceDateRangeNormalizedEndByWeek",
+    "type": "Date",
+    "chinese_name": "工作经历.结束时间(按周)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceDateRangeNormalizedEndByDate",
+    "type": "Date",
+    "chinese_name": "工作经历.结束时间(按日)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceCompanySizeNormalizedGte",
+    "type": "Int64",
+    "chinese_name": "工作经历.公司规模下限",
+    "aggregated": false
+  },
+  {
+    "name": "WorkExperienceCompanySizeNormalizedGteCount",
+    "type": "Int64",
+    "chinese_name": "工作经历.公司规模下限(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceCompanySizeNormalizedGteUniqueCount",
+    "type": "Int64",
+    "chinese_name": "工作经历.公司规模下限(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceCompanySizeNormalizedLte",
+    "type": "Int64",
+    "chinese_name": "工作经历.公司规模上限",
+    "aggregated": false
+  },
+  {
+    "name": "WorkExperienceCompanySizeNormalizedLteCount",
+    "type": "Int64",
+    "chinese_name": "工作经历.公司规模上限(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceCompanySizeNormalizedLteUniqueCount",
+    "type": "Int64",
+    "chinese_name": "工作经历.公司规模上限(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceSubordinateNumber",
+    "type": "Int64",
+    "chinese_name": "工作经历.下属人数",
+    "aggregated": false
+  },
+  {
+    "name": "WorkExperienceSubordinateNumberAvg",
+    "type": "Int64",
+    "chinese_name": "工作经历.下属人数(平均数)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceSubordinateNumberSum",
+    "type": "Int64",
+    "chinese_name": "工作经历.下属人数(总数)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceSubordinateNumberMin",
+    "type": "Int64",
+    "chinese_name": "工作经历.下属人数(最小值)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceSubordinateNumberMax",
+    "type": "Int64",
+    "chinese_name": "工作经历.下属人数(最大值)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceLeavingReason",
+    "type": "String",
+    "chinese_name": "工作经历.离职原因",
+    "aggregated": false
+  },
+  {
+    "name": "WorkExperienceLeavingReasonCount",
+    "type": "String",
+    "chinese_name": "工作经历.离职原因(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceLeavingReasonUniqueCount",
+    "type": "String",
+    "chinese_name": "工作经历.离职原因(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceLocationsNormalizedCountry",
+    "type": "String",
+    "chinese_name": "工作经历.国家",
+    "aggregated": false
+  },
+  {
+    "name": "WorkExperienceLocationsNormalizedCountryCount",
+    "type": "String",
+    "chinese_name": "工作经历.国家(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceLocationsNormalizedCountryUniqueCount",
+    "type": "String",
+    "chinese_name": "工作经历.国家(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceLocationsNormalizedProvince",
+    "type": "String",
+    "chinese_name": "工作经历.省",
+    "aggregated": false
+  },
+  {
+    "name": "WorkExperienceLocationsNormalizedProvinceCount",
+    "type": "String",
+    "chinese_name": "工作经历.省(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceLocationsNormalizedProvinceUniqueCount",
+    "type": "String",
+    "chinese_name": "工作经历.省(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceLocationsNormalizedCity",
+    "type": "String",
+    "chinese_name": "工作经历.市",
+    "aggregated": false
+  },
+  {
+    "name": "WorkExperienceLocationsNormalizedCityCount",
+    "type": "String",
+    "chinese_name": "工作经历.市(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceLocationsNormalizedCityUniqueCount",
+    "type": "String",
+    "chinese_name": "工作经历.市(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceLocationsNormalizedDistrict",
+    "type": "String",
+    "chinese_name": "工作经历.区",
+    "aggregated": false
+  },
+  {
+    "name": "WorkExperienceLocationsNormalizedDistrictCount",
+    "type": "String",
+    "chinese_name": "工作经历.区(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "WorkExperienceLocationsNormalizedDistrictUniqueCount",
+    "type": "String",
+    "chinese_name": "工作经历.区(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "FlowStageName",
+    "type": "String",
+    "chinese_name": "招聘流程.流程",
+    "aggregated": false
+  },
+  {
+    "name": "FlowStageNameCount",
+    "type": "String",
+    "chinese_name": "招聘流程.流程(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "FlowStageNameUniqueCount",
+    "type": "String",
+    "chinese_name": "招聘流程.流程(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "FlowStageId",
+    "type": "Int64",
+    "chinese_name": "招聘流程.None",
+    "aggregated": false
+  },
+  {
+    "name": "FlowStageIdCount",
+    "type": "Int64",
+    "chinese_name": "招聘流程.None(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "FlowStageIdUniqueCount",
+    "type": "Int64",
+    "chinese_name": "招聘流程.None(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "FlowStageStatusCreateTime",
+    "type": "DateTime",
+    "chinese_name": "招聘流程.创建时间",
+    "aggregated": false
+  },
+  {
+    "name": "FlowStageStatusCreateTimeByYear",
+    "type": "DateTime",
+    "chinese_name": "招聘流程.创建时间(按年)",
+    "aggregated": true
+  },
+  {
+    "name": "FlowStageStatusCreateTimeByMonth",
+    "type": "DateTime",
+    "chinese_name": "招聘流程.创建时间(按月)",
+    "aggregated": true
+  },
+  {
+    "name": "FlowStageStatusCreateTimeByQuarter",
+    "type": "DateTime",
+    "chinese_name": "招聘流程.创建时间(按季)",
+    "aggregated": true
+  },
+  {
+    "name": "FlowStageStatusCreateTimeByWeek",
+    "type": "DateTime",
+    "chinese_name": "招聘流程.创建时间(按周)",
+    "aggregated": true
+  },
+  {
+    "name": "FlowStageStatusCreateTimeByDate",
+    "type": "DateTime",
+    "chinese_name": "招聘流程.创建时间(按日)",
+    "aggregated": true
+  },
+  {
+    "name": "EducationExperienceSchoolNameLinked",
+    "type": "String",
+    "chinese_name": "教育经历.学校名称",
+    "aggregated": false
+  },
+  {
+    "name": "EducationExperienceSchoolNameLinkedCount",
+    "type": "String",
+    "chinese_name": "教育经历.学校名称(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "EducationExperienceSchoolNameLinkedUniqueCount",
+    "type": "String",
+    "chinese_name": "教育经历.学校名称(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "EducationExperienceMajorNamesLinked",
+    "type": "String",
+    "chinese_name": "教育经历.专业名称",
+    "aggregated": false
+  },
+  {
+    "name": "EducationExperienceMajorNamesLinkedCount",
+    "type": "String",
+    "chinese_name": "教育经历.专业名称(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "EducationExperienceMajorNamesLinkedUniqueCount",
+    "type": "String",
+    "chinese_name": "教育经历.专业名称(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "EducationExperienceSchoolMajorTagsAnalyzed",
+    "type": "String",
+    "chinese_name": "教育经历.学校标签",
+    "aggregated": false
+  },
+  {
+    "name": "EducationExperienceSchoolMajorTagsAnalyzedCount",
+    "type": "String",
+    "chinese_name": "教育经历.学校标签(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "EducationExperienceSchoolMajorTagsAnalyzedUniqueCount",
+    "type": "String",
+    "chinese_name": "教育经历.学校标签(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "EducationExperienceDateRangeNormalizedStart",
+    "type": "Date",
+    "chinese_name": "教育经历.开始时间",
+    "aggregated": false
+  },
+  {
+    "name": "EducationExperienceDateRangeNormalizedStartByYear",
+    "type": "Date",
+    "chinese_name": "教育经历.开始时间(按年)",
+    "aggregated": true
+  },
+  {
+    "name": "EducationExperienceDateRangeNormalizedStartByMonth",
+    "type": "Date",
+    "chinese_name": "教育经历.开始时间(按月)",
+    "aggregated": true
+  },
+  {
+    "name": "EducationExperienceDateRangeNormalizedStartByQuarter",
+    "type": "Date",
+    "chinese_name": "教育经历.开始时间(按季)",
+    "aggregated": true
+  },
+  {
+    "name": "EducationExperienceDateRangeNormalizedStartByWeek",
+    "type": "Date",
+    "chinese_name": "教育经历.开始时间(按周)",
+    "aggregated": true
+  },
+  {
+    "name": "EducationExperienceDateRangeNormalizedStartByDate",
+    "type": "Date",
+    "chinese_name": "教育经历.开始时间(按日)",
+    "aggregated": true
+  },
+  {
+    "name": "EducationExperienceDateRangeNormalizedEnd",
+    "type": "Date",
+    "chinese_name": "教育经历.结束时间",
+    "aggregated": false
+  },
+  {
+    "name": "EducationExperienceDateRangeNormalizedEndByYear",
+    "type": "Date",
+    "chinese_name": "教育经历.结束时间(按年)",
+    "aggregated": true
+  },
+  {
+    "name": "EducationExperienceDateRangeNormalizedEndByMonth",
+    "type": "Date",
+    "chinese_name": "教育经历.结束时间(按月)",
+    "aggregated": true
+  },
+  {
+    "name": "EducationExperienceDateRangeNormalizedEndByQuarter",
+    "type": "Date",
+    "chinese_name": "教育经历.结束时间(按季)",
+    "aggregated": true
+  },
+  {
+    "name": "EducationExperienceDateRangeNormalizedEndByWeek",
+    "type": "Date",
+    "chinese_name": "教育经历.结束时间(按周)",
+    "aggregated": true
+  },
+  {
+    "name": "EducationExperienceDateRangeNormalizedEndByDate",
+    "type": "Date",
+    "chinese_name": "教育经历.结束时间(按日)",
+    "aggregated": true
+  },
+  {
+    "name": "EducationExperienceDegreeNameNormalized",
+    "type": "String",
+    "chinese_name": "教育经历.学历",
+    "aggregated": false
+  },
+  {
+    "name": "EducationExperienceDegreeNameNormalizedCount",
+    "type": "String",
+    "chinese_name": "教育经历.学历(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "EducationExperienceDegreeNameNormalizedUniqueCount",
+    "type": "String",
+    "chinese_name": "教育经历.学历(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "EducationExperienceLocationsNormalizedCountry",
+    "type": "String",
+    "chinese_name": "教育经历.国家",
+    "aggregated": false
+  },
+  {
+    "name": "EducationExperienceLocationsNormalizedCountryCount",
+    "type": "String",
+    "chinese_name": "教育经历.国家(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "EducationExperienceLocationsNormalizedCountryUniqueCount",
+    "type": "String",
+    "chinese_name": "教育经历.国家(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "EducationExperienceLocationsNormalizedProvince",
+    "type": "String",
+    "chinese_name": "教育经历.省",
+    "aggregated": false
+  },
+  {
+    "name": "EducationExperienceLocationsNormalizedProvinceCount",
+    "type": "String",
+    "chinese_name": "教育经历.省(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "EducationExperienceLocationsNormalizedProvinceUniqueCount",
+    "type": "String",
+    "chinese_name": "教育经历.省(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "EducationExperienceLocationsNormalizedCity",
+    "type": "String",
+    "chinese_name": "教育经历.市",
+    "aggregated": false
+  },
+  {
+    "name": "EducationExperienceLocationsNormalizedCityCount",
+    "type": "String",
+    "chinese_name": "教育经历.市(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "EducationExperienceLocationsNormalizedCityUniqueCount",
+    "type": "String",
+    "chinese_name": "教育经历.市(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "EducationExperienceLocationsNormalizedDistrict",
+    "type": "String",
+    "chinese_name": "教育经历.区",
+    "aggregated": false
+  },
+  {
+    "name": "EducationExperienceLocationsNormalizedDistrictCount",
+    "type": "String",
+    "chinese_name": "教育经历.区(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "EducationExperienceLocationsNormalizedDistrictUniqueCount",
+    "type": "String",
+    "chinese_name": "教育经历.区(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "TenantId",
+    "type": "Int64",
+    "chinese_name": "租户.None",
+    "aggregated": false
+  },
+  {
+    "name": "TenantTenant",
+    "type": "String",
+    "chinese_name": "租户.英文名称",
+    "aggregated": false
+  },
+  {
+    "name": "TenantTenantCount",
+    "type": "String",
+    "chinese_name": "租户.英文名称(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "TenantTenantUniqueCount",
+    "type": "String",
+    "chinese_name": "租户.英文名称(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "TenantName",
+    "type": "String",
+    "chinese_name": "租户.名称",
+    "aggregated": false
+  },
+  {
+    "name": "TenantNameCount",
+    "type": "String",
+    "chinese_name": "租户.名称(数量)",
+    "aggregated": true
+  },
+  {
+    "name": "TenantNameUniqueCount",
+    "type": "String",
+    "chinese_name": "租户.名称(去重数量)",
+    "aggregated": true
+  },
+  {
+    "name": "TenantCreatedAt",
+    "type": "DateTime",
+    "chinese_name": "租户.创建时间",
+    "aggregated": false
+  },
+  {
+    "name": "TenantCreatedAtByYear",
+    "type": "DateTime",
+    "chinese_name": "租户.创建时间(按年)",
+    "aggregated": true
+  },
+  {
+    "name": "TenantCreatedAtByMonth",
+    "type": "DateTime",
+    "chinese_name": "租户.创建时间(按月)",
+    "aggregated": true
+  },
+  {
+    "name": "TenantCreatedAtByQuarter",
+    "type": "DateTime",
+    "chinese_name": "租户.创建时间(按季)",
+    "aggregated": true
+  },
+  {
+    "name": "TenantCreatedAtByWeek",
+    "type": "DateTime",
+    "chinese_name": "租户.创建时间(按周)",
+    "aggregated": true
+  },
+  {
+    "name": "TenantCreatedAtByDate",
+    "type": "DateTime",
+    "chinese_name": "租户.创建时间(按日)",
+    "aggregated": true
+  },
+  {
+    "name": "TenantUpdatedAt2",
+    "type": "DateTime",
+    "chinese_name": "租户.更新时间",
+    "aggregated": false
+  },
+  {
+    "name": "TenantUpdatedAt2ByYear",
+    "type": "DateTime",
+    "chinese_name": "租户.更新时间(按年)",
+    "aggregated": true
+  },
+  {
+    "name": "TenantUpdatedAt2ByMonth",
+    "type": "DateTime",
+    "chinese_name": "租户.更新时间(按月)",
+    "aggregated": true
+  },
+  {
+    "name": "TenantUpdatedAt2ByQuarter",
+    "type": "DateTime",
+    "chinese_name": "租户.更新时间(按季)",
+    "aggregated": true
+  },
+  {
+    "name": "TenantUpdatedAt2ByWeek",
+    "type": "DateTime",
+    "chinese_name": "租户.更新时间(按周)",
+    "aggregated": true
+  },
+  {
+    "name": "TenantUpdatedAt2ByDate",
+    "type": "DateTime",
+    "chinese_name": "租户.更新时间(按日)",
+    "aggregated": true
+  }
+]

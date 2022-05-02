@@ -1,0 +1,480 @@
+[
+  {
+    "input": ["上海的程序员", "平均薪资","大于","2w"],
+    "output_type": [
+        ["value", "上海", ["JobLocationsNormalizedCity"], 0],
+        ["value", "程序员", ["JobJobName"], 0],
+        ["agg_fn", "平均", ["Avg"], 1],
+        ["column_desc", "薪资", ["WorkExperienceSalaryRangeNormalizedGte", "WorkExperienceSalaryRangeNormalizedLte"], 1],
+        ["comparison_op_desc", "大于", [">"], 2],
+        ["value", "2w", ["WorkExperienceSalaryRangeNormalizedLte",
+                         "WorkExperienceSalaryRangeNormalizedGte"], 3]],
+
+    "output_sql":[],
+    "output_rela": []
+  },
+  {
+    "input": ["北京","程序员","最高薪资"],
+    "output_type": [
+      ["value","北京",["JobLocationsNormalizedCity"], 0],
+      ["value","程序员",["JobJobName"], 1],
+      ["agg_fn", "最高", ["Max"], 2],
+      ["column_desc","薪资",["WorkExperienceSalaryRangeNormalizedLt", "WorkExperienceSalaryRangeNormalizedGte"],2]],
+    "output_sql": "select JobLocationsNormalizedCity, WorkExperienceSalaryRangeNormalizedLteMax, JobJobName where JobLocationsNormalizedCity = \"北京\" and JobJobName = \"程序员\"",
+    "output_rela": []
+  },
+  {
+    "input": ["上海","java程序员"],
+    "output_type":[
+      ["value","上海",["JobLocationsNormalizedCity"], 0],
+      ["value","java",["JobJobName"], 1]],
+    "output_sql":"select JobLocationsNormalizedCity where JobLocationsNormalizedCity = \"上海\" and JobJobName = \"java程序员\"",
+    "output_rela": []
+  },
+  {
+    "input": ["程序员", "上海", "薪资", "大于", "2w"],
+    "output_type":[
+      ["value","程序员",["JobJobName"],0],
+      ["value","上海",["JobLocationsNormalizedCity"],1],
+      ["column_desc","薪资",["WorkExperienceSalaryRangeNormalizedLte", "WorkExperienceSalaryRangeNormalizedGte"],2],
+      ["comparison_op_desc", "大于",[">"],3],
+      ["value", "2w", ["WorkExperienceSalaryRangeNormalizedLte", "WorkExperienceSalaryRangeNormalizedGte"],4]],
+    "output_sql": "select JobJobName, JobLocationsNormalizedCity, WorkExperienceSalaryRangeNormalizedLte where JobJobName = \"程序员\" and JobLocationsNormalizedCity = \"上海\" and  WorkExperienceSalaryRangeNormalizedLte > \"2w\"",
+    "output_rela": [{"relation_type":"where_op", "head_id":4, "tail_id":3, "priority":1}]
+  },
+  {
+    "input": ["程序员", "工作年限要求", "小于", "3年"],
+    "output_type":[
+      ["value","程序员",["JobJobName"], 0],
+      ["column_desc", "工作年限要求", ["ResumeWorkYearNormalizedLte","ResumeWorkYearNormalizedGte"], 1],
+      ["comparison_op_desc", "小于",["<"],2],
+      ["value", "3", ["ResumeWorkYearNormalizedLte","ResumeWorkYearNormalizedGte"], 4]],
+    "output_sql": "select ResumeWorkYearNormalizedLte, JobJobName where JobJobName = \"程序员\" and ResumeWorkYearNormalizedLte < \"3年\"",
+    "output_rela": [{"relation_type":"where_op", "head_id":3, "tail_id":2, "priority":1}]
+  },
+  {
+    "input": ["地区","java程序员","平均薪资"],
+    "output_type":[
+      ["column_desc", "地区",["JobLocationsNormalizedProvince", "JobLocationsNormalizedCity"], 0],
+      ["value","java",["JobJobName"], 1],
+      ["agg_fn","平均",["Avg"],2],
+      ["column_desc", "薪资", ["WorkExperienceSalaryRangeNormalizedGte","WorkExperienceSalaryRangeNormalizedLte"], 3]],
+    "output_sql": "select WorkExperienceSalaryRangeNormalizedGteAvg, JobJobName, JobLocationsNormalizedProvince where JobJobName = \"java程序员\"",
+    "output_rela": []
+  },
+  {
+    "input": ["上海", "程序员", "工作年限", "大于", "3年" , "平均薪资"],
+    "output_type":[
+      ["value","上海",["JobLocationsNormalizedCity"], 0],
+      ["value","程序员",["JobJobName"], 1],
+      ["column_desc", "工作年限", ["ResumeWorkYearNormalizedLte","ResumeWorkYearNormalizedGte"], 2],
+      ["comparison_op_desc", "大于",[">"], 3],
+      ["value", "3", ["ResumeWorkYearNormalizedLte","ResumeWorkYearNormalizedGte"], 4],
+      ["agg_fn", "平均", ["Avg"], 5],
+      ["column_desc", "薪资", ["JobSalaryRangeNormalizedLteAvg","JobSalaryRangeNormalizedGteAvg"], 5]],
+    "output_sql": "select WorkExperienceSalaryRangeNormalizedGteAvg, ResumeWorkYearNormalizedLte, JobJobName, JobLocationsNormalizedCity where JobLocationsNormalizedCity = \"上海\" and JobJobName = \"程序员\" and ResumeWorkYearNormalizedLte > \"3年\"",
+    "output_rela": [{"relation_type":"where_op", "head_id":4, "tail_id":3, "priority":1}]
+  },
+  {
+    "input": ["北京", "学历", "不高于", "硕士", "java程序员"],
+    "output_type":[
+      ["value","北京",["JobLocationsNormalizedCity"], 0],
+      ["column_desc", "学历", ["JobDegreeRequirementNormalizedLte","JobDegreeRequirementNormalizedGte"], 1],
+      ["comparison_op_desc", "不高于",["<="], 2],
+      ["column_desc", "硕士", ["JobDegreeRequirementNormalizedLte", "JobDegreeRequirementNormalizedGte"], 3],
+      ["value","java",["JobJobName"], 4]],
+    "output_sql": "select JobJobName, JobDegreeRequirementNormalizedGte, JobLocationsNormalizedCity, JobDegreeRequirementNormalizedLte where JobLocationsNormalizedCity = \"北京\" and JobJobName = \"java程序员\" JobDegreeRequirementNormalizedLte <= \"硕士\"",
+    "output_rela": []
+  },
+  {
+    "input": ["地区", "平均薪资", "大于", "2w", "职位"],
+    "output_type":[
+      ["column_desc", "地区",["JobLocationsNormalizedProvince", "JobLocationsNormalizedCity"], 0],
+      ["agg_fn", "平均", ["Avg"], 1],
+      ["column_desc", "薪资", ["JobSalaryRangeNormalizedLteAvg","JobSalaryRangeNormalizedGteAvg"], 1],
+      ["comparison_op_desc", "大于",[">"], 2],
+      ["value", "2w", ["WorkExperienceSalaryRangeNormalizedGte", "WorkExperienceSalaryRangeNormalizedLte"], 3],
+      ["column_desc", "职位", ["JobJobName"], 4]],
+    "output_sql": "select WorkExperienceSalaryRangeNormalizedGteAvg, JobLocationsNormalizedProvince, JobJobName, WorkExperienceSalaryRangeNormalizedLte where WorkExperienceSalaryRangeNormalizedLte > \"2w\"",
+    "output_rela": [{"relation_type":"where_op", "head_id":3, "tail_id":2, "priority":1}]
+  },
+  {
+    "input": ["去年", "北京" ,"发布", "java程序员", "岗位数"],
+    "output_type": [
+      ["value","去年",["JobPublishedDate"], 0],
+      ["value","北京",["JobLocationsNormalizedCity"], 1],
+      ["column_desc","发布",["JobPublishedDate"], 2],
+      ["value","java",["JobJobName"], 3],
+      ["column_desc","岗位数",["JobHeadCountRangeNormalizedLte", "JobHeadCountRangeNormalizedGte"],4]],
+    "output_sql": "select JobJobNameUniqueCount, JobPublishedDate, JobJobName, JobLocationsNormalizedCity where JobPublishedDate = \"去年\" and JobLocationsNormalizedCity = \"北京\" and JobJobName = \"java程序员\"",
+    "output_rela": []
+  },
+  {
+    "input": ["程序员", "工作年限要求", "北京"],
+    "output_type": [
+      ["value","程序员",["JobJobName"], 0],
+      ["column_desc", "工作年限要求", ["ResumeWorkYearNormalizedLte", "ResumeWorkYearNormalizedGte"], 1],
+      ["value","北京",["JobLocationsNormalizedCity"], 2]],
+    "output_sql": "select ResumeWorkYearNormalizedLte, JobJobName, JobLocationsNormalizedCity where JobJobName = \"高级程序员\" and JobLocationsNormalizedCity = \"北京\"",
+    "output_rela": []
+  },
+  {
+    "input": ["程序员", "工作年限要求", "地区"],
+    "output_type": [
+      ["value","程序员",["JobJobName"], 0],
+      ["column_desc", "工作年限要求", ["ResumeWorkYearNormalizedLte", "ResumeWorkYearNormalizedGte"], 1],
+      ["column_desc", "地区",["JobLocationsNormalizedProvince", "JobLocationsNormalizedCity"], 2]],
+    "output_sql": "select ResumeWorkYearNormalizedLte, JobJobName, JobLocationsNormalizedProvince where JobJobName = \"高级程序员\"",
+    "output_rela": []
+  },
+  {
+    "input": ["程序员", "最低学历要求", "地区"],
+    "output_type": [
+      ["value","程序员",["JobJobName"], 0], 
+      ["agg_fn", "最低", ["Min"], 1],
+      ["column_desc", "学历要求", ["JobDegreeRequirementNormalizedGte"], 1],
+      ["column_desc", "地区",["JobLocationsNormalizedProvince", "JobLocationsNormalizedCity"], 2]],
+    "output_sql": "select JobLocationsNormalizedProvince, JobJobName, JobDegreeRequirementNormalizedGteMin where JobJobName = \"高级程序员\"",
+    "output_rela": []
+  },
+  {
+    "input": ["程序员", "平均薪资", "各地区"],
+    "output_type": [
+      ["value","程序员",["JobJobName"], 0],
+      ["agg_fn","平均",["Avg"], 1],
+      ["column_desc", "薪资", ["WorkExperienceSalaryRangeNormalizedGte","WorkExperienceSalaryRangeNormalizedLte"], 1],
+      ["column_desc", "地区",["ResumeLocationNormalizedDistrict"], 2]],
+    "output_sql": "select WorkExperienceSalaryRangeNormalizedGteAvg, JobJobName, JobLocationsNormalizedProvince where JobJobName = \"高级程序员\"",
+    "output_rela": []
+  },
+  {
+    "input": ["java程序员", "平均薪资", "地区"],
+    "output_type": [
+      ["value","java程序员",["JobJobName"], 0],
+      ["agg_fn","平均",["Avg"], 1],
+      ["column_desc", "薪资", ["WorkExperienceSalaryRangeNormalizedGte","WorkExperienceSalaryRangeNormalizedLte"], 1],
+      ["column_desc", "地区",["ResumeLocationNormalizedDistrict"], 2]],
+    "output_sql": "select WorkExperienceSalaryRangeNormalizedGteAvg, JobJobName, JobLocationsNormalizedProvince where JobJobName = \"java程序员\"",
+    "output_rela": []
+  },
+  {
+    "input": ["地区", "java程序员", "岗位数", "大于", "50"],
+    "output_type": [
+      ["column_desc", "地区",["JobLocationsNormalizedProvince", "JobLocationsNormalizedCity"], 0],
+      ["value","java程序员",["JobJobName"], 1],
+      ["column_desc","岗位数",["JobHeadCountRangeNormalizedLte", "JobHeadCountRangeNormalizedGte"], 2],
+      ["comparison_op_desc", "大于",[">"], 3],
+      ["value", "50", ["JobHeadCountRangeNormalizedLte", "JobHeadCountRangeNormalizedGte"], 4]],
+    "output_sql": "select JobHeadCountRangeNormalizedLte, JobJobName, JobLocationsNormalizedProvince where JobJobName = \"java程序员\" and JobHeadCountRangeNormalizedLte > \"50\"",
+    "output_rela": [{"relation_type":"where_op", "head_id":4, "tail_id":3, "priority":1}]
+  },
+  {
+    "input": ["去年","地区", "java程序员", "岗位数", "大于", "50"],
+    "output_type": [
+      ["value","去年",["JobPublishedDate"], 0],
+      ["column_desc", "地区",["ResumeLocationNormalizedDistrict", "JobLocationNormalizedDistrict"], 1],
+      ["value","java程序员",["JobJobName"], 2],
+      ["column_desc","岗位数",["JobHeadCountRangeNormalizedLte", "JobHeadCountRangeNormalizedGte"], 3],
+      ["comparison_op_desc", "大于",[">"], 4],
+      ["value", "50", ["JobHeadCountRangeNormalizedLte", "JobHeadCountRangeNormalizedGte"], 5]],
+    "output_sql": "select JobHeadCountRangeNormalizedLte, JobPublishedDate, JobJobName, JobLocationsNormalizedProvince where JobPublishedDate = \"去年\" and JobJobName = \"java程序员\" and JobHeadCountRangeNormalizedLte > \"50\"",
+    "output_rela": [{"relation_type":"where_op", "head_id":5, "tail_id":4, "priority":1}]
+  },
+  {
+    "input": ["去年","地区", "java程序员", "平均薪资", "大于", "2w"],
+    "output_type": [
+      ["value","去年",["JobPublishedDate"], 0],
+      ["column_desc", "地区",["JobLocationsNormalizedProvince", "JobLocationsNormalizedCity"], 1],
+      ["value","java程序员",["JobJobName"], 2],
+      ["agg_fn", "平均", ["Avg"], 3],
+      ["column_desc", "平均薪资", ["WorkExperienceSalaryRangeNormalizedGte","WorkExperienceSalaryRangeNormalizedLte"], 3],
+      ["comparison_op_desc", "大于",[">"], 4],
+      ["value", "2w", ["WorkExperienceSalaryRangeNormalizedLte", "WorkExperienceSalaryRangeNormalizedGte"], 5]],
+    "output_sql": "select WorkExperienceSalaryRangeNormalizedLte, JobLocationsNormalizedProvince, WorkExperienceSalaryRangeNormalizedGteAvg, JobPublishedDate, JobJobName where JobPublishedDate = \"去年\" and JobJobName = \"java程序员\" and WorkExperienceSalaryRangeNormalizedLte > \"2w\"",
+    "output_rela": [{"relation_type":"where_op", "head_id":5, "tail_id":4, "priority":1}]
+  },
+  {
+    "input": ["上个月","程序员","平均薪资","上海"],
+    "output_type": [
+      ["value","上个月",["JobPublishedDate"], 0],
+      ["value","程序员",["JobJobName"], 1],
+      ["agg_fn", "平均", ["Avg"], 2],
+      ["column_desc", "平均薪资", ["WorkExperienceSalaryRangeNormalizedGteAvg","WorkExperienceSalaryRangeNormalizedLteAvg"], 2],
+      ["value","上海",["JobLocationsNormalizedCity"], 3]],
+    "output_sql": "select WorkExperienceSalaryRangeNormalizedGteAvg, JobPublishedDate, JobJobName, JobLocationsNormalizedCity where JobPublishedDate = \"上个月\" and JobJobName = \"程序员\" and JobLocationsNormalizedCity = \"上海\"",
+    "output_rela": []
+  },
+  {
+    "input": ["2021年", "工程师", "上海", "平均薪资"],
+    "output_type": [
+      ["value","2021",["JobPublishedDate"], 0],
+      ["value","工程师",["JobJobName"], 1],
+      ["value","上海",["JobLocationsNormalizedCity"], 2],
+      ["agg_fn","平均",["Avg"], 3],
+      ["column_desc", "薪资", ["WorkExperienceSalaryRangeNormalizedGte","WorkExperienceSalaryRangeNormalizedLte"], 3]],
+    "output_sql": "select WorkExperienceSalaryRangeNormalizedGteAvg, JobPublishedDate, JobJobName, JobLocationsNormalizedCity where JobPublishedDate = \"2021年\" and JobJobName = \"工程师\" and JobLocationsNormalizedCity = \"上海\"",
+    "output_rela": []
+  },
+  {
+    "input": ["2021年", "工程师", "上海", "平均薪资", "大于", "2w"],
+    "output_type": [
+      ["value","2021",["JobPublishedDate"], 0],
+      ["value","工程师",["JobJobName"], 1],
+      ["value","上海",["JobLocationsNormalizedCity"], 2],
+      ["agg_fn", "平均", ["Avg"], 3],
+      ["value", "薪资", ["WorkExperienceSalaryRangeNormalizedGte","WorkExperienceSalaryRangeNormalizedLte"], 3],
+      ["comparison_op_desc","大于",[">"], 4],
+      ["value", "2w", ["WorkExperienceSalaryRangeNormalizedGte","WorkExperienceSalaryRangeNormalizedLte"], 5]],
+    "output_sql": "select WorkExperienceSalaryRangeNormalizedLte, JobLocationsNormalizedCity, WorkExperienceSalaryRangeNormalizedGteAvg, JobPublishedDate, JobJobName where JobPublishedDate = \"2021年\" and JobJobName = \"工程师\" and JobLocationsNormalizedCity = \"上海\" and  WorkExperienceSalaryRangeNormalizedLte > \"2w\" ",
+    "output_rela": [{"relation_type":"where_op", "head_id":5, "tail_id":4, "priority":1}]
+  },
+  {
+    "input": ["北京", "or", "上海", "java程序员", "平均薪资"],
+    "output_type": [
+      ["value","北京",["JobLocationsNormalizedCity"], 0],
+      ["condition_op_desc", "or", ["or"], 1],
+      ["value","上海",["JobLocationsNormalizedCity"], 2],
+      ["value","java",["JobJobName"], 3],
+      ["agg_fn","平均",["Avg"], 4],
+      ["column_desc", "薪资", ["WorkExperienceSalaryRangeNormalizedGte","WorkExperienceSalaryRangeNormalizedLte"], 4]],
+    "output_sql": "select WorkExperienceSalaryRangeNormalizedGteAvg, JobJobName, JobLocationsNormalizedCity where JobLocationsNormalizedCity in [\"北京\", \"上海\"] and JobJobName = \"java程序员\"",
+    "output_rela": []
+  },
+  {
+    "input": ["毕业院校", "清华大学", "2021年", "平均薪资", "上海"],
+    "output_type": [
+      ["column_desc", "毕业", ["EducationExperienceSchoolNameLinked"], 0],
+      ["value", "清华大学", ["EducationExperienceSchoolNameLinked"], 1],
+      ["value","2021",["JobPublishedDate"], 2],
+      ["agg_fn","平均",["Avg"], 3],
+      ["column_desc", "薪资", ["WorkExperienceSalaryRangeNormalizedGte","WorkExperienceSalaryRangeNormalizedLte"], 3],
+      ["value","上海",["JobLocationsNormalizedCity"], 4]],
+    "output_sql": "select WorkExperienceSalaryRangeNormalizedGteAvg, JobPublishedDate, JobLocationsNormalizedCity, EducationExperienceSchoolNameLinked where EducationExperienceSchoolNameLinked = \"清华大学\" and JobPublishedDate = \"2021年\" and JobLocationsNormalizedCity = \"上海\"",
+    "output_rela": []
+  },
+  {
+    "input": ["工作经验", "3年", "以下","2021年", "平均薪资", "上海"],
+    "output_type": [
+      ["column_desc","工作经验",["ResumeWorkYearNormalizedGte","ResumeWorkYearNormalizedLte"], 0],
+      ["value", "3", ["ResumeWorkYearNormalizedLte"], 1],
+      ["comparison_op_desc", "以下", ["<"], 2],
+      ["value","2021",["JobPublishedDate"], 3],
+      ["agg_fn","平均",["Avg"], 4],
+      ["column_desc", "薪资", ["WorkExperienceSalaryRangeNormalizedGte","WorkExperienceSalaryRangeNormalizedLte"], 4],
+      ["value","上海",["JobLocationsNormalizedCity"], 5]],
+    "output_sql": "select WorkExperienceSalaryRangeNormalizedGteAvg, ResumeWorkYearNormalizedGte, ResumeWorkYearNormalizedLteMin, JobPublishedDate, JobLocationsNormalizedCity where ( ResumeWorkYearNormalizedLteMin < \"3年\" ) and JobPublishedDate = \"2021年\" and JobLocationsNormalizedCity = \"上海\"",
+    "output_rela": [{"relation_type":"where_op", "head_id":1, "tail_id":2, "priority":1}]
+  },
+  {
+    "input": ["3年","以下","工作经验","2021年", "平均薪资", "上海", "或者", "北京"],
+    "output_type": [
+      ["value", "3", ["ResumeWorkYearNormalizedLte"], 0],
+      ["comparison_op_desc", "以下", ["<"], 1],
+      ["column_desc","工作经验",["ResumeWorkYearNormalizedLte","ResumeWorkYearNormalizedGte"], 2],
+      ["value","2021",["JobPublishedDate"], 3],
+      ["agg_fn","平均",["Avg"], 4],
+      ["column_desc", "薪资", ["WorkExperienceSalaryRangeNormalizedGte","WorkExperienceSalaryRangeNormalizedLte"], 4],
+      ["value","上海",["JobLocationsNormalizedCity"], 5],
+      ["condition_op_desc", "或者", ["or"], 6],
+      ["value","北京",["JobLocationsNormalizedCity"], 7]],
+    "output_sql": "select WorkExperienceSalaryRangeNormalizedGteAvg, ResumeWorkYearNormalizedGte, ResumeWorkYearNormalizedLteMin, JobPublishedDate, JobLocationsNormalizedCity where ( ResumeWorkYearNormalizedLteMin < \"3年\" ) and JobPublishedDate = \"2021年\" and JobLocationsNormalizedCity in [\"上海\", \"北京\"]",
+    "output_rela": [{"relation_type":"where_op", "head_id":0, "tail_id":1, "priority":1}]
+  },
+  {
+    "input": ["5年","以下","工作经验","2021年", "平均薪资", "地区"],
+    "output_type": [
+      ["value", "5", ["ResumeWorkYearNormalizedLte", "ResumeWorkYearNormalizedGte"], 0],
+      ["comparison_op_desc", "以下", ["<"], 1],
+      ["column_desc","工作经验",["ResumeWorkYearNormalizedLte","ResumeWorkYearNormalizedGte"], 2],
+      ["value","2021",["JobPublishedDate"], 3],
+      ["agg_fn","平均",["Avg"], 4],
+      ["column_desc", "薪资", ["WorkExperienceSalaryRangeNormalizedGte","WorkExperienceSalaryRangeNormalizedLte"], 4],
+      ["column_desc", "地区",["JobLocationsNormalizedProvince", "JobLocationsNormalizedCity"], 5]],
+    "output_sql":"select JobLocationsNormalizedProvince, JobPublishedDate, ResumeWorkYearNormalizedLteMin, ResumeWorkYearNormalizedGte, WorkExperienceSalaryRangeNormalizedGteAvg where ( ResumeWorkYearNormalizedLteMin < \"5年\" ) and JobPublishedDate = \"2021年\"",
+    "output_rela": [{"relation_type":"where_op", "head_id":0, "tail_id":1, "priority":1}]
+  },
+  {
+    "input": ["1年","以下","工作经验","去年", "平均薪资", "地区"],
+    "output_type": [
+      ["value", "1", ["ResumeWorkYearNormalizedLte"], 0],
+      ["comparison_op_desc", "以下", ["<"], 1],
+      ["column_desc","工作经验",["ResumeWorkYearNormalizedLte","ResumeWorkYearNormalizedGte"], 2],
+      ["value","去年",["JobPublishedDate"], 3],
+      ["agg_fn","平均",["Avg"], 4],
+      ["column_desc", "薪资", ["WorkExperienceSalaryRangeNormalizedGte","WorkExperienceSalaryRangeNormalizedLte"], 4],
+      ["column_desc", "地区",["JobLocationsNormalizedProvince", "JobLocationsNormalizedCity"], 5]],
+    "output_sql": "select JobLocationsNormalizedProvince, JobPublishedDate, ResumeWorkYearNormalizedLteMin, ResumeWorkYearNormalizedGte, WorkExperienceSalaryRangeNormalizedGteAvg where ResumeWorkYearNormalizedLteMin = \"1年以下\" and JobPublishedDate = \"去年\"",
+    "output_rela": [{"relation_type":"where_op", "head_id":0, "tail_id":1, "priority":1}]
+  },
+  {
+    "input": ["上海","or", "北京", "java程序员", "平均薪资"],
+    "output_type": [
+      ["value","上海",["JobLocationsNormalizedCity"], 0],
+      ["condition_op_desc", "or", ["or"], 1],
+      ["value","北京",["JobLocationsNormalizedCity"], 2],
+      ["value","java",["JobJobName"], 3],
+      ["agg_fn","平均",["Avg"], 4],
+      ["column_desc", "薪资", ["WorkExperienceSalaryRangeNormalizedGte","WorkExperienceSalaryRangeNormalizedLte"], 4]],
+    "output_sql": "select JobJobName, WorkExperienceSalaryRangeNormalizedGteAvg, JobLocationsNormalizedCity where JobLocationsNormalizedCity in [\"上海\", \"北京\"] and JobJobName = \"java程序员\"",
+    "output_rela": []
+  },
+  {
+    "input": ["上海", "java程序员", "or", "北京", "ios程序员", "平均薪资"],
+    "output_type": [
+      ["value","上海",["JobLocationsNormalizedCity"], 0],
+      ["value","java程序员",["JobJobName"], 1],
+      ["condition_op_desc", "or", ["or"], 2],
+      ["value","北京",["JobLocationsNormalizedCity"], 3],
+      ["value","ios",["JobJobName"], 4],
+      ["agg_fn","平均",["Avg"], 5],
+      ["column_desc", "薪资", ["WorkExperienceSalaryRangeNormalizedGte","WorkExperienceSalaryRangeNormalizedLte"], 5]],
+    "output_sql": "select WorkExperienceSalaryRangeNormalizedGteAvg, JobLocationsNormalizedCity, JobJobName where JobLocationsNormalizedCity in [\"上海\", \"北京\"] and JobJobName in [\"java程序员\", \"ios程序员\"]",
+    "output_rela": []
+  },
+  {
+    "input": ["平均薪资","大于", "2w", "小于", "4w", "上海", "java程序员"],
+    "output_type": [
+      ["agg_fn","平均",["Avg"], 0],
+      ["column_desc", "薪资", ["WorkExperienceSalaryRangeNormalizedGte","WorkExperienceSalaryRangeNormalizedLte"], 0],
+      ["comparison_op_desc", "大于",[">"], 1],
+      ["value", "2w", ["WorkExperienceSalaryRangeNormalizedLte", "WorkExperienceSalaryRangeNormalizedGte"], 2],
+      ["comparison_op_desc", "小于",["<"], 3],
+      ["value", "4w", ["WorkExperienceSalaryRangeNormalizedLte", "WorkExperienceSalaryRangeNormalizedGte"], 4],
+      ["value","上海",["JobLocationsNormalizedCity"], 5],
+      ["value","java",["JobJobName"], 6]],
+    "output_sql": "select WorkExperienceSalaryRangeNormalizedGteAvg, JobLocationsNormalizedCity, JobJobName, WorkExperienceSalaryRangeNormalizedLte where ( WorkExperienceSalaryRangeNormalizedLte > \"2w\" or WorkExperienceSalaryRangeNormalizedLte < \"4w\" ) and JobLocationsNormalizedCity = \"上海\" and JobJobName = \"java程序员\"",
+    "output_rela": [{"relation_type":"where_op", "head_id":2, "tail_id":1, "priority":1},{"relation_type":"where_op", "head_id":4, "tail_id":3, "priority":1}]
+  },
+  {
+    "input": ["北京","or", "上海", "平均薪资"],
+    "output_type": [
+      ["value","北京",["JobLocationsNormalizedCity"], 0],
+      ["condition_op_desc", "or", ["or"], 1],
+      ["value","上海",["JobLocationsNormalizedCity"], 2],
+      ["agg_fn","平均",["Avg"], 3],
+      ["column_desc", "薪资", ["WorkExperienceSalaryRangeNormalizedGte","WorkExperienceSalaryRangeNormalizedLte"], 3]],
+    "output_sql": "select WorkExperienceSalaryRangeNormalizedGteAvg, JobLocationsNormalizedCity where JobLocationsNormalizedCity in [\"上海\", \"北京\"]",
+    "output_rela": []
+  },
+  {
+    "input": ["2021年", "毕业学校", "平均薪资最高"],
+    "output_type": [
+      ["value","2021",["JobPublishedDate"],0],
+      ["column_desc", "毕业学校", ["EducationExperienceSchoolNameLinked"],1],
+      ["agg_fn","平均",["Avg"], 2],
+      ["column_desc", "薪资", ["WorkExperienceSalaryRangeNormalizedGte","WorkExperienceSalaryRangeNormalizedLte"], 2],
+      ["agg_fn","最高",["Max"], 2]],
+    "output_sql": "select JobPublishedDate, WorkExperienceSalaryRangeNormalizedLteAvg, EducationExperienceSchoolNameLinkedUniqueCount where JobPublishedDate = \"2021年\"",
+    "output_rela": []
+  },
+  {
+    "input": ["2021年", "上海交大", "平均薪资"],
+    "output_type": [
+      ["value","2021",["JobPublishedDate"], 0],
+      ["value", "上海交通大学", ["EducationExperienceSchoolNameLinked"], 1],
+      ["agg_fn","平均",["Avg"], 2],
+      ["column_desc", "薪资", ["WorkExperienceSalaryRangeNormalizedGte","WorkExperienceSalaryRangeNormalizedLte"], 2]],
+    "output_sql": "select JobPublishedDate, EducationExperienceSchoolNameLinked, WorkExperienceSalaryRangeNormalizedGteAvg where JobPublishedDate = \"2021年\" and EducationExperienceSchoolNameLinked = \"上海交通大学\"",
+    "output_rela": []
+  },
+  {
+    "input": ["2021", "上海交大", "平均薪资", "硕士"],
+    "output_type": [
+      ["value","2021年",["JobPublishedDate"], 0],
+      ["value", "上海交通大学", ["EducationExperienceSchoolNameLinked"], 1],
+      ["agg_fn","平均",["Avg"], 2],
+      ["column_desc", "薪资", ["WorkExperienceSalaryRangeNormalizedGte","WorkExperienceSalaryRangeNormalizedLte"], 2],
+      ["column_desc", "硕士", ["JobDegreeRequirementNormalizedLte", "JobDegreeRequirementNormalizedGte"], 3]],
+    "output_sql": "select JobPublishedDate, EducationExperienceSchoolNameLinked, WorkExperienceSalaryRangeNormalizedGteAvg, JobDegreeRequirementNormalizedLte where JobPublishedDate = \"2021年\" and EducationExperienceSchoolNameLinked = \"上海交通大学\"",
+    "output_rela": []
+  },
+  {
+    "input": ["北京", "or", "上海", "or", "天津", "or", "深圳", "程序员", "平均薪资"],
+    "output_type": [
+      ["value","北京",["JobLocationsNormalizedCity"], 0],
+      ["condition_op_desc", "or", ["or"], 1],
+      ["value","上海",["JobLocationsNormalizedCity"], 2],
+      ["condition_op_desc", "or", ["or"], 3],
+      ["value","天津",["JobLocationsNormalizedCity"], 4],
+      ["condition_op_desc", "or", ["or"], 5],
+      ["value","深圳",["JobLocationsNormalizedCity"], 6],
+      ["value","程序员",["JobJobName"], 7],
+      ["agg_fn","平均",["Avg"], 8],
+      ["column_desc", "薪资", ["WorkExperienceSalaryRangeNormalizedGte","WorkExperienceSalaryRangeNormalizedLte"], 8]],
+    "output_sql":"SELECT JobJobName, JobLocationsNormalizedCity FROM Recruitment WHERE JobOpenId = \"xxx\" and JobJobName = \"程序员\" and JobLocationsNormalizedCity in [\"上海\", \"北京\", \"天津\", \"深圳\"]",
+    "output_rela": []
+  },
+  {
+    "input": ["工作地区","不在","北京","or","上海"],
+    "output_type": [
+      ["column_desc", "工作地区", ["JobLocationsNormalizedProvince", "JobLocationsNormalizedCity"], 0],
+      ["comparison_op_desc", "不在", ["!="], 1],
+      ["value", "北京", ["JobLocationsNormalizedCity"], 2],
+      ["condition_op_desc", "or", ["or"], 3],
+      ["value", "上海", ["JobLocationsNormalizedCity"], 4]],
+    "output_sql": "SELECT JobLocationsNormalizedCity FROM Recruitment WHERE JobOpenId = 'xxx' and JobLocationsNormalizedCity not in ['北京', '深圳', '上海']",
+    "output_rela": [{"type": "where_op", "head": 3, "tail": 1, "priority": 2},
+                    {"type": "where_op", "head": 4, "tail": 1, "priority": 2},
+                    {"type": "where_op", "head": 5, "tail": 1, "priority": 2},
+                    {"type": "cond_or", "head": 3, "tail": 4, "priority": 3},
+                    {"type": "cond_or", "head": 3, "tail": 5, "priority": 3}]
+  },
+  {
+    "input": ["2021年", "腾讯", "NLP算法工程师", "平均薪资"],
+    "output_type":[
+      ["value","2021",["JobPublishedDate"], 0],
+      ["value", "腾讯", ["!="], 1],
+      ["value", "NLP算法工程师", ["JobLocationsNormalizedCity"], 2],
+      ["agg_fn","平均",["Avg"], 3],
+      ["column_desc", "薪资", ["WorkExperienceSalaryRangeNormalizedGte","WorkExperienceSalaryRangeNormalizedLte"], 3]]
+  },
+  {
+    "input": ["去年", "华为", "工作年限", "小于", "3年", "平均薪资"],
+    "output_type":[
+      ["value","去年",["JobPublishedDate"], 0],
+      ["value", "华为", ["!="], 1],
+      ["value", "工作年限", ["JobLocationsNormalizedCity"], 2],
+      ["agg_fn","小于",["<"], 3],
+      ["value", "3", ["JobLocationsNormalizedCity"], 4],
+      ["agg_fn","平均",["Avg"], 5],
+      ["column_desc", "薪资", ["WorkExperienceSalaryRangeNormalizedGte","WorkExperienceSalaryRangeNormalizedLte"], 5]]
+  },
+  {
+    "input": ["哪些公司", "要求政治面貌", "党员"],
+    "output_type": [
+      ["column_desc", "公司", ["JobRecruitingCompanyName"], 0],
+      ["column_desc", "政治面貌", ["ResumePoliticalStatusName"], 1],
+      ["column_desc","党员",["JobJobName"], 2]
+    ]
+  },
+  {
+    "input": ["百度", "工作三年以下", "薪资" ,">", "3w", "岗位数"],
+    "output_type": [
+      ["column_desc", "百度", ["JobRecruitingCompanyName"], 0],
+      ["column_desc", "工作年限", ["JobWorkYearsRequirementNormalizedGte"], 1],
+      ["value", "三", ["JobWorkYearsRequirementNormalizedGte"], 1],
+      ["comparison_op_desc", "<", ["JobWorkYearsRequirementNormalizedGte"], 1],
+      ["column_desc", "薪资", ["JobSalaryRangeNormalizedLte", "JobSalaryRangeNormalizedGte"], 2],
+      ["comparison_op_desc", ">", ["JobSalaryRangeNormalizedLte", "JobSalaryRangeNormalizedGte"], 3],
+      ["column_desc", "岗位数", ["JobHeadCountRangeNormalizedLte", "JobHeadCountRangeNormalizedGte"], 4]
+    ]
+  },
+  {
+    "input": ["阿里巴巴", "技术岗", "实习", "平均薪资"],
+    "output_type": [
+      ["column_desc", "阿里巴巴", ["JobRecruitingCompanyName"], 0],
+      ["column_desc","技术岗",["JobRecruitingCompanyName"],1],
+      ["column_desc", "实习", ["JobRecruitingCompanyName"], 2],
+      ["agg_fn", "平均", ["Avg"], 3],
+      ["column_desc", "薪资", ["WorkExperienceSalaryRangeNormalizedLte"], 3]
+    ]
+  },
+  {
+    "input": ["招聘要求", "性别为女"],
+    "output_type": [
+      ["column_desc", "招聘要求", ["JobRecruitingCompanyName"], 0],
+      ["column_desc", "JobGenderRequirementNormalized", ["JobGenderRequirementNormalized"], 1],
+      ["column_desc", "女", ["ResumeGenderNameNormalized"], 1]
+    ]
+  }
+]

@@ -1,0 +1,6 @@
+[
+  {"rule": [{"type": "(condition_|comparison_)op_desc", "score_less": 0.97}], "bonus": -1},
+  {"rule": [{"type": "(aggregation_|count_|time_)column_desc", "q_text_len_less": 2, "score_less": 0.95, "bonus": -1}]},
+  {"rule": [{"type": "column_desc", "q_text_len_less": 1, "score_less": 0.95, "bonus": -1}]},
+  {"rule": [{"type": "value", "q_text_len_less": 1, "score_less": 0.95, "bonus": -1}]}
+]

@@ -1,0 +1,130 @@
+[
+  {
+    "rule": [
+      {"type": "(aggregation_)?column_desc", "value_reg": "(salary|age|WorkYear|degree|headcount|date)"},
+      {"type": "comparison_op_desc", "score_less": 0.8, "bonus": -0.2}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "time_column_desc", "value_reg": "By(Date|Month|Quarter|Week|Year)"},
+      {"type": "comparison_op_desc", "score_less": 0.8, "bonus": -0.15}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "condition_op_desc"},
+      {"type": "comparison_op_desc", "score_less": 0.8, "bonus": -0.2}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "value", "value_reg": "(city|location|address|province|country)"},
+      {"type": "condition_op_desc", "values": ["or"]},
+      {"type": "value", "value_reg": "$2", "score": 0.8, "bonus": 0.1}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "(aggregation_)?column_desc", "value_reg": "(salary|age|WorkYear|degree|headcount|date)"},
+      {"type": "comparison_op_desc", "score_less": 0.8, "bonus": -0.2}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "(aggregation_|count_)?column_desc"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$2", "bonus": 0.05}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "(aggregation_|count_)?column_desc"},
+      {"type": "value", "value_reg": "$1", "bonus": 0.05}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "(aggregation_|count_)?column_desc"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$2", "bonus": 0.05},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$2", "bonus": 0.05}
+    ]
+  },
+   {
+    "rule": [
+      {"type": "(aggregation_|count_)?column_desc"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$2", "bonus": 0.05},
+      {"type": "condition_op_desc"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$3", "bonus": 0.05}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "(aggregation_)?column_desc", "value_reg": "WorkYear"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "reg": "(\\d(\\.\\d)?年?|[1-5]\\d+年?|[一二三四五]十[一二三四五六七八九]?年?)", "value_reg": "$2", "bonus": 0.2}
+    ]
+  },
+  {"rule": [{"type": "(comparison_|condition_)op_desc", "score_less": 0.95, "bonus": -0.8}]},
+  {
+    "rule": [
+      {"type": "value", "value_reg": "(city|province|location|address|companyName|schoolName|ResumeName|Industry)"},
+      {"type": "count_column_desc", "value_reg": "$1(Count|UniqueCount)", "bonus": 0.03}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "value", "value_reg": "^Job"},
+      {"type": "count_column_desc", "value_reg": "JobName(Count|UniqueCount)", "bonus": 0.03}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "value", "value_reg": "^Resume"},
+      {"type": "count_column_desc", "value_reg": "ResumeName(Count|UniqueCount)", "bonus": 0.03}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "value", "value_reg": "^Work"},
+      {"type": "count_column_desc", "value_reg": "Work.*JobName.*(Count|UniqueCount)", "bonus": 0.03}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "column_desc"},
+      {"type": "(count_|aggregation_)column_desc", "value_reg": "$1(Count|UniqueCount|min|max|sum|avg)", "bonus": 0.03}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "(count_|aggregation_)column_desc", "value_reg": "#1(Count|UniqueCount|min|max|sum|avg)", "bonus": 0.03},
+      {"type": "column_desc"}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "(aggregation_)?column_desc", "value_reg": "salaryMonths"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "bonus": 0.3, "reg": "\\d+薪?", "value_reg": "$2"}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "(aggregation_)?column_desc", "value_reg": "salary"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "reg": "^\\d+(\\.\\d)?[kw]|[kw]?$", "value_reg": "$2", "bonus": 0.3}
+    ]
+  },
+  {
+    "rule": [
+      {"type": "(count_)?column_desc", "value_reg": "(salary|age|WorkYear|degree|headcount|date)"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$2", "bonus": 0.08}
+    ]
+  }
+]

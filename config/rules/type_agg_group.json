@@ -1,0 +1,56 @@
+[
+  {
+    "rule":
+    [
+      {"type": "(agg|group)_fn"},
+      {"type": "column_desc", "support_fn": "$1"}
+    ]
+  },
+  {
+    "rule":
+    [
+      {"type": "(agg|group)_fn"},
+      {"type": "column_desc","support_fn": "$1"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$2", "bonus": 0.05}
+    ]
+  },
+  {
+    "rule":
+    [
+      {"type": "(agg|group)_fn"},
+      {"type": "keywords"},
+      {"type": "column_desc", "support_fn": "$2", "bonus": 0.05}
+    ]
+  },
+
+  {
+    "rule":
+    [
+      {"type": "(agg|group)_fn"},
+      {"type": "keywords"},
+      {"type": "column_desc", "support_fn": "$2"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$2", "bonus": 0.05}
+    ]
+  },
+  {
+    "rule":
+    [
+      {"type": "(agg|group)_fn"},
+      {"type": "keywords"},
+      {"type": "column_desc", "support_fn": "$2"},
+      {"type": "keywords"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$3", "bonus": 0.05}
+    ]
+  },
+  {
+    "rule":
+    [
+      {"type": "column_desc", "support_fn": "#1"},
+      {"type": "(agg|group)_fn"},
+      {"type": "value", "support_fn": "$1"}
+    ]
+  }
+  ]

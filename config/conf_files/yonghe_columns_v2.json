@@ -1,0 +1,1116 @@
+[
+  {
+    "name": "简历",
+    "table_name": "v_resume",
+    "columns": [
+      {
+        "name": "姓名",
+        "column_name": "ResumeName",
+        "r_column_name": "name",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "曾用名",
+        "column_name": "ResumeNameUsedBefore",
+        "r_column_name": "nameUsedBefore",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "姓名拼音",
+        "column_name": "ResumeNamePinYin",
+        "r_column_name": "namePinYin",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "性别",
+        "column_name": "ResumeGenderNameNormalized",
+        "r_column_name": "genderNameNormalized",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "身高",
+        "column_name": "ResumeHeightNormalized",
+        "r_column_name": "heightNormalized",
+        "type": "Int64",
+        "aggregations": [
+          "Avg",
+          "Min",
+          "Max"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "体重",
+        "column_name": "ResumeWeightNormalized",
+        "r_column_name": "weightNormalized",
+        "type": "Int64",
+        "aggregations": [
+          "Avg",
+          "Min",
+          "Max"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "年龄",
+        "column_name": "ResumeAgeNormalized",
+        "r_column_name": "ageNormalized",
+        "type": "Int64",
+        "aggregations": [
+          "Avg",
+          "Min",
+          "Max"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "生日",
+        "column_name": "ResumeDateOfBirthNormalized",
+        "r_column_name": "dateOfBirthNormalized",
+        "type": "Date",
+        "aggregations": [],
+        "group_functions": [
+          "ByYear",
+          "ByMonth",
+          "ByQuarter",
+          "ByWeek",
+          "ByDate"
+        ]
+      },
+      {
+        "name": "民族",
+        "column_name": "ResumeEthicName",
+        "r_column_name": "ethicName",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "婚姻状况",
+        "column_name": "ResumeMaritalNameNormalized",
+        "r_column_name": "maritalNameNormalized",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "政治面貌",
+        "column_name": "ResumePoliticalStatusName",
+        "r_column_name": "politicalStatusName",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "国籍",
+        "column_name": "ResumeNationalityName",
+        "r_column_name": "nationalityName",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "祖籍(国家)",
+        "column_name": "ResumeAncestralResidenceNormalizedCountry",
+        "r_column_name": "\"ancestralResidenceNormalized\"['country']",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "祖籍(省)",
+        "column_name": "ResumeAncestralResidenceNormalizedProvince",
+        "r_column_name": "\"ancestralResidenceNormalized\"['province']",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "祖籍(市)",
+        "column_name": "ResumeAncestralResidenceNormalizedCity",
+        "r_column_name": "\"ancestralResidenceNormalized\"['city']",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "祖籍(区)",
+        "column_name": "ResumeAncestralResidenceNormalizedDistrict",
+        "r_column_name": "\"ancestralResidenceNormalized\"['district']",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "户籍(国家)",
+        "column_name": "ResumeRegisteredPermanentResidenceNormalizedCountry",
+        "r_column_name": "\"registeredPermanentResidenceNormalized\"['country']",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "户籍(省)",
+        "column_name": "ResumeRegisteredPermanentResidenceNormalizedProvince",
+        "r_column_name": "\"registeredPermanentResidenceNormalized\"['province']",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "户籍(市)",
+        "column_name": "ResumeRegisteredPermanentResidenceNormalizedCity",
+        "r_column_name": "\"registeredPermanentResidenceNormalized\"['city']",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "户籍(区)",
+        "column_name": "ResumeRegisteredPermanentResidenceNormalizedDistrict",
+        "r_column_name": "\"registeredPermanentResidenceNormalized\"['district']",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "当前所在地点(国家)",
+        "column_name": "ResumeLocationNormalizedCountry",
+        "r_column_name": "\"locationNormalized\"['country']",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "当前所在地点(省)",
+        "column_name": "ResumeLocationNormalizedProvince",
+        "r_column_name": "\"locationNormalized\"['province']",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "当前所在地点(市)",
+        "column_name": "ResumeLocationNormalizedCity",
+        "r_column_name": "\"locationNormalized\"['city']",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "当前所在地点(区)",
+        "column_name": "ResumeLocationNormalizedDistrict",
+        "r_column_name": "\"locationNormalized\"['district']",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "QQ号",
+        "column_name": "ResumeQqID",
+        "r_column_name": "qqID",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "微信号",
+        "column_name": "ResumeWechatID",
+        "r_column_name": "wechatID",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "微信号",
+        "column_name": "ResumeEmails",
+        "r_column_name": "emails",
+        "type": "Array(String)",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "微信号",
+        "column_name": "ResumePhoneNumbers",
+        "r_column_name": "phoneNumbers",
+        "type": "Array(String)",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "工作年限下限",
+        "column_name": "ResumeWorkYearNormalizedGte",
+        "r_column_name": "\"workYearNormalized\"['gte']",
+        "type": "Int64",
+        "aggregations": [
+          "Avg",
+          "Min",
+          "Max"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "工作年限上限",
+        "column_name": "ResumeWorkYearNormalizedLte",
+        "r_column_name": "\"workYearNormalized\"['lte']",
+        "type": "Int64",
+        "aggregations": [
+          "Sum",
+          "Avg",
+          "Min",
+          "Max"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "当前状态",
+        "column_name": "ResumeCurrentJobStatusNormalized",
+        "r_column_name": "currentJobStatusNormalized",
+        "type": "Int64",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "薪水下限",
+        "column_name": "ResumeSalaryRangeNormalizedGte",
+        "r_column_name": "\"salaryRangeNormalized\"['gte']",
+        "type": "Int64",
+        "aggregations": [
+          "Sum",
+          "Avg",
+          "Min",
+          "Max"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "薪水上限",
+        "column_name": "ResumeSalaryRangeNormalizedLte",
+        "r_column_name": "\"salaryRangeNormalized\"['lte']",
+        "type": "Int64",
+        "aggregations": [
+          "Sum",
+          "Avg",
+          "Min",
+          "Max"
+        ],
+        "group_functions": []
+      }
+    ]
+  },
+  {
+    "name": "职位",
+    "table_name": "v_job",
+    "columns": [
+      {
+        "name": "职位",
+        "column_name": "JobJobName",
+        "r_column_name": "jobName",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "公司",
+        "column_name": "JobRecruitingCompanyName",
+        "r_column_name": "recruitingCompanyName",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "部门",
+        "column_name": "JobRecruitingDepartmentName",
+        "r_column_name": "recruitingDepartmentName",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "工作地点(国家)",
+        "column_name": "JobLocationsNormalizedCountry",
+        "r_column_name": "locationsNormalized.country",
+        "type": "Array(String)",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "工作地点(省)",
+        "column_name": "JobLocationsNormalizedProvince",
+        "r_column_name": "locationsNormalized.province",
+        "type": "Array(String)",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "工作地点(市)",
+        "column_name": "JobLocationsNormalizedCity",
+        "r_column_name": "locationsNormalized.city",
+        "type": "Array(String)",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "工作地点(区)",
+        "column_name": "JobLocationsNormalizedDistrict",
+        "r_column_name": "locationsNormalized.district",
+        "type": "Array(String)",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "招聘性质",
+        "column_name": "JobWorkTimeTypeNameNormalized",
+        "r_column_name": "workTimeTypeNameNormalized",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "关键词",
+        "column_name": "JobJobKeywords",
+        "r_column_name": "jobKeywords",
+        "type": "Array(String)",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "发布时间",
+        "column_name": "JobPublishedDateNormalized",
+        "r_column_name": "publishedDateNormalized",
+        "type": "Date",
+        "aggregations": [],
+        "group_functions": [
+          "ByYear",
+          "ByMonth",
+          "ByQuarter",
+          "ByWeek",
+          "ByDate"
+        ]
+      },
+      {
+        "name": "开始时间",
+        "column_name": "JobValidDateRangeNormalizedStart",
+        "r_column_name": "\"validDateRangeNormalized\"['start']",
+        "type": "Date",
+        "aggregations": [],
+        "group_functions": [
+          "ByYear",
+          "ByMonth",
+          "ByQuarter",
+          "ByWeek",
+          "ByDate"
+        ]
+      },
+      {
+        "name": "结束时间",
+        "column_name": "JobValidDateRangeNormalizedEnd",
+        "r_column_name": "\"validDateRangeNormalized\"['end']",
+        "type": "Date",
+        "aggregations": [],
+        "group_functions": [
+          "ByYear",
+          "ByMonth",
+          "ByQuarter",
+          "ByWeek",
+          "ByDate"
+        ]
+      },
+      {
+        "name": "每年发薪月数",
+        "column_name": "JobSalaryMonths",
+        "r_column_name": "salaryMonths",
+        "type": "Int64",
+        "aggregations": [
+          "Sum",
+          "Avg",
+          "Min",
+          "Max"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "薪水下限",
+        "column_name": "JobSalaryRangeNormalizedGte",
+        "r_column_name": "\"salaryRangeNormalized\"['gte']",
+        "type": "Int64",
+        "aggregations": [
+          "Sum",
+          "Avg",
+          "Min",
+          "Max"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "薪水上限",
+        "column_name": "JobSalaryRangeNormalizedLte",
+        "r_column_name": "\"salaryRangeNormalized\"['lte']",
+        "type": "Int64",
+        "aggregations": [
+          "Sum",
+          "Avg",
+          "Min",
+          "Max"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "性别要求",
+        "column_name": "JobGenderRequirementNormalized",
+        "r_column_name": "genderRequirementNormalized",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "年龄要求下限",
+        "column_name": "JobAgeRequirementNormalizedGte",
+        "r_column_name": "\"ageRequirementNormalized\"['gte']",
+        "type": "Int64",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "年龄要求上限",
+        "column_name": "JobAgeRequirementNormalizedLte",
+        "r_column_name": "\"ageRequirementNormalized\"['lte']",
+        "type": "Int64",
+        "aggregations": [
+          "Avg",
+          "Min",
+          "Max"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "工作年限要求下限",
+        "column_name": "JobWorkYearsRequirementNormalizedGte",
+        "r_column_name": "\"workYearsRequirementNormalized\"['gte']",
+        "type": "Int64",
+        "aggregations": [
+          "Avg",
+          "Min",
+          "Max"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "工作年限要求上限",
+        "column_name": "JobWorkYearsRequirementNormalizedLte",
+        "r_column_name": "\"workYearsRequirementNormalized\"['lte']",
+        "type": "Int64",
+        "aggregations": [
+          "Avg",
+          "Min",
+          "Max"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "学历要求下限",
+        "column_name": "JobDegreeRequirementNormalizedGte",
+        "r_column_name": "\"degreeRequirementNormalized\"['gte']",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "学历要求上限",
+        "column_name": "JobDegreeRequirementNormalizedLte",
+        "r_column_name": "\"degreeRequirementNormalized\"['lte']",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "招聘人数下限",
+        "column_name": "JobHeadCountRangeNormalizedGte",
+        "r_column_name": "\"headCountRangeNormalized\"['gte']",
+        "type": "Int64",
+        "aggregations": [
+          "Sum",
+          "Avg",
+          "Min",
+          "Max"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "招聘人数上限",
+        "column_name": "JobHeadCountRangeNormalizedLte",
+        "r_column_name": "\"headCountRangeNormalized\"['lte']",
+        "type": "Int64",
+        "aggregations": [
+          "Sum",
+          "Avg",
+          "Min",
+          "Max"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "职位状态",
+        "column_name": "JobStatus",
+        "r_column_name": "status",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      }
+    ]
+  },
+  {
+    "name": "工作经历",
+    "table_name": "v_works",
+    "columns": [
+      {
+        "name": "公司名称",
+        "column_name": "WorkExperienceCompanyNameLinked",
+        "r_column_name": "companyNameLinked",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "公司行业",
+        "column_name": "WorkExperienceIndustryNamesLinked",
+        "r_column_name": "industryNamesLinked",
+        "type": "Array(String)",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "职位",
+        "column_name": "WorkExperienceJobNamesLinked",
+        "r_column_name": "jobNamesLinked",
+        "type": "Array(String)",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "公司标签",
+        "column_name": "WorkExperienceCompanyTagsAnalyzed",
+        "r_column_name": "companyTagsAnalyzed",
+        "type": "Array(String)",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "薪水下限",
+        "column_name": "WorkExperienceSalaryRangeNormalizedGte",
+        "r_column_name": "\"salaryRangeNormalized\"['gte']",
+        "type": "Int64",
+        "aggregations": [
+          "Sum",
+          "Avg",
+          "Min",
+          "Max"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "薪水上限",
+        "column_name": "WorkExperienceSalaryRangeNormalizedLte",
+        "r_column_name": "\"salaryRangeNormalized\"['lte']",
+        "type": "Int64",
+        "aggregations": [
+          "Sum",
+          "Avg",
+          "Min",
+          "Max"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "开始时间",
+        "column_name": "WorkExperienceDateRangeNormalizedStart",
+        "r_column_name": "\"dateRangeNormalized\"['start']",
+        "type": "Date",
+        "aggregations": [],
+        "group_functions": [
+          "ByYear",
+          "ByMonth",
+          "ByQuarter",
+          "ByWeek",
+          "ByDate"
+        ]
+      },
+      {
+        "name": "结束时间",
+        "column_name": "WorkExperienceDateRangeNormalizedEnd",
+        "r_column_name": "\"dateRangeNormalized\"['end']",
+        "type": "Date",
+        "aggregations": [],
+        "group_functions": [
+          "ByYear",
+          "ByMonth",
+          "ByQuarter",
+          "ByWeek",
+          "ByDate"
+        ]
+      },
+      {
+        "name": "公司规模下限",
+        "column_name": "WorkExperienceCompanySizeNormalizedGte",
+        "r_column_name": "\"companySizeNormalized\"['gte']",
+        "type": "Int64",
+        "aggregations": [
+          "Sum",
+          "Avg",
+          "Min",
+          "Max"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "公司规模上限",
+        "column_name": "WorkExperienceCompanySizeNormalizedLte",
+        "r_column_name": "\"companySizeNormalized\"['lte']",
+        "type": "Int64",
+        "aggregations": [
+          "Sum",
+          "Avg",
+          "Min",
+          "Max"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "下属人数",
+        "column_name": "WorkExperienceSubordinateNumber",
+        "r_column_name": "subordinateNumber",
+        "type": "Int64",
+        "aggregations": [
+          "Sum",
+          "Avg",
+          "Min",
+          "Max"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "离职原因",
+        "column_name": "WorkExperienceLeavingReason",
+        "r_column_name": "leavingReason",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "国家",
+        "column_name": "WorkExperienceLocationsNormalizedCountry",
+        "r_column_name": "locationsNormalized.country",
+        "type": "Array(String)",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "省",
+        "column_name": "WorkExperienceLocationsNormalizedProvince",
+        "r_column_name": "locationsNormalized.province",
+        "type": "Array(String)",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "市",
+        "column_name": "WorkExperienceLocationsNormalizedCity",
+        "r_column_name": "locationsNormalized.city",
+        "type": "Array(String)",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "区",
+        "column_name": "WorkExperienceLocationsNormalizedDistrict",
+        "r_column_name": "locationsNormalized.district",
+        "type": "Array(String)",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      }
+    ]
+  },
+  {
+    "name": "招聘流程",
+    "table_name": "v_flow",
+    "columns": [
+      {
+        "name": "流程",
+        "column_name": "FlowStageName",
+        "r_column_name": "stageName",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "创建时间",
+        "column_name": "FlowStageStatusCreateTime",
+        "r_column_name": "stageStatusCreateTime",
+        "type": "DateTime",
+        "aggregations": [],
+        "group_functions": [
+          "ByYear",
+          "ByMonth",
+          "ByQuarter",
+          "ByWeek",
+          "ByDate"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "教育经历",
+    "table_name": "v_educations",
+    "columns": [
+      {
+        "name": "学校名称",
+        "column_name": "EducationExperienceSchoolNameLinked",
+        "r_column_name": "schoolNameLinked",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "专业名称",
+        "column_name": "EducationExperienceMajorNamesLinked",
+        "r_column_name": "majorNamesLinked",
+        "type": "Array(String)",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "学校标签",
+        "column_name": "EducationExperienceSchoolMajorTagsAnalyzed",
+        "r_column_name": "schoolMajorTagsAnalyzed",
+        "type": "Array(String)",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "开始时间",
+        "column_name": "EducationExperienceDateRangeNormalizedStart",
+        "r_column_name": "\"dateRangeNormalized\"['start']",
+        "type": "Date",
+        "aggregations": [],
+        "group_functions": [
+          "ByYear",
+          "ByMonth",
+          "ByQuarter",
+          "ByWeek",
+          "ByDate"
+        ]
+      },
+      {
+        "name": "结束时间",
+        "column_name": "EducationExperienceDateRangeNormalizedEnd",
+        "r_column_name": "\"dateRangeNormalized\"['end']",
+        "type": "Date",
+        "aggregations": [],
+        "group_functions": [
+          "ByYear",
+          "ByMonth",
+          "ByQuarter",
+          "ByWeek",
+          "ByDate"
+        ]
+      },
+      {
+        "name": "学历",
+        "column_name": "EducationExperienceDegreeNameNormalized",
+        "r_column_name": "degreeNameNormalized",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "国家",
+        "column_name": "EducationExperienceLocationsNormalizedCountry",
+        "r_column_name": "locationsNormalized.country",
+        "type": "Array(String)",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "省",
+        "column_name": "EducationExperienceLocationsNormalizedProvince",
+        "r_column_name": "locationsNormalized.province",
+        "type": "Array(String)",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "市",
+        "column_name": "EducationExperienceLocationsNormalizedCity",
+        "r_column_name": "locationsNormalized.city",
+        "type": "Array(String)",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "区",
+        "column_name": "EducationExperienceLocationsNormalizedDistrict",
+        "r_column_name": "locationsNormalized.district",
+        "type": "Array(String)",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      }
+    ]
+  },
+  {
+    "name": "租户",
+    "table_name": "v_tenant",
+    "columns": [
+      {
+        "name": "英文名称",
+        "column_name": "TenantTenant",
+        "r_column_name": "tenant",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "名称",
+        "column_name": "TenantName",
+        "r_column_name": "name",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      },
+      {
+        "name": "创建时间",
+        "column_name": "TenantCreatedAt",
+        "r_column_name": "createdAt",
+        "type": "DateTime",
+        "aggregations": [],
+        "group_functions": [
+          "ByYear",
+          "ByMonth",
+          "ByQuarter",
+          "ByWeek",
+          "ByDate"
+        ]
+      },
+      {
+        "name": "更新时间",
+        "column_name": "TenantUpdatedAt2",
+        "r_column_name": "updatedAt2",
+        "type": "DateTime",
+        "aggregations": [],
+        "group_functions": [
+          "ByYear",
+          "ByMonth",
+          "ByQuarter",
+          "ByWeek",
+          "ByDate"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "招聘流程",
+    "table_name": "v_projects",
+    "columns": []
+  },
+  {
+    "name": "频道",
+    "table_name": "v_channels",
+    "columns": [
+      {
+        "name": "频道名称",
+        "column_name": "ChannelName",
+        "r_column_name": "name",
+        "type": "String",
+        "aggregations": [
+          "COUNT",
+          "UNIQUE_COUNT"
+        ],
+        "group_functions": []
+      }
+    ]
+  }
+]

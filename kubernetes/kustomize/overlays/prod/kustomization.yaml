@@ -1,0 +1,8 @@
+namePrefix: prod-
+commonLabels:
+  variant: prod
+
+bases:
+- ../../base
+patchesStrategicMerge:
+- deployment.yaml

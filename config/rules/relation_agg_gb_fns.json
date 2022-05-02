@@ -1,0 +1,430 @@
+[
+  {
+    "rule":
+    [
+      {"type": "(agg|group)_fn"},
+      {"type": "column_desc" , "support_fn": "$1"},
+      {"type": "value", "value_reg": "____(COUNT|UNIQUE_COUNT)"}
+    ],
+    "relations":
+    [
+      {"type": "replace", "head": 2, "tail": 1},
+      {"type": "fn_param_1", "head": 1, "tail": 0}
+    ]
+  },
+
+
+  {
+    "rule":
+    [
+      {"type": "column_desc" , "support_fn": "#1"},
+      {"type": "(agg|group)_fn"}
+    ],
+    "relations":
+    [
+      {"type": "fn_param_1","head": 0, "tail": 1}
+    ]
+  },
+
+  {
+    "rule":
+    [
+      {"type": "column_desc" , "support_fn": "#1"},
+      {"type": "(agg|group)_fn"},
+      {"type": "value", "value_reg": "$2"}
+    ],
+    "relations":
+    [
+      {"type": "fn_param_1","head": 0, "tail": 1},
+      {"type": "concat", "head": 2, "tail": 1}
+    ]
+  },
+
+  {
+    "rule":
+    [
+      {"type": "(agg|group)_fn"},
+      {"type": "column_desc" , "support_fn": "$1"},
+      {"type": "value", "value_reg": "$1"}
+    ],
+    "relations":
+    [
+      {"type": "fn_param_1","head": 1, "tail": 0},
+      {"type": "concat", "head": 2, "tail": 0}
+    ]
+  },
+
+  {
+    "rule":
+    [
+      {"type": "(agg|group)_fn"},
+      {"type": "column_desc" , "support_fn": "$1"}
+    ],
+    "relations":
+    [
+      {"type": "fn_param_1","head": 1, "tail": 0}
+    ]
+  },
+  {
+    "rule":
+    [
+      {"type": "column_desc" , "support_fn": "#1"},
+      {"type": "(agg|group)_fn"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$3"}
+    ],
+    "relations":
+    [
+      {"type": "fn_param_1","head": 0, "tail": 1},
+      {"type": "concat", "head": 3, "tail": 1},
+      {"type": "where_op", "head": 3, "tail": 2}
+    ]
+  },
+
+  {
+    "rule":
+    [
+      {"type": "column_desc" , "support_fn": "#1"},
+      {"type": "(agg|group)_fn"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "____(COUNT|UNIQUE_COUNT)"}
+    ],
+    "relations":
+    [
+      {"type": "fn_param_1","head": 0, "tail": 1},
+      {"type": "concat", "head": 3, "tail": 1},
+      {"type": "where_op", "head": 3, "tail": 2},
+      {"type": "replace", "head": 3, "tail": 0}
+    ]
+  },
+
+  {
+    "rule":
+    [
+      {"type": "(agg|group)_fn"},
+      {"type": "column_desc" , "support_fn": "$1"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$2"}
+    ],
+    "relations":
+    [
+      {"type": "fn_param_1","head": 1, "tail": 0},
+      {"type": "concat", "head": 3, "tail": 0},
+      {"type": "where_op", "head": 3, "tail": 2}
+    ]
+  },
+
+  {
+    "rule":
+    [
+      {"type": "(agg|group)_fn"},
+      {"type": "column_desc" , "support_fn": "$1"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "____(COUNT|UNIQUE_COUNT)"}
+    ],
+    "relations":
+    [
+      {"type": "fn_param_1","head": 1, "tail": 0},
+      {"type": "concat", "head": 3, "tail": 0},
+      {"type": "where_op", "head": 3, "tail": 2},
+      {"type": "replace", "head": 3, "tail": 1}
+    ]
+  },
+
+  {
+    "rule":
+    [
+      {"type": "(agg|group)_fn"},
+      {"type": "column_desc" , "support_fn": "$1"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "____(COUNT|UNIQUE_COUNT)"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "____(COUNT|UNIQUE_COUNT)"}
+    ],
+    "relations":
+    [
+      {"type": "fn_param_1", "head": 1, "tail": 0},
+      {"type": "concat", "head": 3, "tail": 0},
+      {"type": "where_op", "head": 3, "tail": 2},
+      {"type": "where_op", "head": 5, "tail": 4},
+      {"type": "concat", "head": 5, "tail": 0},
+      {"type": "replace", "head": 3, "tail": 1},
+      {"type": "replace", "head": 5, "tail": 1}
+    ]
+  },
+
+
+  {
+    "rule":
+    [
+      {"type": "(agg|group)_fn"},
+      {"type": "column_desc" , "support_fn": "$1"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$2"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$2"}
+    ],
+    "relations":
+    [
+      {"type": "fn_param_1", "head": 1, "tail": 0},
+      {"type": "concat", "head": 3, "tail": 0},
+      {"type": "where_op", "head": 3, "tail": 2},
+      {"type": "where_op", "head": 5, "tail": 4},
+      {"type": "concat", "head": 5, "tail": 0}
+    ]
+  },
+
+
+  {
+    "rule":
+    [
+      {"type": "(agg|group)_fn"},
+      {"type": "column_desc" , "support_fn": "$1"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "____(COUNT|UNIQUE_COUNT)"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "____(COUNT|UNIQUE_COUNT)"}
+    ],
+    "relations":
+    [
+      {"type": "fn_param_1", "head": 1, "tail": 0},
+      {"type": "concat", "head": 3, "tail": 0},
+      {"type": "where_op", "head": 3, "tail": 2},
+      {"type": "where_op", "head": 5, "tail": 4},
+      {"type": "concat", "head": 5, "tail": 0},
+      {"type": "replace", "head": 3, "tail": 1},
+      {"type": "replace", "head": 5, "tail": 1}
+    ]
+  },
+
+
+  {
+    "rule":
+    [
+      {"type": "(agg|group)_fn"},
+      {"type": "keywords"},
+      {"type": "column_desc" , "support_fn": "$2"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$2"}
+    ],
+    "relations":
+    [
+      {"type": "fn_param_1", "head": 2, "tail": 0},
+      {"type": "concat", "head": 4, "tail": 0},
+      {"type": "where_op", "head": 4, "tail": 3}
+    ]
+  },
+
+  {
+    "rule":
+    [
+      {"type": "(agg|group)_fn"},
+      {"type": "keywords"},
+      {"type": "column_desc" , "support_fn": "$2"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "____(COUNT|UNIQUE_COUNT)"}
+    ],
+    "relations":
+    [
+      {"type": "fn_param_1", "head": 2, "tail": 0},
+      {"type": "concat", "head": 4, "tail": 0},
+      {"type": "where_op", "head": 4, "tail": 3},
+      {"type": "replace", "head": 4, "tail": 2}
+    ]
+  },
+
+  {
+    "rule":
+    [
+      {"type": "(agg|group)_fn"},
+      {"type": "keywords"},
+      {"type": "column_desc" , "support_fn": "$2"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$2"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$2"}
+    ],
+    "relations":
+    [
+      {"type": "fn_param_1", "head": 2, "tail": 0},
+      {"type": "concat", "head": 4, "tail": 0},
+      {"type": "where_op", "head": 4, "tail": 3},
+      {"type": "where_op", "head": 6, "tail": 5},
+      {"type": "concat", "head": 6, "tail": 0}
+    ]
+  },
+
+  {
+    "rule":
+    [
+      {"type": "(agg|group)_fn"},
+      {"type": "keywords"},
+      {"type": "column_desc" , "support_fn": "$2"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "____(COUNT|UNIQUE_COUNT)"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "____(COUNT|UNIQUE_COUNT)"}
+    ],
+    "relations":
+    [
+      {"type": "fn_param_1", "head": 2, "tail": 0},
+      {"type": "concat", "head": 4, "tail": 0},
+      {"type": "where_op", "head": 4, "tail": 3},
+      {"type": "where_op", "head": 6, "tail": 5},
+      {"type": "concat", "head": 6, "tail": 0},
+      {"type": "replace", "head": 4, "tail": 2},
+      {"type": "replace", "head": 6, "tail": 2}
+    ]
+  },
+
+
+  {
+    "rule":
+    [
+      {"type": "(agg|group)_fn"},
+      {"type": "keywords"},
+      {"type": "column_desc" , "support_fn": "$2"},
+      {"type": "keywords"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$3"}
+    ],
+    "relations":
+    [
+      {"type": "fn_param_1", "head": 2, "tail": 0},
+      {"type": "concat", "head": 5, "tail": 0},
+      {"type": "where_op", "head": 5, "tail": 4}
+    ]
+  },
+  {
+    "rule":
+    [
+      {"type": "(agg|group)_fn"},
+      {"type": "keywords"},
+      {"type": "column_desc" , "support_fn": "$2"},
+      {"type": "keywords"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "____(COUNT|UNIQUE_COUNT)"}
+    ],
+    "relations":
+    [
+      {"type": "fn_param_1", "head": 2, "tail": 0},
+      {"type": "concat", "head": 5, "tail": 0},
+      {"type": "where_op", "head": 5, "tail": 4},
+      {"type": "replace", "head": 5, "tail": 2}
+    ]
+  },
+
+
+  {
+    "rule":
+    [
+      {"type": "(agg|group)_fn"},
+      {"type": "keywords"},
+      {"type": "column_desc" , "support_fn": "$2"},
+      {"type": "keywords"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$3"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "$2"}
+    ],
+    "relations":
+    [
+      {"type": "fn_param_1", "head": 2, "tail": 0},
+      {"type": "concat", "head": 5, "tail": 0},
+      {"type": "where_op", "head": 5, "tail": 4},
+      {"type": "concat", "head": 7, "tail": 0},
+      {"type": "where_op", "head": 7, "tail": 6}
+    ]
+  },
+
+  {
+    "rule":
+    [
+      {"type": "(agg|group)_fn"},
+      {"type": "keywords"},
+      {"type": "column_desc" , "support_fn": "$2"},
+      {"type": "keywords"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "____(COUNT|UNIQUE_COUNT)"},
+      {"type": "comparison_op_desc"},
+      {"type": "value", "value_reg": "____(COUNT|UNIQUE_COUNT)"}
+    ],
+    "relations":
+    [
+      {"type": "fn_param_1", "head": 2, "tail": 0},
+      {"type": "concat", "head": 5, "tail": 0},
+      {"type": "where_op", "head": 5, "tail": 4},
+      {"type": "concat", "head": 7, "tail": 0},
+      {"type": "where_op", "head": 7, "tail": 6},
+      {"type": "replace", "head": 5, "tail": 2},
+      {"type": "replace", "head": 7, "tail": 2}
+    ]
+  },
+
+  {
+    "rule":
+    [
+      {"type": "(agg|group)_fn"},
+      {"type": "keywords"},
+      {"type": "column_desc" , "support_fn": "$2"},
+      {"type": "keywords"}
+    ],
+    "relations":
+    [
+      {"type": "fn_param_1", "head": 2, "tail": 0}
+    ]
+  },
+
+
+
+  {
+    "rule":
+    [
+      {"type": "(agg|group)_fn"},
+      {"type": "keywords"},
+      {"type": "column_desc" , "support_fn": "$2"}
+    ],
+    "relations":
+    [
+      {"type": "fn_param_1", "head": 2, "tail": 0}
+    ]
+  },
+
+  {
+    "rule":
+    [
+      {"type": "value", "value_reg": "#4"},
+      {"type": "comparison_op_desc"},
+      {"type": "(agg|group)_fn"},
+      {"type": "keywords"},
+      {"type": "column_desc" , "support_fn": "$2"},
+      {"type": "keywords"}
+    ],
+    "relations":
+    [
+      {"type": "fn_param_1", "head": 4, "tail": 2},
+      {"type": "concat", "head": 0, "tail": 2},
+      {"type": "where_op", "head": 2, "tail": 1}
+    ]
+  },
+
+  {
+    "rule":
+    [
+      {"type": "value", "value_reg": "____(COUNT|UNIQUE_COUNT)"},
+      {"type": "comparison_op_desc"},
+      {"type": "(agg|group)_fn"},
+      {"type": "keywords"},
+      {"type": "column_desc" , "support_fn": "$2"},
+      {"type": "keywords"}
+    ],
+    "relations":
+    [
+      {"type": "fn_param_1", "head": 4, "tail": 2},
+      {"type": "concat", "head": 0, "tail": 2},
+      {"type": "where_op", "head": 2, "tail": 1},
+      {"type": "replace", "head": 0, "tail": 4}
+    ]
+  }
+
+]
